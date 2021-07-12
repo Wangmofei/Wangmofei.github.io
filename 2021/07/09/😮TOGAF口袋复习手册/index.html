@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>😮企业架构复习手册 | Mofei's World</title><meta name="keywords" content="TOGAF教程"><meta name="author" content="Mofei Wang"><meta name="copyright" content="Mofei Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="章节概要 第 1 章介绍了 TOGAF，企业架构和 TOGAF 内容的高级视图， 并介绍了 TOGAF 的一些关键概念。 第 2 章介绍了架构开发方法（ Architecture Development Method， ADM）， ADM 是TOGAF 提供的用来开发企业架构的方法。 第 3 章总体介绍了与 ADM 过程相关的各种关键技术和交付物。 第 4 章总体介绍了对 ADM 过程进行调整的一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="😮企业架构复习手册">
+<meta property="og:url" content="http://example.com/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/index.html">
+<meta property="og:site_name" content="Mofei&#39;s World">
+<meta property="og:description" content="章节概要 第 1 章介绍了 TOGAF，企业架构和 TOGAF 内容的高级视图， 并介绍了 TOGAF 的一些关键概念。 第 2 章介绍了架构开发方法（ Architecture Development Method， ADM）， ADM 是TOGAF 提供的用来开发企业架构的方法。 第 3 章总体介绍了与 ADM 过程相关的各种关键技术和交付物。 第 4 章总体介绍了对 ADM 过程进行调整的一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Sharp_By_Daniel_Harkin.png">
+<meta property="article:published_time" content="2021-07-09T10:10:39.000Z">
+<meta property="article:modified_time" content="2021-07-12T14:56:24.291Z">
+<meta property="article:author" content="Mofei Wang">
+<meta property="article:tag" content="TOGAF教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Sharp_By_Daniel_Harkin.png"><link rel="shortcut icon" href="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"><link rel="canonical" href="http://example.com/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-12 14:56:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://home.mofei.wang"><i class="fa-fw fas fa-archive"></i><span> 秘密の花园</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://favorite.mofei.wang"><i class="fa-fw fas fa-tags"></i><span> 海盗の地图</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://home.mofei.wang"><i class="fa-fw fas fa-folder-open"></i><span> 云端の桌面</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/admin/"><i class="fa-fw fas fa-address-card"></i><span> 管理</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Sharp_By_Daniel_Harkin.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Mofei's World</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://home.mofei.wang"><i class="fa-fw fas fa-archive"></i><span> 秘密の花园</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://favorite.mofei.wang"><i class="fa-fw fas fa-tags"></i><span> 海盗の地图</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://home.mofei.wang"><i class="fa-fw fas fa-folder-open"></i><span> 云端の桌面</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/admin/"><i class="fa-fw fas fa-address-card"></i><span> 管理</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">😮企业架构复习手册</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-09T10:10:39.000Z" title="发表于 2021-07-09 10:10:39">2021-07-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-12T14:56:24.291Z" title="更新于 2021-07-12 14:56:24">2021-07-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="😮企业架构复习手册"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="章节概要"><a href="#章节概要" class="headerlink" title="章节概要"></a>章节概要</h1><div class="note simple"><ol>
+<li>第 1 章介绍了 TOGAF，企业架构和 TOGAF 内容的高级视图， 并介绍了 TOGAF 的一些关键概念。</li>
+<li>第 2 章介绍了架构开发方法（ Architecture Development Method， ADM）， ADM 是TOGAF 提供的用来开发企业架构的方法。</li>
+<li>第 3 章总体介绍了与 ADM 过程相关的各种关键技术和交付物。</li>
+<li>第 4 章总体介绍了对 ADM 过程进行调整的一些指导策略。</li>
+<li>第 5 章介绍了架构内容框架，即架构制品的一个结构化的元模型。</li>
+<li>第 6 章介绍了企业连续系列，即可以和 ADM 一起使用的，用 来开发企业架构的一个高级别概念。</li>
+<li>第 7 章介绍了架构能力框架，即为建立和运营企业中的架构 职能所需的一系列资源。</li>
+</ol>
+</div>
+
+<hr>
+<h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><div class="tip warning faa-horizontal animated"><p>分区：关于如何划分企业中的各种架构的一些技术和注意事项<br>架构存储库：架构存储库的逻辑信息模型，可用作执行 ADM 所创建的所有输出的集成存储<br>能力框架：组织、技能、角色和职责的结构化定义，以运行有效的企业<br>架构能力：TOGAF 标准还提供了一个过程的指导，可以遵循该过程来确定和建立适当的架构能力</p>
+</div>
+
+<hr>
+<div class="timeline">
+# 第一章
+
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><details cyan open><summary> 1.文档结构 </summary>              <div class='content'>              <ol><li><p>TOGAF 是一个企业架构框架，简而言之， 简而言之，它是一种标准方法，用于协助接受、 生<br>产、使用和维护企业架构。它基于最佳实践所支持的迭代过程模型和现有架构资产的可重用集。</p></li><li><p>TOGAF 标准可用于开发各种不同领域的企业架构。 TOGAF 对其他框架进行了补充，并可与其他框架一起使用， 其他这些框架更侧重于特定垂直领域的特定交付物，例如政府，电信，制造业，国防和金融。 而 TOGAF 标准的关键部分是用于开发可满足业务需求的企业架构的方法– TOGAF 架构开发方法（ ADM）。 以便开发出符合各类业务需求的企业架构。</p></li></ol>              </div>            </details><details cyan open><summary> 2.标准介绍 </summary>              <div class='content'>              <table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>介绍</td><td>定义</td></tr><tr><td>架构开发方法</td><td>这部分是TOGAF框架的核心。 它描述了TOGAF架构开发方法（ ADM） - 一种逐步开发企业架构的方法。</td></tr><tr><td>ADM指南和技术</td><td>本部分包含可用于应用TOGAF方法和TOGAF ADM的指南和技术的集合。 其他指南和技术也位于TOGAF库中。</td></tr><tr><td>架构内容框架</td><td>本部分介绍TOGAF内容框架，包括架构工件的结构化元模型，可重用架构构建块（ ABB）的使用以及典型架构可交付成果的概述。</td></tr><tr><td>企业连续性和工具</td><td>本部分讨论适当的分类和工具，以对企业内架构活动的输出进行分类和存储。</td></tr><tr><td>架构能力框架</td><td>本部分讨论了在企业内建立和运行架构实践所需的组织，流程，技能，角色和职责。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 3.库的结构 </summary>              <div class='content'>              <table><thead><tr><th>介绍</th><th>内容</th></tr></thead><tbody><tr><td>基础性文件</td><td>与TOGAF框架或企业架构主题相关的广泛适用的信息。</td></tr><tr><td>通用准则与技术</td><td>描述架构风格以及如何调整TOGAF框架和企业架构以利用特定环境的特征的信息。</td></tr><tr><td>行业特定的指导和技术</td><td>描述如何应用TOGAF框架和企业架构以满足垂直行业细分市场特定需求的信息。</td></tr><tr><td>组织特定的指导与技巧</td><td>描述如何应用TOGAF框架和企业架构以满足特定企业需求的信息。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 4.什么是TOGAF标准中的架构？ </summary>              <div class='content'>              <p>1 一个系统在其环境中的基本概念或属性体现在它的元素、 元素之间的关系以及它的设计进化的原则中。</p><p>2 组件的结构、它们之间的相互关系，以及关于组件设计和随时间演变的原则和指南。</p>              </div>            </details><details cyan open><summary> 5.TOGAF标准处理哪种架构 </summary>              <div class='content'>              <table><thead><tr><th>内容</th><th>介绍</th></tr></thead><tbody><tr><td>业务架构</td><td>业务策略，治理，组织和关键业务流程。</td></tr><tr><td>数据架构</td><td>组织的逻辑和物理数据资产以及数据管理资源的结构。</td></tr><tr><td>应用架构</td><td>待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图。</td></tr><tr><td>技术架构</td><td>支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 6. TOGAF标准包含什么 </summary>              <div class='content'>              <blockquote><p>概览：TOGAF 框架的核心是架构开发方法(在标准的第二部分中有记录)。架构能力操作该方法。该方法由一些指南和技术支持。<br>这将生成存储在存储库中的内容，这些内容根据企业连续统一体进行分类。存储库最初可以使用 TOGAF 参考模型和其他参考材料填充（在 TOGAF 库中记录）。</p></blockquote><p><span><img src='\images\pasted-0.png'></span></p><ol><li><p>架构开发方法(ADM)：描述了如何派生出解决业务需求的特定于组织的企业架构。 ADM是TOGAF 框架的主要组成部分，在多个层次上为架构师提供指导：</p></li><li><p>ADM 指南和技术：提供了一些指南和技术，以支持 ADM 的应用。这些准则包括调整 ADM 以处理一些使用场景，包括不同的流程风格——迭代的使用，以及在整个架构景观中应用 ADM。本文还对如何使用具有不同架构风格的 TOGAF 框架使用 SOA 作为示例进行了高级描述。这些技术支持 ADM 中的具体任务（例如基于能力的规划、定义原则、差距分析、迁移规划、风险管理、利益攸关方管理等）。在 TOGAF 库（例如，关于业务场景技术的指导）中还提供了更多的指南和技术。</p></li><li><p>架构内容框架：提供了架构工作产品的详细模型，包括可交付成果、 可交付成果中的构件以及构件所代表的架构构建块（ ABBs）。</p></li><li><p>企业连续统一体：提供了一个构建虚拟存储库的模型，并提供了对架构和解决方案工件进行分类的方法，展示了不同类型工件如何演化，以及它们如何被利用和重用。这是基于架构和解决方案（模型、模式、架构描述等）。存在于企业内部和整个行业中的，企业收集来用于其架构开发的。</p></li><li><p>架构能力框架：是一组资源、 指南、 模板、 背景信息等。提供帮助架构师在组织中建立架构实践。</p></li></ol>              </div>            </details></div></div>
+</div>
+
+<hr>
+<div class="timeline">
+# 第二章 架构开发方法ADM
+
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><details cyan open><summary> 1.什么是ADM </summary>              <div class='content'>              <p>1.一个可靠的、经过验证的企业架构开发和使用方法<br>2.在不同层次（业务、应用程序、数据、技术）上开发架构的方法，使架构师能够确保一个复杂的需求集得到充分满足<br>3.一套架构开发的指导方针和技术</p>              </div>            </details><div class="tip warning faa-horizontal animated"><p>ADM 由一些阶段组成，这些阶段贯穿于一系列架构域，使架构师能够确保一个复杂的需求集得到充分满足<br>下面让我们来看看他的几个阶段</p></div><p><span><img src='\images\pasted-1.png'></span></p><table><thead><tr><th>名称</th><th>内容</th></tr></thead><tbody><tr><td>预备阶段</td><td>为组织成功地作好TOGAF架构项目做好准备。 进行创建架构能力所需的准备和启动活动，包括定制TOGAF框架，选择工具以及定义架构原则。</td></tr><tr><td>需求管理</td><td>TOGAF项目的每个阶段都基于并验证业务需求。识别，存储需求，并将其输入和输出相关的ADM阶段，这些阶段将处理，解决需求并确定其优先级。</td></tr><tr><td>阶段A:架构愿景</td><td>设置TOGAF项目的范围， 约束和期望。 创建架构愿景。 确定利益相关者。 验证业务环境并创建架构工作声明。 并获得批准。</td></tr><tr><td>阶段B 业务架构 阶段C:信息系统架构(应用/数据) 阶段D:技术架构</td><td>开发架构在如下4个域中： 1. 业务 2. 信息系统应用 3. 信息系统数据 4. 技术 对于每次开发案例， 都是开发基线架构和目标架</td></tr><tr><td>阶段E:机会与解决方案</td><td>进行初步的实施规划，并确定之前阶段中识别出的构建块交付载体，确认主要的实施项目， 确定是否需要增量方法，如果需要增量， 组成各过渡架构。</td></tr><tr><td>阶段F:迁移计划</td><td>制定详细的实施和迁移计划，以解决如何从基准迁移到目标架构的问题</td></tr><tr><td>阶段G:实施治理</td><td>提供实施的架构监督。 准备并签发建筑合同。 确保实施项目符合架构</td></tr><tr><td>阶段H:架构变更管理</td><td>架构变更管理提供持续的监视和变更管理过程，以确保架构能够响应企业的需求，以使架构对业务提供最大化的价值</td></tr></tbody></table><details cyan open><summary> 2.标准介绍 </summary>              <div class='content'>              <table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>介绍</td><td>定义</td></tr><tr><td>架构开发方法</td><td>这部分是TOGAF框架的核心。 它描述了TOGAF架构开发方法（ ADM） - 一种逐步开发企业架构的方法。</td></tr><tr><td>ADM指南和技术</td><td>本部分包含可用于应用TOGAF方法和TOGAF ADM的指南和技术的集合。 其他指南和技术也位于TOGAF库中。</td></tr><tr><td>架构内容框架</td><td>本部分介绍TOGAF内容框架，包括架构工件的结构化元模型，可重用架构构建块（ ABB）的使用以及典型架构可交付成果的概述。</td></tr><tr><td>企业连续性和工具</td><td>本部分讨论适当的分类和工具，以对企业内架构活动的输出进行分类和存储。</td></tr><tr><td>架构能力框架</td><td>本部分讨论了在企业内建立和运行架构实践所需的组织，流程，技能，角色和职责。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 3.库的结构 </summary>              <div class='content'>              <table><thead><tr><th>介绍</th><th>内容</th></tr></thead><tbody><tr><td>基础性文件</td><td>与TOGAF框架或企业架构主题相关的广泛适用的信息。</td></tr><tr><td>通用准则与技术</td><td>描述架构风格以及如何调整TOGAF框架和企业架构以利用特定环境的特征的信息。</td></tr><tr><td>行业特定的指导和技术</td><td>描述如何应用TOGAF框架和企业架构以满足垂直行业细分市场特定需求的信息。</td></tr><tr><td>组织特定的指导与技巧</td><td>描述如何应用TOGAF框架和企业架构以满足特定企业需求的信息。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 4.什么是TOGAF标准中的架构？ </summary>              <div class='content'>              <p>1 一个系统在其环境中的基本概念或属性体现在它的元素、 元素之间的关系以及它的设计进化的原则中。</p><p>2 组件的结构、它们之间的相互关系，以及关于组件设计和随时间演变的原则和指南。</p>              </div>            </details><details cyan open><summary> 5.TOGAF标准处理哪种架构 </summary>              <div class='content'>              <table><thead><tr><th>内容</th><th>介绍</th></tr></thead><tbody><tr><td>业务架构</td><td>业务策略，治理，组织和关键业务流程。</td></tr><tr><td>数据架构</td><td>组织的逻辑和物理数据资产以及数据管理资源的结构。</td></tr><tr><td>应用架构</td><td>待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图。</td></tr><tr><td>技术架构</td><td>支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 6. TOGAF标准包含什么 </summary>              <div class='content'>              <blockquote><p>概览：TOGAF 框架的核心是架构开发方法(在标准的第二部分中有记录)。架构能力操作该方法。该方法由一些指南和技术支持。<br>这将生成存储在存储库中的内容，这些内容根据企业连续统一体进行分类。存储库最初可以使用 TOGAF 参考模型和其他参考材料填充（在 TOGAF 库中记录）。</p></blockquote><p><span><img src='\images\pasted-0.png'></span></p><ol><li><p>架构开发方法(ADM)：描述了如何派生出解决业务需求的特定于组织的企业架构。 ADM是TOGAF 框架的主要组成部分，在多个层次上为架构师提供指导：</p></li><li><p>ADM 指南和技术：提供了一些指南和技术，以支持 ADM 的应用。这些准则包括调整 ADM 以处理一些使用场景，包括不同的流程风格——迭代的使用，以及在整个架构景观中应用 ADM。本文还对如何使用具有不同架构风格的 TOGAF 框架使用 SOA 作为示例进行了高级描述。这些技术支持 ADM 中的具体任务（例如基于能力的规划、定义原则、差距分析、迁移规划、风险管理、利益攸关方管理等）。在 TOGAF 库（例如，关于业务场景技术的指导）中还提供了更多的指南和技术。</p></li><li><p>架构内容框架：提供了架构工作产品的详细模型，包括可交付成果、 可交付成果中的构件以及构件所代表的架构构建块（ ABBs）。</p></li><li><p>企业连续统一体：提供了一个构建虚拟存储库的模型，并提供了对架构和解决方案工件进行分类的方法，展示了不同类型工件如何演化，以及它们如何被利用和重用。这是基于架构和解决方案（模型、模式、架构描述等）。存在于企业内部和整个行业中的，企业收集来用于其架构开发的。</p></li><li><p>架构能力框架：是一组资源、 指南、 模板、 背景信息等。提供帮助架构师在组织中建立架构实践。</p></li></ol>              </div>            </details></div></div>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>😮企业架构复习手册</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://example.com/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/">http://example.com/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Mofei Wang</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-07-09</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-07-12</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/TOGAF%E6%95%99%E7%A8%8B/">TOGAF教程</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Sharp_By_Daniel_Harkin.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li><li class="reward-item"><a href="/img/bitcoin.jpg" target="_blank"><img class="post-qr-code-img" src="/img/bitcoin.jpg" alt="Bitcoin"/></a><div class="post-qr-code-desc">Bitcoin</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/v2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">🎹十年乐队故事🎸我的音乐时光机</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/dark_deer.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">😨使用TorBrowser秘密访问暗网世界</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Mofei Wang</div><div class="author-info__description">与君初相见，犹如故人归</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" href="JavaScript:AddFavorite('https://mofei.wang','Mofei's World')"><i class="fas fa-bookmark"></i><span>收藏我的博客</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=121306&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/8724690" target="_blank" title="bilibili"><i class="fas fa-tv"></i></a><a class="social-icon" href="https://github.com/wangmofei" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://weibo.com" target="_blank" title="Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="mailto:wangmofei@sina.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">☆咳咳..小破站仍在施工中~(՞•Ꙫ•՞)<br><img src="https://cdn.jsdelivr.net/gh/CNhuazhu/Image/pig.gif"/><br> <s>1.更换全站字体和字体大小</s> - 已完成 <br> <s>2.增加侧边栏小时钟</s> - 已完成 <br> <s>3.更换NPM+PicGO图床</s> - 已完成 <br> <s>4.搜索栏打字特效</s> - 已完成 <br> <s>5.鼠标样式特效</s> - 已完成 <br> <s>6.底部标签外挂</s> - 已完成 <br> <s>7.页面投币打赏</s> - 已完成 <br> <s>8.首页修复目录BUG</s> - 已完成 <br> <s>9.美化标签教程</s> - 已完成 <br> <s>11.增加那年今日</s> - 已完成 <br> 12.增加广播叨叨 - 待完善 <br> <s>13.增加加密页面</s> - 已完成 <br> <s>14.版权图标美化</s> - 已完成 <br> <s>15.增加备案信息</s> - 已取消 <br> <s>16.页脚徽标美化</s> - 已完成 <br> 17.底部鱼塘特效 - 待完善 <br> <s>18.公告栏小猪特效</s> - 已完成 <br> <s>19.留言板小秘书动画</s> - 已完成 <br> 20.导航收藏站制作 <br> 21.播放器和歌词位置调整 <br> <s>22.更换统一风格封面</s> - 已完成 <br> 23.迁移富文本远程编辑器 <br> 24.增加新闻资讯频道 <br> <s>25.考虑使用视频流背景</s> - 暂待定 <br> <s>26.新增首页轮播组件</s> - 已完成 <br> <s>27.网页平滑+压缩加载</s> - 已完成 <br> <s>28.分享组件信息修复</s> - 已完成 <br> 29.增加实时可视化网络监控 <br> 30.考虑加入随机背景 <br> 31.Chrome不能收藏问题 <br> <s>32.禁止复制</s> - 已完成 <br> 33.新增Gitee镜像站支持 - 施工中 <br> 34.新增RSS订阅功能 <br> 35.新增文章推荐页面 <br> <s>36.新增文章实时推送</s> - 已完成 <br> <s>37.新增CDN节点加速</s> - 已完成 <br> <s>38.新增GLWP网页压缩</s> - 已完成 <br> <s>39.Action远端自动部署</s> - 已完成 <br></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%A0%E8%8A%82%E6%A6%82%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">章节概要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">重要概念</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/07/12/%F0%9F%A5%A9%E8%B6%85%E5%A5%BD%E5%90%83%E7%A7%81%E6%88%BF%E5%93%92%E8%8F%9C%E8%B0%B1/" title="🥩超级无敌美味私房菜谱"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🥩超级无敌美味私房菜谱"/></a><div class="content"><a class="title" href="/2021/07/12/%F0%9F%A5%A9%E8%B6%85%E5%A5%BD%E5%90%83%E7%A7%81%E6%88%BF%E5%93%92%E8%8F%9C%E8%B0%B1/" title="🥩超级无敌美味私房菜谱">🥩超级无敌美味私房菜谱</a><time datetime="2021-07-12T22:07:09.000Z" title="发表于 2021-07-12 22:07:09">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" title="🚀实时文章推送功能测试"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/s.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🚀实时文章推送功能测试"/></a><div class="content"><a class="title" href="/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/" title="🚀实时文章推送功能测试">🚀实时文章推送功能测试</a><time datetime="2021-07-11T17:33:18.000Z" title="发表于 2021-07-11 17:33:18">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/" title="🎹十年乐队故事🎸我的音乐时光机"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/v2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🎹十年乐队故事🎸我的音乐时光机"/></a><div class="content"><a class="title" href="/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/" title="🎹十年乐队故事🎸我的音乐时光机">🎹十年乐队故事🎸我的音乐时光机</a><time datetime="2021-07-10T20:57:24.000Z" title="发表于 2021-07-10 20:57:24">2021-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/" title="😮企业架构复习手册"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Sharp_By_Daniel_Harkin.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="😮企业架构复习手册"/></a><div class="content"><a class="title" href="/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/" title="😮企业架构复习手册">😮企业架构复习手册</a><time datetime="2021-07-09T10:10:39.000Z" title="发表于 2021-07-09 10:10:39">2021-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/" title="😨使用TorBrowser秘密访问暗网世界"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/dark_deer.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="😨使用TorBrowser秘密访问暗网世界"/></a><div class="content"><a class="title" href="/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/" title="😨使用TorBrowser秘密访问暗网世界">😨使用TorBrowser秘密访问暗网世界</a><time datetime="2021-07-07T01:02:48.000Z" title="发表于 2021-07-07 01:02:48">2021-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Mofei Wang</div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://mofei.wang" style="margin-inline:5px"><img src="https://img.shields.io/badge/Frame-HTML5-blue?style=flat&amp;logo=html5"/></a><a class="github-badge" target="_blank" href="https://mofei.wang" style="margin-inline:5px"><img src="https://img.shields.io/badge/Theme-Mofei_V5-6513df?style=flat&amp;logo=bitcoin"/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr"/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel"/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio"/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"/></a></p><div class="container" id="jsi-flying-fish-container"><script src="js/fish.js"></script></div><style>   @media only screen and (max-width: 800px){
+   #sidebar_search_box input[type=text]{width:calc(100%)}
+}</style></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script></div><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '8w92CExbI5ALttP4P4OR0wHo-gzGzoHsz',
+      appKey: 'xlIsPCayGPaGpdVdB6mqlA6w',
+      placeholder: '说点什么吧~我的朋友',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="xxxx"></script> - <div class="aplayer no-destroy" data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script defer src="/live2d-widget/autoload.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/xiabo2/CDN@latest/fish.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+                        function butterfly_clock_injector_config(){
+                          var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                          var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="/img/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+                          console.log('已挂载butterfly_clock')
+                          // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+                          }
+                        if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+                        butterfly_clock_injector_config()
+                        }
+                      </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+                        function butterfly_swiper_injector_config(){
+                          var parent_div_git = document.getElementById('recent-posts');
+                          var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/06/24/常用标签/" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/5.jpg" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-06-24</span><a class="blog-slider__title" href="2021/06/24/常用标签/" alt="">😊干货之常用标签写法</a><div class="blog-slider__text">本文记录一些常用的MarkDown标签，包含且不仅包含那些很容易忘记的，和从来没记住的动态标签...</div><a class="blog-slider__button" href="2021/06/24/常用标签/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/07/03/😊TOGAF考题汇总习题版/" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/Yosemite.png" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-07-03</span><a class="blog-slider__title" href="2021/07/03/😊TOGAF考题汇总习题版/" alt="">😊TOGAF考题汇总习题版</a><div class="blog-slider__text">本文基于我在复习TOGAF企业级架构考试时收集的题目，自制了一套带有刮刮乐及习题精讲的在线题库，方便需要的朋友复习</div><a class="blog-slider__button" href="2021/07/03/😊TOGAF考题汇总习题版/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/06/22/Github提速/" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/sunset.png" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-06-22</span><a class="blog-slider__title" href="2021/06/22/Github提速/" alt="">😊Github爬虫提速</a><div class="blog-slider__text">本文基于对稳定使用的DNS进行爬虫抓取，并清理被污染的DNS，从而解决访问Gitbub经常失败的问题</div><a class="blog-slider__button" href="2021/06/22/Github提速/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+                          console.log('已挂载butterfly_swiper')
+                          // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+                          }
+                        if( document.getElementById('recent-posts') && (location.pathname ==='all'|| 'all' ==='all')){
+                        butterfly_swiper_injector_config()
+                        }
+                      </script><script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+                        function gitcalendar_injector_config(){
+                          var parent_div_git = document.getElementById('recent-posts');
+                          var item_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+                          console.log('已挂载gitcalendar')
+                          }
+
+                        if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+                            gitcalendar_injector_config()
+                            GitCalendarInit("https://github-calendar-api.vercel.app/api?Wangmofei",['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'],'Wangmofei')
+                        }
+                      </script><!-- hexo injector body_end end --><script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BLARXBbB05toZgNtekyjmwoDgYNN9KYf8YYPD4Hk3rccnEO9ZPVCiYOlB66g2ftQ9hvTjXwYF_F7cfKe2zk0t5Q' });</script></body></html>

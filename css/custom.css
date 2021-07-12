@@ -1,7 +1,31 @@
+/* 加载字体 */
+@font-face{
+  font-family:'mofei' ;  /* 字体名自定义即可 */
+  src:url('/fonts/2.TTF'); /* 字体文件路径 */
+  font-display : swap;
+}
+
+
+/* 页脚透明 */
+#footer {
+    background: transparent !important;
+}
+
+h1#site-title {
+  font-family: 'mofei', sans-serif;
+}
+
 /* 首页文章卡片 */
 #recent-posts > .recent-post-item{
     background:rgba(255, 255, 255, 0.9);
 }
+
+/* 那年今日去白框 */
+#history-baidu *{
+    background: var(--light_bg_color);
+}
+
+
 /* 首页侧栏卡片 */
 .card-widget{
   background:rgba(255, 255, 255, 0.9)!important;
@@ -27,7 +51,42 @@ div#category{
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* 页脚透明 */
-#footer {
-    background: transparent !important;
+
+
+/* 全局默认鼠标指针 */
+body,
+html{
+  cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/arrow.cur'),auto !important;
+}
+/* 悬停图片时的鼠标指针 */
+img{
+  cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/btn.cur'),auto !important;
+}
+/* 选择链接标签时的鼠标指针 */
+a:hover{
+    cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/link.cur'),auto;
+}
+/* 选中输入框时的鼠标指针 */
+input:hover{
+    cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/input.cur'),auto;
+}
+/* 悬停按钮时的鼠标指针 */
+button:hover{
+    cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/btn.cur'),auto;
+}
+/* 悬停列表标签时的鼠标指针 */
+i:hover{
+    cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/link.cur'),auto;
+}
+/* 悬停页脚链接标签（例如页脚徽标）时的鼠标指针 */
+#footer-wrap a:hover{
+      cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/hf.cur'),auto;
+}
+/* 悬停页码时的鼠标指针 */
+#pagination .page-number:hover{
+      cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/i.cur'),auto;
+}
+/* 悬停菜单栏时的鼠标指针 */
+#nav .site-page:hover{
+      cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/hf.cur'),auto;
 }

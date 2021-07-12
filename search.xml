@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Github提速</title>
+    <title>😊Github爬虫提速</title>
     <url>/2021/06/22/Github%E6%8F%90%E9%80%9F/</url>
     <content><![CDATA[<h3 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h3><p>Github 时不时抽风，老是访问不了，诚然，用科学上网能解决一切这类问题，但是，能不翻墙还是不要翻墙的好。这里采用的是通过修改本地 hosts，配置域名和 IP 映射关系，这样一来，当我们访问 github 时，这些域名可以直接从本地 hosts 文件中获取 IP，而不需要再去 DNS 服务器上询问一圈。从而提高访问速度。</p>
 <h3 id="修改-hosts"><a href="#修改-hosts" class="headerlink" title="修改 hosts"></a>修改 hosts</h3><p>以 Windows 系统为例，hosts 的路径是 C:\Windows\System32\drivers\etc，<br>打开后将以下内容复制到文件最下方。保存后，win+X，按A，以管理员权限启动 powershell，输入刷新 DNS 缓存。之后就能变快了……</p>
@@ -21,23 +21,23 @@
       <categories>
         <category>感悟の世界</category>
       </categories>
+      <tags>
+        <tag>数据分析</tag>
+      </tags>
   </entry>
   <entry>
-    <title>部署日记</title>
+    <title>😊常用命令大杂烩</title>
     <url>/2021/05/17/hello-world/</url>
-    <content><![CDATA[<p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章. </p>
-<h2 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h2><h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
+</div>
 
-<h3 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
 
-<h3 id="生成页面"><a href="#生成页面" class="headerlink" title="生成页面"></a>生成页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
 
-<h3 id="部署网站"><a href="#部署网站" class="headerlink" title="部署网站"></a>部署网站</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-
-
-
+<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>音乐の世界</category>
@@ -47,9 +47,236 @@
       </tags>
   </entry>
   <entry>
-    <title>常用标签</title>
+    <title>😰那些我不能说的秘密</title>
+    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>心情故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>🎹十年乐队故事🎸我的音乐时光机</title>
+    <url>/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>记人生的一段乐队旅程，从美国到祖国，十年光阴匆匆流过，那些人和故事、觥筹交错的日子，终将留藏在我们每个人的心中，感谢音乐一路陪伴我们长大，愿初心不忘，愿那些旋律，感动常在，直至老去</p>
+<h1 id="后续更新计划（To-be-continue…）"><a href="#后续更新计划（To-be-continue…）" class="headerlink" title="后续更新计划（To be continue…）"></a>后续更新计划（To be continue…）</h1><div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>每位在我生命中出现的合作伙伴动态标签页，欢迎follow~</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>依据时间线，收集整理图片和视频资料</p>
+            </div>
+</div>
+
+
+<hr>
+<h1 id="Asteroid乐队故事-🎵"><a href="#Asteroid乐队故事-🎵" class="headerlink" title="Asteroid乐队故事 🎵"></a>Asteroid乐队故事 🎵</h1><blockquote>
+<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+</blockquote>
+<div class="site-card-group">
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">银川</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/ContentoCustomBackground.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">朱峰</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">大鱼</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">康逸夫</span><span class="desc">吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Moon(韩国)</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">张凌舒</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">子轩</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">吴倩</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">唐璐瑶</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Perin</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
+</div>
+
+<hr>
+<h1 id="金融街三号乐队故事-🎵"><a href="#金融街三号乐队故事-🎵" class="headerlink" title="金融街三号乐队故事 🎵"></a>金融街三号乐队故事 🎵</h1><blockquote>
+<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+</blockquote>
+<div class="site-card-group">
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">田老师</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">秋子</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">彭博</span><span class="desc">吉他手</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">红霞辰琳，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">鹏飞，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">潇艺，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">卓然</span><span class="desc">键盘手/女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">书君</span><span class="desc">小提琴</span></div></a>
+</div>
+
+<hr>
+<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><ol><li>金融街三号乐队携全体队员献礼红歌会，用音乐唱出对党的爱与祝福<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-28 努力排练，预备演出</p>
+</p></div><div class="body"><ol><li>金鼎大厦的13楼有我们排练的身影~<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+
+
+
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>😨使用TorBrowser秘密访问暗网世界</title>
+    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
+    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
+</div>
+
+
+<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
+</div>
+
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
+
+<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
+</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>下载地址</p>
+</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>使用方法</p>
+</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
+</div>
+
+<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
+
+<div class="timeline">
+<div class="timenode"><div class="meta"><p><p>常用地址</p>
+</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
+</div>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>😮企业架构复习手册</title>
+    <url>/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<h1 id="章节概要"><a href="#章节概要" class="headerlink" title="章节概要"></a>章节概要</h1><div class="note simple"><ol>
+<li>第 1 章介绍了 TOGAF，企业架构和 TOGAF 内容的高级视图， 并介绍了 TOGAF 的一些关键概念。</li>
+<li>第 2 章介绍了架构开发方法（ Architecture Development Method， ADM）， ADM 是TOGAF 提供的用来开发企业架构的方法。</li>
+<li>第 3 章总体介绍了与 ADM 过程相关的各种关键技术和交付物。</li>
+<li>第 4 章总体介绍了对 ADM 过程进行调整的一些指导策略。</li>
+<li>第 5 章介绍了架构内容框架，即架构制品的一个结构化的元模型。</li>
+<li>第 6 章介绍了企业连续系列，即可以和 ADM 一起使用的，用 来开发企业架构的一个高级别概念。</li>
+<li>第 7 章介绍了架构能力框架，即为建立和运营企业中的架构 职能所需的一系列资源。</li>
+</ol>
+</div>
+
+<hr>
+<h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><div class="tip warning faa-horizontal animated"><p>分区：关于如何划分企业中的各种架构的一些技术和注意事项<br>架构存储库：架构存储库的逻辑信息模型，可用作执行 ADM 所创建的所有输出的集成存储<br>能力框架：组织、技能、角色和职责的结构化定义，以运行有效的企业<br>架构能力：TOGAF 标准还提供了一个过程的指导，可以遵循该过程来确定和建立适当的架构能力</p>
+</div>
+
+<hr>
+<div class="timeline">
+# 第一章
+
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><details cyan open><summary> 1.文档结构 </summary>              <div class='content'>              <ol><li><p>TOGAF 是一个企业架构框架，简而言之， 简而言之，它是一种标准方法，用于协助接受、 生<br>产、使用和维护企业架构。它基于最佳实践所支持的迭代过程模型和现有架构资产的可重用集。</p></li><li><p>TOGAF 标准可用于开发各种不同领域的企业架构。 TOGAF 对其他框架进行了补充，并可与其他框架一起使用， 其他这些框架更侧重于特定垂直领域的特定交付物，例如政府，电信，制造业，国防和金融。 而 TOGAF 标准的关键部分是用于开发可满足业务需求的企业架构的方法– TOGAF 架构开发方法（ ADM）。 以便开发出符合各类业务需求的企业架构。</p></li></ol>              </div>            </details><details cyan open><summary> 2.标准介绍 </summary>              <div class='content'>              <table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>介绍</td><td>定义</td></tr><tr><td>架构开发方法</td><td>这部分是TOGAF框架的核心。 它描述了TOGAF架构开发方法（ ADM） - 一种逐步开发企业架构的方法。</td></tr><tr><td>ADM指南和技术</td><td>本部分包含可用于应用TOGAF方法和TOGAF ADM的指南和技术的集合。 其他指南和技术也位于TOGAF库中。</td></tr><tr><td>架构内容框架</td><td>本部分介绍TOGAF内容框架，包括架构工件的结构化元模型，可重用架构构建块（ ABB）的使用以及典型架构可交付成果的概述。</td></tr><tr><td>企业连续性和工具</td><td>本部分讨论适当的分类和工具，以对企业内架构活动的输出进行分类和存储。</td></tr><tr><td>架构能力框架</td><td>本部分讨论了在企业内建立和运行架构实践所需的组织，流程，技能，角色和职责。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 3.库的结构 </summary>              <div class='content'>              <table><thead><tr><th>介绍</th><th>内容</th></tr></thead><tbody><tr><td>基础性文件</td><td>与TOGAF框架或企业架构主题相关的广泛适用的信息。</td></tr><tr><td>通用准则与技术</td><td>描述架构风格以及如何调整TOGAF框架和企业架构以利用特定环境的特征的信息。</td></tr><tr><td>行业特定的指导和技术</td><td>描述如何应用TOGAF框架和企业架构以满足垂直行业细分市场特定需求的信息。</td></tr><tr><td>组织特定的指导与技巧</td><td>描述如何应用TOGAF框架和企业架构以满足特定企业需求的信息。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 4.什么是TOGAF标准中的架构？ </summary>              <div class='content'>              <p>1 一个系统在其环境中的基本概念或属性体现在它的元素、 元素之间的关系以及它的设计进化的原则中。</p><p>2 组件的结构、它们之间的相互关系，以及关于组件设计和随时间演变的原则和指南。</p>              </div>            </details><details cyan open><summary> 5.TOGAF标准处理哪种架构 </summary>              <div class='content'>              <table><thead><tr><th>内容</th><th>介绍</th></tr></thead><tbody><tr><td>业务架构</td><td>业务策略，治理，组织和关键业务流程。</td></tr><tr><td>数据架构</td><td>组织的逻辑和物理数据资产以及数据管理资源的结构。</td></tr><tr><td>应用架构</td><td>待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图。</td></tr><tr><td>技术架构</td><td>支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 6. TOGAF标准包含什么 </summary>              <div class='content'>              <blockquote><p>概览：TOGAF 框架的核心是架构开发方法(在标准的第二部分中有记录)。架构能力操作该方法。该方法由一些指南和技术支持。<br>这将生成存储在存储库中的内容，这些内容根据企业连续统一体进行分类。存储库最初可以使用 TOGAF 参考模型和其他参考材料填充（在 TOGAF 库中记录）。</p></blockquote><p><span><img src='\images\pasted-0.png'></span></p><ol><li><p>架构开发方法(ADM)：描述了如何派生出解决业务需求的特定于组织的企业架构。 ADM是TOGAF 框架的主要组成部分，在多个层次上为架构师提供指导：</p></li><li><p>ADM 指南和技术：提供了一些指南和技术，以支持 ADM 的应用。这些准则包括调整 ADM 以处理一些使用场景，包括不同的流程风格——迭代的使用，以及在整个架构景观中应用 ADM。本文还对如何使用具有不同架构风格的 TOGAF 框架使用 SOA 作为示例进行了高级描述。这些技术支持 ADM 中的具体任务（例如基于能力的规划、定义原则、差距分析、迁移规划、风险管理、利益攸关方管理等）。在 TOGAF 库（例如，关于业务场景技术的指导）中还提供了更多的指南和技术。</p></li><li><p>架构内容框架：提供了架构工作产品的详细模型，包括可交付成果、 可交付成果中的构件以及构件所代表的架构构建块（ ABBs）。</p></li><li><p>企业连续统一体：提供了一个构建虚拟存储库的模型，并提供了对架构和解决方案工件进行分类的方法，展示了不同类型工件如何演化，以及它们如何被利用和重用。这是基于架构和解决方案（模型、模式、架构描述等）。存在于企业内部和整个行业中的，企业收集来用于其架构开发的。</p></li><li><p>架构能力框架：是一组资源、 指南、 模板、 背景信息等。提供帮助架构师在组织中建立架构实践。</p></li></ol>              </div>            </details></div></div>
+</div>
+
+<hr>
+<div class="timeline">
+# 第二章 架构开发方法ADM
+
+<div class="timenode"><div class="meta"><p></p></div><div class="body"><details cyan open><summary> 1.什么是ADM </summary>              <div class='content'>              <p>1.一个可靠的、经过验证的企业架构开发和使用方法<br>2.在不同层次（业务、应用程序、数据、技术）上开发架构的方法，使架构师能够确保一个复杂的需求集得到充分满足<br>3.一套架构开发的指导方针和技术</p>              </div>            </details><div class="tip warning faa-horizontal animated"><p>ADM 由一些阶段组成，这些阶段贯穿于一系列架构域，使架构师能够确保一个复杂的需求集得到充分满足<br>下面让我们来看看他的几个阶段</p></div><p><span><img src='\images\pasted-1.png'></span></p><table><thead><tr><th>名称</th><th>内容</th></tr></thead><tbody><tr><td>预备阶段</td><td>为组织成功地作好TOGAF架构项目做好准备。 进行创建架构能力所需的准备和启动活动，包括定制TOGAF框架，选择工具以及定义架构原则。</td></tr><tr><td>需求管理</td><td>TOGAF项目的每个阶段都基于并验证业务需求。识别，存储需求，并将其输入和输出相关的ADM阶段，这些阶段将处理，解决需求并确定其优先级。</td></tr><tr><td>阶段A:架构愿景</td><td>设置TOGAF项目的范围， 约束和期望。 创建架构愿景。 确定利益相关者。 验证业务环境并创建架构工作声明。 并获得批准。</td></tr><tr><td>阶段B 业务架构 阶段C:信息系统架构(应用/数据) 阶段D:技术架构</td><td>开发架构在如下4个域中： 1. 业务 2. 信息系统应用 3. 信息系统数据 4. 技术 对于每次开发案例， 都是开发基线架构和目标架</td></tr><tr><td>阶段E:机会与解决方案</td><td>进行初步的实施规划，并确定之前阶段中识别出的构建块交付载体，确认主要的实施项目， 确定是否需要增量方法，如果需要增量， 组成各过渡架构。</td></tr><tr><td>阶段F:迁移计划</td><td>制定详细的实施和迁移计划，以解决如何从基准迁移到目标架构的问题</td></tr><tr><td>阶段G:实施治理</td><td>提供实施的架构监督。 准备并签发建筑合同。 确保实施项目符合架构</td></tr><tr><td>阶段H:架构变更管理</td><td>架构变更管理提供持续的监视和变更管理过程，以确保架构能够响应企业的需求，以使架构对业务提供最大化的价值</td></tr></tbody></table><details cyan open><summary> 2.标准介绍 </summary>              <div class='content'>              <table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>介绍</td><td>定义</td></tr><tr><td>架构开发方法</td><td>这部分是TOGAF框架的核心。 它描述了TOGAF架构开发方法（ ADM） - 一种逐步开发企业架构的方法。</td></tr><tr><td>ADM指南和技术</td><td>本部分包含可用于应用TOGAF方法和TOGAF ADM的指南和技术的集合。 其他指南和技术也位于TOGAF库中。</td></tr><tr><td>架构内容框架</td><td>本部分介绍TOGAF内容框架，包括架构工件的结构化元模型，可重用架构构建块（ ABB）的使用以及典型架构可交付成果的概述。</td></tr><tr><td>企业连续性和工具</td><td>本部分讨论适当的分类和工具，以对企业内架构活动的输出进行分类和存储。</td></tr><tr><td>架构能力框架</td><td>本部分讨论了在企业内建立和运行架构实践所需的组织，流程，技能，角色和职责。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 3.库的结构 </summary>              <div class='content'>              <table><thead><tr><th>介绍</th><th>内容</th></tr></thead><tbody><tr><td>基础性文件</td><td>与TOGAF框架或企业架构主题相关的广泛适用的信息。</td></tr><tr><td>通用准则与技术</td><td>描述架构风格以及如何调整TOGAF框架和企业架构以利用特定环境的特征的信息。</td></tr><tr><td>行业特定的指导和技术</td><td>描述如何应用TOGAF框架和企业架构以满足垂直行业细分市场特定需求的信息。</td></tr><tr><td>组织特定的指导与技巧</td><td>描述如何应用TOGAF框架和企业架构以满足特定企业需求的信息。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 4.什么是TOGAF标准中的架构？ </summary>              <div class='content'>              <p>1 一个系统在其环境中的基本概念或属性体现在它的元素、 元素之间的关系以及它的设计进化的原则中。</p><p>2 组件的结构、它们之间的相互关系，以及关于组件设计和随时间演变的原则和指南。</p>              </div>            </details><details cyan open><summary> 5.TOGAF标准处理哪种架构 </summary>              <div class='content'>              <table><thead><tr><th>内容</th><th>介绍</th></tr></thead><tbody><tr><td>业务架构</td><td>业务策略，治理，组织和关键业务流程。</td></tr><tr><td>数据架构</td><td>组织的逻辑和物理数据资产以及数据管理资源的结构。</td></tr><tr><td>应用架构</td><td>待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图。</td></tr><tr><td>技术架构</td><td>支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准。</td></tr></tbody></table>              </div>            </details><details cyan open><summary> 6. TOGAF标准包含什么 </summary>              <div class='content'>              <blockquote><p>概览：TOGAF 框架的核心是架构开发方法(在标准的第二部分中有记录)。架构能力操作该方法。该方法由一些指南和技术支持。<br>这将生成存储在存储库中的内容，这些内容根据企业连续统一体进行分类。存储库最初可以使用 TOGAF 参考模型和其他参考材料填充（在 TOGAF 库中记录）。</p></blockquote><p><span><img src='\images\pasted-0.png'></span></p><ol><li><p>架构开发方法(ADM)：描述了如何派生出解决业务需求的特定于组织的企业架构。 ADM是TOGAF 框架的主要组成部分，在多个层次上为架构师提供指导：</p></li><li><p>ADM 指南和技术：提供了一些指南和技术，以支持 ADM 的应用。这些准则包括调整 ADM 以处理一些使用场景，包括不同的流程风格——迭代的使用，以及在整个架构景观中应用 ADM。本文还对如何使用具有不同架构风格的 TOGAF 框架使用 SOA 作为示例进行了高级描述。这些技术支持 ADM 中的具体任务（例如基于能力的规划、定义原则、差距分析、迁移规划、风险管理、利益攸关方管理等）。在 TOGAF 库（例如，关于业务场景技术的指导）中还提供了更多的指南和技术。</p></li><li><p>架构内容框架：提供了架构工作产品的详细模型，包括可交付成果、 可交付成果中的构件以及构件所代表的架构构建块（ ABBs）。</p></li><li><p>企业连续统一体：提供了一个构建虚拟存储库的模型，并提供了对架构和解决方案工件进行分类的方法，展示了不同类型工件如何演化，以及它们如何被利用和重用。这是基于架构和解决方案（模型、模式、架构描述等）。存在于企业内部和整个行业中的，企业收集来用于其架构开发的。</p></li><li><p>架构能力框架：是一组资源、 指南、 模板、 背景信息等。提供帮助架构师在组织中建立架构实践。</p></li></ol>              </div>            </details></div></div>
+</div>
+]]></content>
+      <tags>
+        <tag>TOGAF教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>🚀实时文章推送功能测试</title>
+    <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
+<span id="more"></span>
+]]></content>
+  </entry>
+  <entry>
+    <title>🥩超级无敌美味私房菜谱</title>
+    <url>/2021/07/12/%F0%9F%A5%A9%E8%B6%85%E5%A5%BD%E5%90%83%E7%A7%81%E6%88%BF%E5%93%92%E8%8F%9C%E8%B0%B1/</url>
+    <content><![CDATA[<h1 id="慢慢把私房菜谱整理上来-先填个坑位"><a href="#慢慢把私房菜谱整理上来-先填个坑位" class="headerlink" title="慢慢把私房菜谱整理上来..先填个坑位"></a>慢慢把私房菜谱整理上来..先填个坑位</h1><h1 id="🥩🍷🍭🌯🍝"><a href="#🥩🍷🍭🌯🍝" class="headerlink" title="🥩🍷🍭🌯🍝"></a>🥩🍷🍭🌯🍝</h1><h1 id="🍔🍙🍲🌮🍻"><a href="#🍔🍙🍲🌮🍻" class="headerlink" title="🍔🍙🍲🌮🍻"></a>🍔🍙🍲🌮🍻</h1><h1 id="🥟🍗🍖🍹🍜"><a href="#🥟🍗🍖🍹🍜" class="headerlink" title="🥟🍗🍖🍹🍜"></a>🥟🍗🍖🍹🍜</h1><h1 id="🍱🍢🍡🍰🍮"><a href="#🍱🍢🍡🍰🍮" class="headerlink" title="🍱🍢🍡🍰🍮"></a>🍱🍢🍡🍰🍮</h1>]]></content>
+  </entry>
+  <entry>
+    <title>😊干货之常用标签写法</title>
     <url>/2021/06/24/%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">提示标签</button></li><li class="tab"><button type="button" data-href="#test4-2">按钮标签</button></li><li class="tab"><button type="button" data-href="#test4-3">字符标签</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><div class="note simple"><p>默認 提示塊標籤</p>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本文记录一些常用的标签项，防止自己忘记该怎么写</p>
+</div>
+
+<hr>
+<ol>
+<li>现在是深夜2点，我实在太困了，为了提神醒脑，首先吟诗一首</li>
+</ol>
+<div class="note [class] [no-icon] [style] flat"><div class='poem'><div class='poem-title'>水调歌头</div><div class='poem-author'>苏轼</div><p>丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。<br>明月几时有？把酒问青天。<br>不知天上宫阙，今夕是何年？<br>我欲乘风归去，又恐琼楼玉宇，高处不胜寒。<br>起舞弄清影，何似在人间？</p>
+<p>转朱阁，低绮户，照无眠。<br>不应有恨，何事长向别时圆？<br>人有悲欢离合，月有阴晴圆缺，此事古难全。<br>但愿人长久，千里共婵娟。</p>
+</div>
+</div>
+
+<hr>
+<ol start="2">
+<li>那么言归正传，开始总结些干货..龟速整理中<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-yellow"  style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><p>标签写法更新进度60%</p></div></div></li>
+</ol>
+<hr>
+<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">提示标签</button></li><li class="tab"><button type="button" data-href="#test4-2">按钮标签</button></li><li class="tab"><button type="button" data-href="#test4-3">字符标签</button></li><li class="tab"><button type="button" data-href="#test4-4">标题标签</button></li><li class="tab"><button type="button" data-href="#test4-5">动态标签</button></li><li class="tab"><button type="button" data-href="#test4-6">表格标签</button></li><li class="tab"><button type="button" data-href="#test4-7">图片标签</button></li><li class="tab"><button type="button" data-href="#test4-8">多媒体标签</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><p>😊这是一些常用的标志</p>
+<div class="note simple"><p>默認 提示塊標籤</p>
 </div>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% note simple %&#125;</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
@@ -84,13 +311,60 @@
 </div>
 
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><div class="note info simple"><p>按钮标签使用方法如下</p>
-</div>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><p>😊链接按钮</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% link 糖果屋教程贴, https://akilar.top/posts/615e2dec/, https://cdn.jsdelivr.net/gh/Akilarlxh/akilarlxh.github.io/img/siteicon/favicon.ico %&#125;</span><br></pre></td></tr></table></figure>
 
+<div class="tag link"><a class="link-card" title="糖果屋教程贴" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/akilarlxh.github.io/img/siteicon/favicon.ico"/></div><div class="right"><p class="text">糖果屋教程贴</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div>
+
+<p>😊网站按钮</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% sitegroup %&#125;</span><br><span class="line">&#123;% site xaoxuu, url=https://xaoxuu.com, screenshot=https://i.loli.net/2020/08/21/VuSwWZ1xAeUHEBC.jpg, avatar=https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png, description=简约风格 %&#125;</span><br><span class="line">&#123;% site inkss, url=https://inkss.cn, screenshot=https://i.loli.net/2020/08/21/Vzbu3i8fXs6Nh5Y.jpg, avatar=https://cdn.jsdelivr.net/gh/inkss/common@master/static/web/avatar.jpg, description=这是一段关于这个网站的描述文字 %&#125;</span><br><span class="line">&#123;% site MHuiG, url=https://blog.mhuig.top, screenshot=https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png, avatar=https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png, description=这是一段关于这个网站的描述文字 %&#125;</span><br><span class="line">&#123;% site Colsrch, url=https://colsrch.top, screenshot=https://i.loli.net/2020/08/22/dFRWXm52OVu8qfK.png, avatar=https://cdn.jsdelivr.net/gh/Colsrch/images/Colsrch/avatar.jpg, description=这是一段关于这个网站的描述文字 %&#125;</span><br><span class="line">&#123;% site Linhk1606, url=https://linhk1606.github.io, screenshot=https://i.loli.net/2020/08/21/3PmGLCKicnfow1x.png, avatar=https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png, description=这是一段关于这个网站的描述文字 %&#125;</span><br><span class="line">&#123;% endsitegroup %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="site-card-group"><a class="site-card" href="https://xaoxuu.com"><div class="img"><img src="https://i.loli.net/2020/08/21/VuSwWZ1xAeUHEBC.jpg"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png"/><span class="title">xaoxuu</span><span class="desc">简约风格</span></div></a>
+<a class="site-card" href="https://inkss.cn"><div class="img"><img src="https://i.loli.net/2020/08/21/Vzbu3i8fXs6Nh5Y.jpg"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/inkss/common@master/static/web/avatar.jpg"/><span class="title">inkss</span><span class="desc">这是一段关于这个网站的描述文字</span></div></a>
+<a class="site-card" href="https://blog.mhuig.top"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">MHuiG</span><span class="desc">这是一段关于这个网站的描述文字</span></div></a>
+<a class="site-card" href="https://colsrch.top"><div class="img"><img src="https://i.loli.net/2020/08/22/dFRWXm52OVu8qfK.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/Colsrch/images/Colsrch/avatar.jpg"/><span class="title">Colsrch</span><span class="desc">这是一段关于这个网站的描述文字</span></div></a>
+<a class="site-card" href="https://linhk1606.github.io"><div class="img"><img src="https://i.loli.net/2020/08/21/3PmGLCKicnfow1x.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">Linhk1606</span><span class="desc">这是一段关于这个网站的描述文字</span></div></a></div>
+
+
+
+<p>😊如果需要显示类似「团队成员」之类的一组含有头像的链接：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btns circle grid5 %&#125;</span><br><span class="line">&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;</span><br><span class="line">&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;</span><br><span class="line">&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;</span><br><span class="line">&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;</span><br><span class="line">&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;</span><br><span class="line">&#123;% endbtns %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="btns circle grid5">
+            <a class="button" href='https://xaoxuu.com' title='xaoxuu'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'>xaoxuu</a>
+<a class="button" href='https://xaoxuu.com' title='xaoxuu'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'>xaoxuu</a>
+<a class="button" href='https://xaoxuu.com' title='xaoxuu'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'>xaoxuu</a>
+<a class="button" href='https://xaoxuu.com' title='xaoxuu'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'>xaoxuu</a>
+<a class="button" href='https://xaoxuu.com' title='xaoxuu'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'>xaoxuu</a>
+          </div>
+
+<p>😊或者含有图标的按钮：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btns rounded grid5 %&#125;</span><br><span class="line">&#123;% cell 下载源码, /, fas fa-download %&#125;</span><br><span class="line">&#123;% cell 查看文档, /, fas fa-book-open %&#125;</span><br><span class="line">&#123;% endbtns %&#125;</span><br></pre></td></tr></table></figure>
+<div class="btns rounded grid5">
+            <a class="button" href='/' title='下载源码'><i class='fas fa-download'></i>下载源码</a>
+<a class="button" href='/' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>
+          </div>
+
+<p>😊圆形图标 + 标题 + 描述 + 图片 + 网格5列 + 居中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btns circle center grid5 %&#125;</span><br><span class="line">&lt;a href=<span class="string">&#x27;https://apps.apple.com/cn/app/heart-mate-pro-hrm-utility/id1463348922?ls=1&#x27;</span>&gt;</span><br><span class="line">  &lt;i class=<span class="string">&#x27;fab fa-apple&#x27;</span>&gt;&lt;/i&gt;</span><br><span class="line">  &lt;b&gt;心率管家&lt;/b&gt;</span><br><span class="line">  &#123;% p red, 专业版 %&#125;</span><br><span class="line">  &lt;img src=<span class="string">&#x27;https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png&#x27;</span>&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">&lt;a href=<span class="string">&#x27;https://apps.apple.com/cn/app/heart-mate-lite-hrm-utility/id1475747930?ls=1&#x27;</span>&gt;</span><br><span class="line">  &lt;i class=<span class="string">&#x27;fab fa-apple&#x27;</span>&gt;&lt;/i&gt;</span><br><span class="line">  &lt;b&gt;心率管家&lt;/b&gt;</span><br><span class="line">  &#123;% p green, 免费版 %&#125;</span><br><span class="line">  &lt;img src=<span class="string">&#x27;https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png&#x27;</span>&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">&#123;% endbtns %&#125;</span><br></pre></td></tr></table></figure>
+<div class="btns circle center grid5">
+            <a href='https://apps.apple.com/cn/app/heart-mate-pro-hrm-utility/id1463348922?ls=1'>
+  <i class='fab fa-apple'></i>
+  <b>心率管家</b>
+  <p class='p red'>专业版</p>
+  <img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png'>
+</a>
+<a href='https://apps.apple.com/cn/app/heart-mate-lite-hrm-utility/id1475747930?ls=1'>
+  <i class='fab fa-apple'></i>
+  <b>心率管家</b>
+  <p class='p green'>免费版</p>
+  <img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png'>
+</a>
+          </div>
+
+<p>😊一些常用的参数需要了解</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %&#125;</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></table></figure>
-<div class="note info simple"><p>举个例子瞧瞧</p>
-</div>
-
+<p>😊6. 举个按钮的例子瞧瞧</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,larger %&#125;</span><br></pre></td></tr></table></figure>
 <p>This is my website, click the button <a class="btn-beautify button--animated " href="https://butterfly.js.org/" 
   title="Butterfly"><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify button--animated " href="https://butterfly.js.org/" 
@@ -137,10 +411,837 @@
   title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
 <a class="btn-beautify button--animated outline green larger" href="https://butterfly.js.org/" 
   title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p><strong>名字+icon</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p>😊标注字符</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 带 &#123;% u 下划线 %&#125; 的文本</span><br><span class="line">2. 带 &#123;% emp 着重号 %&#125; 的文本</span><br><span class="line">3. 带 &#123;% wavy 波浪线 %&#125; 的文本</span><br><span class="line">4. 带 &#123;% del 删除线 %&#125; 的文本</span><br><span class="line">5. 键盘样式的文本 &#123;% kbd <span class="built_in">command</span> %&#125; + &#123;% kbd D %&#125;</span><br><span class="line">6. 密码样式的文本：&#123;% psw 这里没有验证码 %&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>带 <u>下划线</u> 的文本</li>
+<li>带 <emp>着重号</emp> 的文本</li>
+<li>带 <wavy>波浪线</wavy> 的文本</li>
+<li>带 <del>删除线</del> 的文本</li>
+<li>键盘样式的文本 <kbd>command</kbd> + <kbd>D</kbd></li>
+<li>密码样式的文本：<psw>这里没有验证码</psw></li>
+</ol>
+<p>😊标注颜色</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- 彩色文字</span><br><span class="line">在一段话中方便插入各种颜色的标签，包括：&#123;% span red, 红色 %&#125;、&#123;% span yellow, 黄色 %&#125;、&#123;% span green, 绿色 %&#125;、&#123;% span cyan, 青色 %&#125;、&#123;% span blue, 蓝色 %&#125;、&#123;% span gray, 灰色 %&#125;。</span><br><span class="line">- 超大号文字</span><br><span class="line">文档「开始」页面中的标题部分就是超大号文字。</span><br><span class="line">&#123;% span center logo large, Volantis %&#125;</span><br><span class="line">&#123;% span center small, A Wonderful Theme <span class="keyword">for</span> Hexo %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>彩色文字<br>在一段话中方便插入各种颜色的标签，包括：<span class='p red'>红色</span>、<span class='p yellow'>黄色</span>、<span class='p green'>绿色</span>、<span class='p cyan'>青色</span>、<span class='p blue'>蓝色</span>、<span class='p gray'>灰色</span>。</li>
+<li>超大号文字<br>文档「开始」页面中的标题部分就是超大号文字。<br><span class='p center logo large'>Volantis</span><br><span class='p center small'>A Wonderful Theme for Hexo</span></li>
+</ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-4"><p>😊折叠栏</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% folding 查看图片测试 %&#125;</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg)</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding cyan open, 查看默认打开的折叠框 %&#125;</span><br><span class="line"></span><br><span class="line">这是一个默认打开的折叠框。</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding green, 查看代码测试 %&#125;</span><br><span class="line">假装这里有代码块（代码块没法嵌套代码块）</span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding yellow, 查看列表测试 %&#125;</span><br><span class="line"></span><br><span class="line">- haha</span><br><span class="line">- hehe</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding red, 查看嵌套测试 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding blue, 查看嵌套测试2 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding 查看嵌套测试3 %&#125;</span><br><span class="line"></span><br><span class="line">hahaha &lt;span&gt;&lt;img src=<span class="string">&#x27;https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/tieba/%E6%BB%91%E7%A8%BD.png&#x27;</span> style=<span class="string">&#x27;height:24px&#x27;</span>&gt;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br></pre></td></tr></table></figure>
+<details ><summary> 查看图片测试 </summary>
+              <div class='content'>
+              <p><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"></p>
+              </div>
+            </details>
+
+<details cyan open><summary> 查看默认打开的折叠框 </summary>
+              <div class='content'>
+              <p>这是一个默认打开的折叠框。</p>
+              </div>
+            </details>
+
+<details green><summary> 查看代码测试 </summary>
+              <div class='content'>
+              <p>假装这里有代码块（代码块没法嵌套代码块）</p>
+              </div>
+            </details>
+
+<details yellow><summary> 查看列表测试 </summary>
+              <div class='content'>
+              <ul><li>haha</li><li>hehe</li></ul>
+              </div>
+            </details>
+
+<details red><summary> 查看嵌套测试 </summary>
+              <div class='content'>
+              <details blue><summary> 查看嵌套测试2 </summary>              <div class='content'>              <details ><summary> 查看嵌套测试3 </summary>              <div class='content'>              <p>hahaha <span><img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/tieba/%E6%BB%91%E7%A8%BD.png' style='height:24px'></span></p>              </div>            </details>              </div>            </details>
+              </div>
+            </details>
+
+<p>😊分栏</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1. 没有预设值</span><br><span class="line">&#123;% tabs test3, -1 %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">2. 自定义 Tab 名 + 只有 icon + icon 和 Tab 名</span><br><span class="line">&#123;% tabs test4 %&#125;</span><br><span class="line">&lt;!-- tab 第一个Tab --&gt;</span><br><span class="line">**tab名字为第一个Tab**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab @fab fa-apple-pay --&gt;</span><br><span class="line">**只有图标 没有Tab名字**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 炸弹@fas fa-bomb --&gt;</span><br><span class="line">**名字+icon**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>没有预设值<div class="tabs" id="test3"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test3-1">test3 1</button></li><li class="tab"><button type="button" data-href="#test3-2">test3 2</button></li><li class="tab"><button type="button" data-href="#test3-3">test3 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test3-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test3-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test3-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></li>
+</ol>
+<ol start="2">
+<li>自定义 Tab 名 + 只有 icon + icon 和 Tab 名<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">第一个Tab</button></li><li class="tab"><button type="button" data-href="#test4-2"><i class="fab fa-apple-pay" style="text-align: center;"></i></button></li><li class="tab"><button type="button" data-href="#test4-3"><i class="fas fa-bomb"></i>炸弹</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><p><strong>tab名字为第一个Tab</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><p><strong>只有图标 没有Tab名字</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p><strong>名字+icon</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></li>
+</ol>
+<p>😊 常规标题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% endtabs %&#125;</span><br><span class="line">&#123;% tip %&#125;默认情况&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip success %&#125;success&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip error %&#125;error&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip warning %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bolt %&#125;bolt&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban %&#125;ban&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip home %&#125;home&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip sync %&#125;sync&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip cogs %&#125;cogs&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip key %&#125;key&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bell %&#125;bell&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip fa-atom %&#125;自定义font awesome图标&#123;% endtip %&#125;</span><br></pre></td></tr></table></figure>
+<div class="tip "><p>默认情况</p>
+</div>
+<div class="tip success"><p>success</p>
+</div>
+<div class="tip error"><p>error</p>
+</div>
+<div class="tip warning"><p>warning</p>
+</div>
+<div class="tip bolt"><p>bolt</p>
+</div>
+<div class="tip ban"><p>ban</p>
+</div>
+<div class="tip home"><p>home</p>
+</div>
+<div class="tip sync"><p>sync</p>
+</div>
+<div class="tip cogs"><p>cogs</p>
+</div>
+<div class="tip key"><p>key</p>
+</div>
+<div class="tip bell"><p>bell</p>
+</div>
+<div class="tip fa-atom"><p>自定义font awesome图标</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-5"><p>😊让我们一起跟着标签摇摆</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% tip warning faa-horizontal animated %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-horizontal animated faa-fast %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated faa-slow %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-horizontal animated-hover %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated-hover %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-parent animated-hover %&#125;&lt;p class=<span class="string">&quot;faa-horizontal&quot;</span>&gt;warning&lt;/p&gt;&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-parent animated-hover %&#125;&lt;p class=<span class="string">&quot;faa-flash&quot;</span>&gt;ban&lt;/p&gt;&#123;% endtip %&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>加载动画<div class="tip warning faa-horizontal animated"><p>warning</p>
+</div>
+<div class="tip ban faa-flash animated"><p>ban</p>
+</div></li>
+<li>调整速度<div class="tip warning faa-horizontal animated faa-fast"><p>warning</p>
+</div>
+<div class="tip ban faa-flash animated faa-slow"><p>ban</p>
+</div></li>
+<li>鼠标悬停<div class="tip warning faa-horizontal animated-hover"><p>warning</p>
+</div>
+<div class="tip ban faa-flash animated-hover"><p>ban</p>
+</div></li>
+<li>父级鼠标悬停<div class="tip warning faa-parent animated-hover"><p class="faa-horizontal">warning</p></div>
+<div class="tip ban faa-parent animated-hover"><p class="faa-flash">ban</p></div></li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-6"><p>😊复选列表 checkbox</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% checkbox 纯文本测试 %&#125;</span><br><span class="line">&#123;% checkbox checked, 支持简单的 [markdown](https://guides.github.com/features/mastering-markdown/) 语法 %&#125;</span><br><span class="line">&#123;% checkbox red, 支持自定义颜色 %&#125;</span><br><span class="line">&#123;% checkbox green checked, 绿色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox yellow checked, 黄色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox cyan checked, 青色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox blue checked, 蓝色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox plus green checked, 增加 %&#125;</span><br><span class="line">&#123;% checkbox minus yellow checked, 减少 %&#125;</span><br><span class="line">&#123;% checkbox <span class="built_in">times</span> red checked, 叉 %&#125;</span><br></pre></td></tr></table></figure>
+<div class='checkbox'><input type="checkbox" />
+            <p>纯文本测试</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>支持简单的 <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> 语法</p>
+            </div>
+<div class='checkbox red'><input type="checkbox" />
+            <p>支持自定义颜色</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>绿色 + 默认选中</p>
+            </div>
+<div class='checkbox yellow checked'><input type="checkbox" checked="checked"/>
+            <p>黄色 + 默认选中</p>
+            </div>
+<div class='checkbox cyan checked'><input type="checkbox" checked="checked"/>
+            <p>青色 + 默认选中</p>
+            </div>
+<div class='checkbox blue checked'><input type="checkbox" checked="checked"/>
+            <p>蓝色 + 默认选中</p>
+            </div>
+<div class='checkbox plus green checked'><input type="checkbox" checked="checked"/>
+            <p>增加</p>
+            </div>
+<div class='checkbox minus yellow checked'><input type="checkbox" checked="checked"/>
+            <p>减少</p>
+            </div>
+<div class='checkbox times red checked'><input type="checkbox" checked="checked"/>
+            <p>叉</p>
+            </div>
+
+<p>😊单选列表 radio</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% radio 纯文本测试 %&#125;</span><br><span class="line">&#123;% radio checked, 支持简单的 [markdown](https://guides.github.com/features/mastering-markdown/) 语法 %&#125;</span><br><span class="line">&#123;% radio red, 支持自定义颜色 %&#125;</span><br><span class="line">&#123;% radio green, 绿色 %&#125;</span><br><span class="line">&#123;% radio yellow, 黄色 %&#125;</span><br><span class="line">&#123;% radio cyan, 青色 %&#125;</span><br><span class="line">&#123;% radio blue, 蓝色 %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class='checkbox'><input type="radio" />
+            <p>纯文本测试</p>
+            </div>
+<div class='checkbox checked'><input type="radio" checked="checked"/>
+            <p>支持简单的 <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> 语法</p>
+            </div>
+<div class='checkbox red'><input type="radio" />
+            <p>支持自定义颜色</p>
+            </div>
+<div class='checkbox green'><input type="radio" />
+            <p>绿色</p>
+            </div>
+<div class='checkbox yellow'><input type="radio" />
+            <p>黄色</p>
+            </div>
+<div class='checkbox cyan'><input type="radio" />
+            <p>青色</p>
+            </div>
+<div class='checkbox blue'><input type="radio" />
+            <p>蓝色</p>
+            </div>
+
+<p>😊时间轴</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% timeline %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode 2020-07-24 [2.6.6 -&gt; 3.0](https://github.com/volantis-x/hexo-theme-volantis/releases) %&#125;</span><br><span class="line"></span><br><span class="line">1. 如果有 `hexo-lazyload-image` 插件，需要删除并重新安装最新版本，设置 `lazyload.isSPA: <span class="literal">true</span>`。</span><br><span class="line">2. 2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 `use_cdn: <span class="literal">true</span>` 则需要删除。</span><br><span class="line">3. 2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</span><br><span class="line">4. 2.x 版本的置顶 `top: <span class="literal">true</span>` 改为了 `pin: <span class="literal">true</span>`，并且同样适用于 `layout: page` 的页面。</span><br><span class="line">5. 如果使用了 `hexo-offline` 插件，建议卸载，3.0 版本默认开启了 pjax 服务。</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode 2020-05-15 [2.6.3 -&gt; 2.6.6](https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.6) %&#125;</span><br><span class="line"></span><br><span class="line">不需要额外处理。</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode 2020-04-20 [2.6.2 -&gt; 2.6.3](https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.3) %&#125;</span><br><span class="line"></span><br><span class="line">1. 全局搜索 `seotitle` 并替换为 `seo_title`。</span><br><span class="line">2. group 组件的索引规则有变，使用 group 组件的文章内，`group: group_name` 对应的组件名必须是 `group_name`。</span><br><span class="line">2. group 组件的列表名优先显示文章的 `short_title` 其次是 `title`。</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
+<div class="timeline">
+<div class="timenode"><div class="meta"><p><p>2020-07-24 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases">2.6.6 -&gt; 3.0</a></p>
+</p></div><div class="body"><ol><li>如果有 <code>hexo-lazyload-image</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>hexo-offline</code> 插件，建议卸载，3.0 版本默认开启了 pjax 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-05-15 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.6">2.6.3 -&gt; 2.6.6</a></p>
+</p></div><div class="body"><p>不需要额外处理。</p></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-04-20 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.3">2.6.2 -&gt; 2.6.3</a></p>
+</p></div><div class="body"><ol><li>全局搜索 <code>seotitle</code> 并替换为 <code>seo_title</code>。</li><li>group 组件的索引规则有变，使用 group 组件的文章内，<code>group: group_name</code> 对应的组件名必须是 <code>group_name</code>。</li><li>group 组件的列表名优先显示文章的 <code>short_title</code> 其次是 <code>title</code>。</li></ol></div></div>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-7"><p>😊行内图片</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">这是 &#123;% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif %&#125; 一段话。</span><br><span class="line"></span><br><span class="line">这又是 &#123;% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif, height=40px %&#125; 一段话。</span><br></pre></td></tr></table></figure>
+<p>这是 <img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> 一段话。</p>
+<p>这又是 <img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif" style="height:40px;"/> 一段话。</p>
+<p>😊单张图片</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">2.指定宽度：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px %&#125;</span><br><span class="line"></span><br><span class="line">3.指定宽度并添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">4.设置占位背景色：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, <span class="built_in">bg</span>=<span class="comment">#1D0C04, alt=优化不同宽度浏览的观感 %&#125;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>添加描述：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="每天下课回宿舍的路，没有什么故事。"/></div><span class="image-caption">每天下课回宿舍的路，没有什么故事。</span></div></li>
+<li><p>指定宽度：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" style="width:400px;"/></div></div></li>
+<li><p>指定宽度并添加描述：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="每天下课回宿舍的路，没有什么故事。" style="width:400px;"/></div><span class="image-caption">每天下课回宿舍的路，没有什么故事。</span></div></li>
+<li><p>设置占位背景色：</p>
+<div class="img-wrap"><div class="img-bg" style="background:#1D0C04"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="优化不同宽度浏览的观感" style="width:400px;"/></div><span class="image-caption">优化不同宽度浏览的观感</span></div></li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-8"><p>😊插入音频</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %&#125;</span><br></pre></td></tr></table></figure>
+<div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div>
+
+<p>😊插入视频</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.100%宽度</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line"></span><br><span class="line">2.50%宽度</span><br><span class="line">&#123;% videos, 2 %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% endvideos %&#125;</span><br><span class="line"></span><br><span class="line">3.25%宽度</span><br><span class="line">&#123;% videos, 4 %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %&#125;</span><br><span class="line">&#123;% endvideos %&#125;</span><br></pre></td></tr></table></figure>
+<p>1.100%宽度</p>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+
+<p>2.50%宽度</p>
+<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div>
+
+<p>3.25%宽度</p>
+<div class="videos" col='4'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
       <categories>
         <category>学习の世界</category>
       </categories>
+      <tags>
+        <tag>前端教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>😊TOGAF考题汇总习题版</title>
+    <url>/2021/07/03/%F0%9F%98%8ATOGAF%E8%80%83%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%A0%E9%A2%98%E7%89%88/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>TOGAF最新2021版本习题在线练习册，支持在线做题的呦</p>
+</div>
+
+<hr>
+<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1">基础级题库</button></li><li class="tab"><button type="button" data-href="#test1-2">鉴定级题库</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;1、以下哪一项最能描述的架构合规性审查的目的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 评估一个项目的架构愿景的有效性</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 审查项目是否符合外部法律法规</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.审查项目是否违背既定的架构准则和业务目标</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了确保干系人的关注点在项目中得到满足</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>严格确保架构合规性,审查项目是否违背既定的架构准则和业务目标</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;2、关于TOGAF9.2 文档结构的叙述中，哪一个是正确的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.第一部分介绍了企业架构的 TOGAF 方法</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 第二部分介绍了术语的使用、TOGAF 的版本之间的定义和变化</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.第三部分介绍了需求管理，这部分被认为是TOGAF 的核心</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.第四部分介绍了 ADM:它是TOGAF9.2 中使用的，准则和技术的集合</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>注意:这里的togaf方法是一个概念不是ADM方法,所以是第一部分介绍</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;3、根据TOGAF,下列哪一项最好地描述了企业架构？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.一个商业组织的架构</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.是由多个子公司的架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.跨越多个系统，以及多个职能组织的企业级架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.一个给定的组织所能够取得的最高架构级别</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>共同目标的组织不一定是商业的；中小企业没有子公司也需要企业架构，企业架构有3个层次，最高级别是战略架构，以偏概全了。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;4、TOGAF 中，制品和交付物之间的区别是什么？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 制品包含一个或多个可交付物</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 制品和可交付物是同义的，它们之间没有任何区别</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.可交付成果由项目经理编制，而制品是架构师定义的</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.交付物是可重用的，而制品是对于一个给定的架构项目具有唯一性</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>日常产出构建块，阶段产出为制品，最终产出交付物</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;5、以下哪一项是TOGAF 架构存储库中的主要组成部分之一？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 组织元模型，架构能力，架构愿景，最佳实践，参考库，合规性策略</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 架构元模型，组织能力模型，应用愿景，SIB</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.业务元模型，架构能力，架构愿景，SIB</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 架构元模型，架构能力，架构愿景，SIB</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构存储库中分类如下: 架构元模型（Architecture Metamodel）:描述了组织为自身量身定制的架构框架，包括架构开发方法和架构内容的元模型。 架构能力（Architecture Capability）:定义了用于支持架构资源库治理的各个因素、结构和流程。 架构情景（Architecture Landscape）:展示了由组织当前正在使用的构件块所组成的一幅架构视图。为了适用于不同的架构目标，架构情景通常会存在于多个粒度层次中。 架构存储库分类: 标准信息库（Standards Information Base）:此信息库储存了新架构所必须遵循的各个标准，包括行业标准、从供应商处所选择的产品和服务，或者是已经部署在组织中的共享服务。 参考库（Reference Library）:提供了用来加速企业中新架构创建的导则、模板、模式以及其他形式的参考资料。 治理日志（Governance Log）:用于对整个企业中的治理活动进行记录。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;6、按照TOGAF 文档分类模型，哪一类别描述了一种技术，使得TOGAF 核心部分和TOGAF规定部分的此类流程可以利用它？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.TOGAF 指南和技术</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.TOGAF 推荐</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.TOGAF 支持</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.TOGAF 扩展</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>TOGAF分为核心内容和扩展内容，扩展是选用技术，必须有的是推荐，togaf一般不强制 核心为推荐，扩展为选用 TOGAF文档分类模型: 制定TOGAF规格发行管理本身的模式 TOGAF规格，内容分类: ? TOGAF核心:基础概念，形成了TOGAF的本质 ? TOGAF强制:TOGAF规范部分。元素考虑为其使用的中心，没有这样的元素，框架将不会是TOGAF了。 ? TOGAF推荐:TOGAF中引用的一组资源，作为完成核心和强制的流程的方式 ? TOGAF支持:其他三类中没有引用的额外资源</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;7、以下哪一项原因最能说明ADM版本编号方案仅是示例区分，而不是强制性的编号？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 要显示 ADM 架构模型交付物的演变</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 根据需要允许调整</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.为了能够使用架构内容框架</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了支持变更管理</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>强调可裁剪性</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;1、以下哪一项最能描述的架构合规性审查的目的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 评估一个项目的架构愿景的有效性</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 审查项目是否符合外部法律法规</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.审查项目是否违背既定的架构准则和业务目标</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了确保干系人的关注点在项目中得到满足</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>严格确保架构合规性,审查项目是否违背既定的架构准则和业务目标</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;2、关于TOGAF9.2 文档结构的叙述中，哪一个是正确的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.第一部分介绍了企业架构的 TOGAF 方法</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 第二部分介绍了术语的使用、TOGAF 的版本之间的定义和变化</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.第三部分介绍了需求管理，这部分被认为是TOGAF 的核心</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.第四部分介绍了 ADM:它是TOGAF9.2 中使用的，准则和技术的集合</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>注意:这里的togaf方法是一个概念不是ADM方法,所以是第一部分介绍</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;3、根据TOGAF,下列哪一项最好地描述了企业架构？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.一个商业组织的架构</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.是由多个子公司的架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.跨越多个系统，以及多个职能组织的企业级架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.一个给定的组织所能够取得的最高架构级别</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>共同目标的组织不一定是商业的；中小企业没有子公司也需要企业架构，企业架构有3个层次，最高级别是战略架构，以偏概全了。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;4、TOGAF 中，制品和交付物之间的区别是什么？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 制品包含一个或多个可交付物</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 制品和可交付物是同义的，它们之间没有任何区别</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.可交付成果由项目经理编制，而制品是架构师定义的</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.交付物是可重用的，而制品是对于一个给定的架构项目具有唯一性</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>日常产出构建块，阶段产出为制品，最终产出交付物</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;5、以下哪一项是TOGAF 架构存储库中的主要组成部分之一？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 组织元模型，架构能力，架构愿景，最佳实践，参考库，合规性策略</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 架构元模型，组织能力模型，应用愿景，SIB</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.业务元模型，架构能力，架构愿景，SIB</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 架构元模型，架构能力，架构愿景，SIB</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构存储库中分类如下: 架构元模型（Architecture Metamodel）:描述了组织为自身量身定制的架构框架，包括架构开发方法和架构内容的元模型。 架构能力（Architecture Capability）:定义了用于支持架构资源库治理的各个因素、结构和流程。 架构情景（Architecture Landscape）:展示了由组织当前正在使用的构件块所组成的一幅架构视图。为了适用于不同的架构目标，架构情景通常会存在于多个粒度层次中。 架构存储库分类: 标准信息库（Standards Information Base）:此信息库储存了新架构所必须遵循的各个标准，包括行业标准、从供应商处所选择的产品和服务，或者是已经部署在组织中的共享服务。 参考库（Reference Library）:提供了用来加速企业中新架构创建的导则、模板、模式以及其他形式的参考资料。 治理日志（Governance Log）:用于对整个企业中的治理活动进行记录。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;6、按照TOGAF 文档分类模型，哪一类别描述了一种技术，使得TOGAF 核心部分和TOGAF规定部分的此类流程可以利用它？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.TOGAF 指南和技术</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.TOGAF 推荐</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.TOGAF 支持</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.TOGAF 扩展</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>TOGAF分为核心内容和扩展内容，扩展是选用技术，必须有的是推荐，togaf一般不强制 核心为推荐，扩展为选用 TOGAF文档分类模型: 制定TOGAF规格发行管理本身的模式 TOGAF规格，内容分类: ? TOGAF核心:基础概念，形成了TOGAF的本质 ? TOGAF强制:TOGAF规范部分。元素考虑为其使用的中心，没有这样的元素，框架将不会是TOGAF了。 ? TOGAF推荐:TOGAF中引用的一组资源，作为完成核心和强制的流程的方式 ? TOGAF支持:其他三类中没有引用的额外资源</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;7、以下哪一项原因最能说明ADM版本编号方案仅是示例区分，而不是强制性的编号？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 要显示 ADM 架构模型交付物的演变</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 根据需要允许调整</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.为了能够使用架构内容框架</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了支持变更管理</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>强调可裁剪性</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;8、根据TOGAF,应该在哪里保存架构治理制品？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 在综合信息基础设施参考模型</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 在标准信息库</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.在基础架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.架构存储库</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构存储库存储制品</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;9、下列哪一项最好的描述了TOGAF 可以作为一个通用架构？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 组织必须使用这一架构工具来定制使用模板</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.它必须被调整以满足组织的特定要求</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C. 它可以被大多数企业直接采用，不需要进一步定制化</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.它只能用于企业级架构项目</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>让企业在通用架构框架的指导下进行调整，以找到适合自己的架构框架。 框架为通过，定制为应用。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;10、下列哪一项是描述逻辑软件（中间件）和硬件功能（基础设施）架构领域？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.应用架构</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.业务架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C. 数据架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.技术架构</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>技术架构是描述平台服务以及逻辑和物理技术组件的结构和交互。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;11、TOGAF 文档哪一部分描述了相关过程，技能和角色，以在企业内建立起可运行的架构能力？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 第二部分:架构开发方法</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.第三部分:ADM 指引和技术</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C. 第四部分:架构内容框架</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 第六部分:TOGAF 参考模型</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>建立企业架构能力（架构开发小组、架构治理小组），才能有效的进行架构活动是在第七部分架构能力框架说明的。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;12、下列哪一个不是架构框架的元素？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.通用词汇表</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 推荐标准的列表</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.一个基于构件块来构建信息系统的方法</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.一组开发出来的、用户更为广泛的架构</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>软件工程方法不是。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;13、哪一个描述了架构存储库中架构和解决方案制品的分类方法？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.架构景观</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 架构愿景</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.企业连续性</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.治理日志</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>架构存储库:企业连续系列是面向重用等级的虚拟分类</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;14、完成句子。为促进企业内部开展有效的架构活动，TOGAF9.2 建立一个（）。<div class='checkbox green'><input type="checkbox" /><br>            <p>A.企业架构能力</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.IT 治理委员会</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.程序管理办公室</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.质量保证部门</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>建立企业架构能力（架构开发小组、架构治理小组），才能有效的进行架构活动</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;15、根据TOGAF 文档分类模型；哪一类是在其他类别中没有引用的资源的集合？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.TOGAF 核心类</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.TOGAF 扩展类</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.TOGAF 规定类</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.TOGAF 推荐类</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>TOGAF文档分类模型: 制定TOGAF规格发行管理本身的模式 TOGAF规格，内容分类: ? TOGAF核心:基础概念，形成了TOGAF的本质 ? TOGAF强制:TOGAF规范部分。元素考虑为其使用的中心，没有这样的元素，框架将不会是TOGAF了。 ? TOGAF推荐:TOGAF中引用的一组资源，作为完成核心和强制的流程的方式 ? TOGAF支持:其他三类中没有引用的额外资源</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;16、ADM 的哪个阶段是用来完成一组支持实施的过渡架构的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.阶段D</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.阶段 E</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.阶段 F</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.阶段 H</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>阶段E:机会与解决方案,组成各过渡架构,形成项目组合:解决方案构建块选定，优先级 阶段F -迁移计划（Migration lanning）:敲定详细的实施和迁移计划，以便从基础架构迁移至目标架构。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;17、完成句子。TOGAF 第三部分提供了一些技术，比如开发原则和差距分析来支持______的任务<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 架构能力框架</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 架构连续性</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.架构开发方法</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 架构愿景</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>32种核心技术都是服务于ADM的</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;18、根据TOGAF,用于定义一个架构范围的推荐维度不包括下列哪一项:<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 架构领域</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 企业焦点</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.详细级别</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.主题素材</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>6.2架构分区 主题素材与维度无关</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;19、什么级别的架构愿景提供了整个企业的长远摘要视图？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 能力架构</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.业务架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.分段架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 战略架构</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>级别提供了一个框架，将架构景观划分为三个粒度级别: 1 战略架构为运营和变革活动提供了一个组织框架，并允许在行政层面进行方向设置 2 分段架构为运营和变更活动提供了一个组织框架，并允许在程序或组合级别进行方向设置和开发有效的架构路线图。 3 能力架构为变革活动提供了一个组织框架，并为实现能力增量而制定有效的架构路线图。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;20、架构存储库的哪一部分包含必需遵循的架构规约？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.标准信息库</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 企业连续性</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.治理日志</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 架构景观</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>各类标准（业务、数据、应用、技术标准）必须遵循架构规约。</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;21、一个企业协会已经定义了一数据模型，来共享库存和价格信息。从架构可持续性角度，以下哪一项说明与这个模型的描述最内贴切？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 基础架构</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 共有的系统架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.行业架构</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 特定组织架构</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>一个等级系列: ? 特定级别看企业 ? 行业级别看产业 ? 通用级别看跨越 ? 基础级别看标准</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;22、在解决方案连续性方面，以下哪一项是从特定解决方案到通用解决方案的正确顺序？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.通用系统级，基础级，领域级，组织特定级</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 组织特定级，领域级、基础级、通用系统级</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.基础级、通用系统级、领域级、组织特定级</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.领域级，基础级，通用系统级，组织特定级</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>组织特定级-&gt;领域级-&gt;通用系统级-&gt;基础级</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;23、下面哪一个是TOGAF ADM 阶段A 的一个关键目标？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 创建一个路线图，描述架构随时间的演化</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B.为企业准备解决方案架构</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C. 定义一个IT战略，描绘未来的技术基础设施</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.分配必要的资源来实现架构项目</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>2.3.2 阶段A:架构愿景 启动架构流程的一次迭代:设置范围、限制、期望 （每次迭代周期均需进行） 创建架构愿景 验证业务情境（上下文） 创建架构工作说明书</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;24、什么文档用于启动<br>TOGAF ADM循环？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 架构路线图</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 架构工作说明</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C. 架构愿景</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D. 架构工作请求</p><br>            </div><div class='checkbox red'><input type="checkbox" /><br>            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p><br>            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构工作请求是从发起组织发送到架构组织的文档，以触发架构开发周期的开始。它是在架构组织的协助下生成的，作为初步阶段的输出。架构工作申请也将根据批准的架构变更请求或源自迁移计划的架构工作的职权范围而创建</psw><br></p>
+<hr>
+<p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;25、根据TOGAF,如果没有架构资产或架构资产很少时，下列哪一项是开发基线业务架构的常用方法？</p>
+<div class='checkbox green'><input type="checkbox" />
+            <p>A. 自下而上</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 构想</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.扩展</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 构</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>基线先行（自下而上）:架构资产少，当无法清晰地了解目标解决方案时，这种过程比较适用 目标先行（自上而下）:当目标状成已在高层达成一致时，这种过程比较适用。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;26、TOGAF ADM 哪一个阶段是目标架构实施规划的初始阶段？<div class='checkbox green'><input type="checkbox" />
+            <p>A.阶段D</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.阶段 E</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.阶段 F</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.阶段 G</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>阶段E - 机会与解决方案（Opportunities and Solutions）:该阶段描述了确定交付方式(项目、项目群或谱系)的流程，以便有效交付前阶段制定的目标架构。 开始实施迁移规划E，完成规划是F</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;27、在ADM 的哪一阶段，工作重点是架构契约的治理和管理，它涵盖了总体实施和部署过程？<div class='checkbox green'><input type="checkbox" />
+            <p>A.需求管理</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.阶段 E</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 阶段 F</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.阶段G</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>Phase G: Implementation Governance 实施治理</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;28、完成句子。服务器整合项目，不改变应用程序的运行特点，需要:<div class='checkbox green'><input type="checkbox" />
+            <p>A.一个完整的 ADM周期</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 一个完整的架构整体变更</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.企业架构的全面修订</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 增量变更</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>变更请求的两种输入，三种类型 ? 两种输入:需求变化，治理偏差 ? 三种变更类型:整体变更（看战略），增量变更（加能力），简单变更（纯IT架构） 服务器属于架构简单变更</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;29、下列哪一个是ADM 预备阶段的目的？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构任务的定义，范围和优先级</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 定义架构原则</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.制定目标业务架构</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.获得对此次 ADM 周期的管理承诺</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>准备阶段定原则。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;30、在预备阶段，描述企业架构工作范围时，下列哪一项需要进行需求和性能度量？<div class='checkbox green'><input type="checkbox" />
+            <p>A.架构治理</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 业务必要性</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.解决方案架构</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 服务级别协议</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>架构范围说明书，哪些作哪些不作，以业务为中心</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;31、需求管理阶段是负责下列哪一项活动？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 需求访问</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 关闭已解决的需求</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 生成需求</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 管理需求流</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>需求管理过程是一个动态过程，该过程解决了企业需求的标识，存储需求，然后将其输入和输出相关的ADM阶段，所以D正确，管理需求流</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;32、完成句子。业务转型评估的准备技术的主要关注是<div class='checkbox green'><input type="checkbox" />
+            <p>A. 确定该组织是否已准备好接受变更</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 规划实现转型所需的迁移步骤</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.确保有足够的训练有素的开发人员和工程师来实施解决方案</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 确保有足够的财力来执行所期望的迁移</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>业务转型评估是架构师与企业领导沟通，企业是否接受能力建设与能力增量</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;33、以下哪一项是错误的架构原则说明？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 他们是最有效的，当涵盖、全组织使用时</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.它们都是基于企业原则</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.它们都是有关行为和需求的详细策略</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.尽管他们可能表现为通用，但是也应该根据组织的文化与目标进行定制</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>原则不是具体的行动指南，是方针、理念和价值定位</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;34、完成句子。哪一项不是架构原则定义模板的推荐内容<div class='checkbox green'><input type="checkbox" />
+            <p>A. 名称</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.原则说明</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.合理性分析</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 强制执行政策</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>原则不是强制，是引导和控制，另整个企业反对强制。 TOGAF Template for Defining Principles: Name名称， Statement声名， Rationale基本原理，Implications含义 名称应积极，声名应无二意，依据有价值，相关保一致</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;35、以下哪一项是架构原则定义有关的五个质量标准？<div class='checkbox green'><input type="checkbox" />
+            <p>A.合理、解释，精确，叙述性，可识别</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 全面，面向未来的，短，简洁，持续的</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 开放，启用，灵活，敏捷的，动态</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.稳定的，可以理解的，完整的，健壮的，持续的（一致性）</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>稳定看变化 易懂看用户 完整看覆盖 健壮看复杂 相关（一致性）看冲突</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;36、完成句子。差距分析的主要目的是<div class='checkbox green'><input type="checkbox" />
+            <p>A.建立架构的质量参数</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 识别潜在的不足或功能重叠</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.验证非功能性需求</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.确定要购买的商业构件块</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>差距分析的技术在ADM中被广泛用于验证正在开发的架构。这通常是一个阶段的最后一步。基本前提是突出基线架构和目标架构之间的差距; 即故意遗漏，意外遗漏或尚未定义的项目。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;37、完成句子。在差距分析，构建块出现在目标架构中，但没有出现在架构基线中，说明它:<div class='checkbox green'><input type="checkbox" />
+            <p>A.是不适用的解决方案构建块</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 已发生错误和架构必须被重新评估</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.需求还没有被准确的文档化</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.该功能需要被清除</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>目标有，基线没有，说明缺，需要新建这个能力</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;38、完成句子。以下所有的都是TOGAF 架构治理框架的概念结构中的元素，除了<div class='checkbox green'><input type="checkbox" />
+            <p>A. 内容</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 上下文</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.过程流程控制</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.信息库</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>架构治理框架的概念结构图，其中涵盖了这一框架中的各种概念，包括上下文、流程、内容、过程流控制和资源库</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;39、完成句子。架构委员会所负责的目标中不包括<div class='checkbox green'><input type="checkbox" />
+            <p>A.确保子架构之间的一致性</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 批准在企业内部个别机构单位的所提出的战略业务计划</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.执行架构规范</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 识别和审批可重用的组件</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>架构委员会可以对其负责和负责的问题是: ? 为所有关于架构变化的决策提供基础 ? 子架构之间的一致性 ? 识别可重复使用的组件 ? 企业架构的灵活性; 满足业务需求并利用新技术 ? 执行架构合规性 ? 提高组织内部架构规范的成熟度 ? 确保采用以架构为基础的发展纪律 ? 支持可视化升级功能以进行跨界决策 选B,架构委员会所负责的目标不包括战略决策</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;40、根据TOGAF 架构，下列哪一项是被普遍接受的一个整个企业架构的子集划分？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 应用，业务，数据，技术</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 能力，组件，战略</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.下文，定义，治理，改造</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 定义，实现，过渡，愿景</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;41、TOGAF「提供了一种向导，说明如何使用ADM建立一种架构能力，下列哪一项是不正确的指导方针？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 与建立任何其他能力一样，使用同样的方法</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 作为一个持续实践不断进行建设</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 应用 ADM与特定的愿景，建立实践</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.认为架构能力建设可以是一个一次性的项目</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构能力建设不是一蹴而就的。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;42、下列哪一个是由TOGAF 定义为:体现在它的组件里的系统基本组织它们之间的相互关系，以及指导其设计和演化的原则？
+<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 元模型</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.模型</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 本体论</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>什么是TOGAF标准中的架构？ “一个系统在其环境中的基本概念或属性体现在它的元素、元素之间的关系以及它的设计和进化的原则中。” TOGAF标准还根据上下文定义了第二个含义:组件的结构、它们之间的相互关系，以及关于组件设计和随时间演变的原则和指南。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;43、TOGAF 中，架构视点表示为:<div class='checkbox green'><input type="checkbox" />
+            <p>A.CIO/首席技术官的观察</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.赞助商的意见</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 架构师的观察</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 干系人的关注</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>架构视点表示为干系人的关注</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;44、关于TOGAF 构建块下列哪一项陈述是不正确？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 他们不应该在其他企业架构工程计划再用</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.它们应该有稳定的，发布的接口，允许其他构建块与它们互操作</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.它们是功能包，旨在满足整个组织的业务需求</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 它们已定义的边界</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;45、架构构建块＿其中作为解决方案构建块＿<div class='checkbox green'><input type="checkbox" />
+            <p>A. 组装:是单一功能组件</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 是单功能部件；是架构构建块组</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 是可重用的，不可重复使用</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.定义架构；提供现有遗留系统</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;46、根据TOGAF 下列哪一项最能描述架构定义文件的目的是什么？<div class='checkbox green'><input type="checkbox" />
+            <p>A.开发方和赞助商在交付之间的协议</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.一个描述，以便实施合规的测量</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.架构师意图的沟通说明</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.触发架构开发周期的启动文档</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>? 架构定义文档提供了解决方案的定性视图，旨在传达架构师的意图</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;47、根据TOGAF,谁通常发起请求架构工作？<div class='checkbox green'><input type="checkbox" />
+            <p>A.架构组织</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.CIO/CTO</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.企业治理委员会</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 高级管理人员</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>架构工作请求，这是从发起组织发送到架构组织的文档，以触发架构开发周期的开始。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;48、下列哪一项是关于TOGAF 技术参考模型(TRM)一个真实的陈述？<div class='checkbox green'><input type="checkbox" />
+            <p>A.TOGAF 架构开发方法要求，针对大型复杂架构项目使用技术参考模型</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.技术参考模型是 TOGAF 架构开发方法的一个组成部分</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.技术参考模型不应该被修改</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.技术参考模型包括一组图解模型和对应的分类学</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;49、完成句子。综合信息基础架构参考模型（IIIRM)是一种＿＿参考模型的一个例子<div class='checkbox green'><input type="checkbox" />
+            <p>A. 应用架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 业务架构</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.数据架构</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 技术架构</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>IIIRM是一个应用架构参考模型</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;50、完成句子。根据TOGAF 最简单的方法是把企业连续看为＿<div class='checkbox green'><input type="checkbox" />
+            <p>A.配置数据库</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.架构制品库</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.需求管理系统</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.标准信息库</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>企业连续是架构存储库视图</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;51、架构存储库中的哪些类的结构信息定义了支持架构存储库的治理流程？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构能力</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 架构愿景</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 架构元模型</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 治理日志</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>架构存储库中分类如下: 架构元模型（Architecture Metamodel）:描述了组织为自身量身定制的架构框架，包括架构开发方法和架构内容的元模型。 架构能力（Architecture Capability）:定义了用于支持架构资源库治理的各个因素、结构和流程。 架构情景（Architecture Landscape）:展示了由组织当前正在使用的构件块所组成的一幅架构视图。为了适用于不同的架构目标，架构情景通常会存在于多个粒度层次中。 架构存储库分类: 标准信息库（Standards Information Base）:此信息库储存了新架构所必须遵循的各个标准，包括行业标准、从供应商处所选择的产品和服务，或者是已经部署在组织中的共享服务。 参考库（Reference Library）:提供了用来加速企业中新架构创建的导则、模板、模式以及其他形式的参考资料。 治理日志（Governance Log）:用于对整个企业中的治理活动进行记录。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;52、下列哪一项是在架构连续最通用的制品？<div class='checkbox green'><input type="checkbox" />
+            <p>A.共有的系统架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 基础架构</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.行业架构</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 组织特定的架构</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>基础-》通用-》行业-》特定组织</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;53、完成句子。随着架构的演进，解决方案连续中的资产会走向<div class='checkbox green'><input type="checkbox" />
+            <p>A. 共有的系统架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.行业特定架构</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.基础解决方案</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.组织特定解决方案</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>基础-》通用-》行业-》特定组织</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;54、ADM 的哪个阶段，业务原则，业务目标和战略驱动力首先被验证？<div class='checkbox green'><input type="checkbox" />
+            <p>A.准备阶段</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.阶段 A</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.阶段 B</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.阶段H</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>业务架构阶段</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;55、以下哪一项最好地描述一个架构愿景文件的主要用途？<div class='checkbox green'><input type="checkbox" />
+            <p>A.检查清单合规审查</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 评估工具，用来选择供应商，进行概念验证</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.一个工具，它计算详细的成本估算</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.一个项目工具，用于规划实施活动</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>架构愿景描述的是与领导层沟通之下授权达成一种共识，用来向各部门推销之用</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;56、下列哪一项不是阶段B 业务架构的目标？<div class='checkbox green'><input type="checkbox" />
+            <p>A.确定战略业务计划</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 描述基线业务架构</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.制定目标业务架构</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 选择主要利益相关者相关的观点</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;57、下列哪一项不是阶段C,数据架构的目标？<div class='checkbox green'><input type="checkbox" />
+            <p>A.确定，可以由利益相关方可以理解的架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 定义一个架构，它是完整和一致的</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.定义一个架构，它是稳定的</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.定义规范化的数据实体以减少更新异常</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选D，你答对了吗？</psw><br>本题解析:<psw>数据架构的目标: 1）开发目标数据架构，以解决架构工作声明和利益相关方关注的问题的方式，实现业务架构和架构愿景 2）根据基准和目标数据架构之间的差距确定候选架构路线图组件 数据架构:描述企业主要类型和数据来源，逻辑数据资产，物理数据资产和数据管理资源的结构和交互。 数据架构:组织的逻辑和物理数据资产以及数据管理资源的结构。</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;58、哪一项是在阶段C,应用架构使用最相关的模型？<div class='checkbox green'><input type="checkbox" />
+            <p>A.ARTS 数据模型</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 综合信息基础设施参考模式（III-R）</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.资源一事件一代理模犁</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 步骤框架</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw>综合信息基础设施参考模式（III-R） 是应用架构模型</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;59、在阶段G,有什么文件规定架构组织和实施组织之间的联系？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构合同/契约</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 架构愿景</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.架构路线图</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.需求影响报告书</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>阶段G实施治理</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;60、下列哪一项不是阶段H,架构变更管理方法的一部分？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 业务场景</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 能力测试</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.变更管理</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 测量业务增长</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>?阶段H变更管理 业务场景是愿景和业务需求的方法</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;61、在准备阶段当确定企业架构工作需求时，下列哪一项是不应该考虑的企业的当务之急？<div class='checkbox green'><input type="checkbox" />
+            <p>A.业务需求</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 文化诉求</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.预测财务要求</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.战略意图</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>?</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;62、ADM 的哪一个阶段是一项持续的活动，它在贯穿整个TOGAF 架构项目中被访问？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构变更管理</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 实施治理</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 迁移规划</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.初步阶段</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选E，你答对了吗？</psw><br>本题解析:<psw>需求管理过程是一个动态过程，该过程解决了企业需求的标识，存储需求，然后将其输入和输出相关的ADM阶段，所以他是一个贯穿整个TOGAF架构</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;63、以下哪一项最能描述在ADM中的风险管理？<div class='checkbox green'><input type="checkbox" />
+            <p>A.最好在架构远景阶段进行风险分析，这样在随后的阶段避免了风险</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.风险分析应首先在迁移计划阶段。风险分析是企业架构的范围之外的项目</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.各企业架构活动风险无处不在，应该在ADM的所有阶段进行管理</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.唯一的风险是企业架构范围内的技术风险</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>，</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;64、下列哪一个最好的描述了基于能力的规划？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 侧重业务成果的一种业务规划技术</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.侧重水平能力的一种业务规划技术</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C. 侧重垂直能力的一种业务规划技术</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.侧重有能力的架构师的一个人力资源规划技术</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;65、下列哪一项是TOGAF 推荐的技术，以帮助识别和理解需求？<div class='checkbox green'><input type="checkbox" />
+            <p>A.架构成熟度模型</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 业务场景</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.差距分析</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.思维导图</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选B，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;66、下列哪一个提供了这样的基础，即建造架构和规划决定，制定政策，步骤和标准，并支持相互矛盾的情况的解决？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 架构原则</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 购买单</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.采购政策</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 需求</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;67、下列哪一个被推荐为定义需求，并阐明在阶段A 中创建的架构愿景？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 业务场景</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 影响分析</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.任务声明</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D. 需求分析</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;68、差距分析是在阶段B,C,D 和E.以下哪一项最能说明差距分析技术中使用的一个技巧？<div class='checkbox green'><input type="checkbox" />
+            <p>A. 它强调了利益相关方关注的领域</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B. 它突出变化的影响</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.它强调待开发的服务</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.它强调可用的服务</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>？</psw><br>
+***
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;69、下列哪一项是一个实践，通过它，在企业层面上，管理和控制企业架构和其他架构？
+<div class='checkbox green'><input type="checkbox" />
+            <p>A. 治理架构</p>
+            </div><div class='checkbox yellow'><input type="checkbox" />
+            <p>B.公司治理</p>
+            </div><div class='checkbox cyan'><input type="checkbox" />
+            <p>C.IT 治理</p>
+            </div><div class='checkbox blue'><input type="checkbox" />
+            <p>D.技术治理</p>
+            </div><div class='checkbox red'><input type="checkbox" />
+            <p>E.技术参考模型提供了一个直接映射 Zachman 框架</p>
+            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
+***<button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><div class="tip warning faa-horizontal animated"><p>本页仍然在施工中，毕竟我这么懒</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <tags>
+        <tag>TOGAF</tag>
+      </tags>
   </entry>
 </search>
