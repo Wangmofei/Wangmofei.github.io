@@ -26,6 +26,110 @@
       </tags>
   </entry>
   <entry>
+    <title>😊常用部署命令大杂烩</title>
+    <url>/2021/05/17/hello-world/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
+</div>
+
+<hr>
+<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+
+<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
+<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
+<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
+</ol>
+]]></content>
+      <categories>
+        <category>音乐の世界</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>⭐Yeelight烛光氛围灯接入HomeKit</title>
+    <url>/2021/08/16/%E2%AD%90Yeelight%20%E7%83%9B%E5%85%89%E6%B0%9B%E5%9B%B4%E7%81%AF%E6%8E%A5%E5%85%A5%20Apple%20HomeKit/</url>
+    <content><![CDATA[<div class="tip warning"><p>大王我第一次在购物网站上看到 Yeelight 烛光氛围灯时，便被它精巧的外观设计所吸引，果断地入手了一台。使用 Yeelight 配套 App，灯光的亮度可以通过蓝牙进行控制，非常方便。</p>
+</div>
+
+<ol>
+<li><p>在 iOS 10 中，苹果正式推出了 HomeKit，用于集中管理家中的智能硬件。可惜的是，Yeelight 烛光氛围灯并不能够直接接入到 HomeKit。笔者搜索了相关的解决方案，找到了可以运行在树莓派上的 Homebridge 及其插件 homebridge-yeelight。Homebridge 是一个 Node.js 服务器，能够模拟成 HomeKit 的网关，与 iOS 和 macOS 上的家庭 App 配对。而 Homebridge 强大的插件系统则能够控制原本不属于 HomeKit 生态圈的硬件，实现对家庭 App 的兼容。</p>
+</li>
+<li><p>homebridge-yeelight 原版插件在 2019 年就停更了，这一插件支持 Yeelight 彩光灯，但并没有适配烛光氛围灯。幸运的是，一位热心网友提交了 Pull Request 增加这个功能。这里需要深入研究 Yeelight 灯具的蓝牙通讯规则，工作量着实不小。另一个问题是，homebridge-yeelight 插件使用的用于蓝牙通讯的库 noble 和 bluetooth-hci-socket 也停更了，后者是 C++ 写的，依赖于 libbluetooth-dev。由于 v8 引擎的 API 发生变化，这个库只能适配到 Node.js 8，在最新的 Node.js 16 中过不了编译。</p>
+</li>
+</ol>
+<div class="tip warning"><p>又经过一番搜索，笔者发现 noble 这个库被 abandonware 组织救活了，这一组织的宗旨就是集众人之力，fork 并维护一些被抛弃的项目。对于 homebridge-yeelight 插件而言，将依赖包设置为 @abandonware/noble 就又可以用起来了。</p>
+</div>
+
+<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><p>下面介绍完整的安装流程。注意，Homebridge 并不需要用 root 运行（只需要先用 setcap 给权限就行，后文会讲)，而且笔者的经验表明，npm 依赖装在 root 权限下容易产生灾难性的后果。因此后面的操作用 pi 这个用户即可。</p>
+<h1 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h1><p>如果树莓派上还没有安装 Node.js，那么可以先安装 nvm，再用 nvm 管理 Node.js 版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>这一行命令将在用户的家目录下创建.nvm 目录。如果执行时 curl 卡住，那就挂个代理。</p>
+<p>完成后，按照提示重启终端，就可以使用 nvm 安装 Node.js 了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 16</span><br></pre></td></tr></table></figure>
+<p>可以执行 node 或者 npm 试试安装是否正确。</p>
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">setcap</span> cap_net_raw+eip $(<span class="built_in">eval</span> <span class="built_in">readlink</span> -f `<span class="built_in">which</span> node`)</span><br></pre></td></tr></table></figure>
+
+<p>这将允许 Node.js 和 Homebridge 搜索蓝牙设备。每次更新 Node.js 后都需要再次执行以上命令。</p>
+<h1 id="安装-Homebridge"><a href="#安装-Homebridge" class="headerlink" title="安装 Homebridge"></a>安装 Homebridge</h1><p>接下来全局安装 Homebridge 及其插件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g homebridge https://gitpkg.vercel.app/stevenjoezhang/homebridge_yeelight/yeelight</span><br></pre></td></tr></table></figure>
+
+<p>homebridge-yeelight 插件将会安装依赖 @abandonware/bluetooth-hci-socket，并默认使用预编译版本的动态库；如果没有找到则会使用 node-gyp 进行编译。若是在安装时遇到报错，可以检查一下是不是这个原因。从源码编译的话就需要先执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install libbluetooth-dev</span><br></pre></td></tr></table></figure>
+<h1 id="运行-Homebridge"><a href="#运行-Homebridge" class="headerlink" title="运行 Homebridge"></a>运行 Homebridge</h1><p>执行homebridge，如果没有报错，那么就安装成功了。初次执行时 Homebridge 会在用户的家目录下创建.homebridge 目录。为了配置 Yeelight 插件，需要用文本编辑器创建一个 config.json 文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.homebridge/config.json</span><br></pre></td></tr></table></figure>
+<p>然后写入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;bridge&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;YeeBridge&quot;</span>,</span><br><span class="line">        <span class="string">&quot;username&quot;</span>: <span class="string">&quot;18:00:27:40:BC:1B&quot;</span>,</span><br><span class="line">        <span class="string">&quot;port&quot;</span>: 51825,</span><br><span class="line">        <span class="string">&quot;pin&quot;</span>: <span class="string">&quot;031-45-154&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;platforms&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;platform&quot;</span> : <span class="string">&quot;yeelight&quot;</span>,</span><br><span class="line">            <span class="string">&quot;name&quot;</span> : <span class="string">&quot;yeelight&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存好配置文件后，检查一下树莓派的蓝牙是否处于开启状态，然后重启 Homebridge。这时，树莓派附近的 Yeelight 烛光氛围灯就可以被发现了。</p>
+<p>最后，使用 iOS 的家庭 App，扫描 Homebridge 运行时输出的二维码，即可完成配置。</p>
+<p>参考文章：借助树莓派与 HomeBridge ，将 YeeLight 彩光灯接入 Apple HomeKit | Matrix 精选</p>
+<p>🍭支持一根棒棒糖！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>😎通过URLScheme一键打开健康码</title>
+    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
+</div>
+
+<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+
+<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
+
+<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
+
+<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到这一段</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
+
+<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
+<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
+</code></pre>
+<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
+
+<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+]]></content>
+  </entry>
+  <entry>
     <title>😊干货之常用标签写法</title>
     <url>/2021/06/24/%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本文记录一些常用的标签项，防止自己忘记该怎么写</p>
@@ -375,148 +479,6 @@
       </tags>
   </entry>
   <entry>
-    <title>😎通过URLScheme一键打开健康码</title>
-    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
-</div>
-
-<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-
-<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
-
-<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
-
-<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到这一段</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
-
-<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
-<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
-</code></pre>
-<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
-
-<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-]]></content>
-  </entry>
-  <entry>
-    <title>⭐Yeelight烛光氛围灯接入HomeKit</title>
-    <url>/2021/08/16/%E2%AD%90Yeelight%20%E7%83%9B%E5%85%89%E6%B0%9B%E5%9B%B4%E7%81%AF%E6%8E%A5%E5%85%A5%20Apple%20HomeKit/</url>
-    <content><![CDATA[<div class="tip warning"><p>大王我第一次在购物网站上看到 Yeelight 烛光氛围灯时，便被它精巧的外观设计所吸引，果断地入手了一台。使用 Yeelight 配套 App，灯光的亮度可以通过蓝牙进行控制，非常方便。</p>
-</div>
-
-<ol>
-<li><p>在 iOS 10 中，苹果正式推出了 HomeKit，用于集中管理家中的智能硬件。可惜的是，Yeelight 烛光氛围灯并不能够直接接入到 HomeKit。笔者搜索了相关的解决方案，找到了可以运行在树莓派上的 Homebridge 及其插件 homebridge-yeelight。Homebridge 是一个 Node.js 服务器，能够模拟成 HomeKit 的网关，与 iOS 和 macOS 上的家庭 App 配对。而 Homebridge 强大的插件系统则能够控制原本不属于 HomeKit 生态圈的硬件，实现对家庭 App 的兼容。</p>
-</li>
-<li><p>homebridge-yeelight 原版插件在 2019 年就停更了，这一插件支持 Yeelight 彩光灯，但并没有适配烛光氛围灯。幸运的是，一位热心网友提交了 Pull Request 增加这个功能。这里需要深入研究 Yeelight 灯具的蓝牙通讯规则，工作量着实不小。另一个问题是，homebridge-yeelight 插件使用的用于蓝牙通讯的库 noble 和 bluetooth-hci-socket 也停更了，后者是 C++ 写的，依赖于 libbluetooth-dev。由于 v8 引擎的 API 发生变化，这个库只能适配到 Node.js 8，在最新的 Node.js 16 中过不了编译。</p>
-</li>
-</ol>
-<div class="tip warning"><p>又经过一番搜索，笔者发现 noble 这个库被 abandonware 组织救活了，这一组织的宗旨就是集众人之力，fork 并维护一些被抛弃的项目。对于 homebridge-yeelight 插件而言，将依赖包设置为 @abandonware/noble 就又可以用起来了。</p>
-</div>
-
-<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><p>下面介绍完整的安装流程。注意，Homebridge 并不需要用 root 运行（只需要先用 setcap 给权限就行，后文会讲)，而且笔者的经验表明，npm 依赖装在 root 权限下容易产生灾难性的后果。因此后面的操作用 pi 这个用户即可。</p>
-<h1 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h1><p>如果树莓派上还没有安装 Node.js，那么可以先安装 nvm，再用 nvm 管理 Node.js 版本。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>这一行命令将在用户的家目录下创建.nvm 目录。如果执行时 curl 卡住，那就挂个代理。</p>
-<p>完成后，按照提示重启终端，就可以使用 nvm 安装 Node.js 了。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 16</span><br></pre></td></tr></table></figure>
-<p>可以执行 node 或者 npm 试试安装是否正确。</p>
-<p>然后执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">setcap</span> cap_net_raw+eip $(<span class="built_in">eval</span> <span class="built_in">readlink</span> -f `<span class="built_in">which</span> node`)</span><br></pre></td></tr></table></figure>
-
-<p>这将允许 Node.js 和 Homebridge 搜索蓝牙设备。每次更新 Node.js 后都需要再次执行以上命令。</p>
-<h1 id="安装-Homebridge"><a href="#安装-Homebridge" class="headerlink" title="安装 Homebridge"></a>安装 Homebridge</h1><p>接下来全局安装 Homebridge 及其插件。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g homebridge https://gitpkg.vercel.app/stevenjoezhang/homebridge_yeelight/yeelight</span><br></pre></td></tr></table></figure>
-
-<p>homebridge-yeelight 插件将会安装依赖 @abandonware/bluetooth-hci-socket，并默认使用预编译版本的动态库；如果没有找到则会使用 node-gyp 进行编译。若是在安装时遇到报错，可以检查一下是不是这个原因。从源码编译的话就需要先执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install libbluetooth-dev</span><br></pre></td></tr></table></figure>
-<h1 id="运行-Homebridge"><a href="#运行-Homebridge" class="headerlink" title="运行 Homebridge"></a>运行 Homebridge</h1><p>执行homebridge，如果没有报错，那么就安装成功了。初次执行时 Homebridge 会在用户的家目录下创建.homebridge 目录。为了配置 Yeelight 插件，需要用文本编辑器创建一个 config.json 文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.homebridge/config.json</span><br></pre></td></tr></table></figure>
-<p>然后写入以下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;bridge&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;YeeBridge&quot;</span>,</span><br><span class="line">        <span class="string">&quot;username&quot;</span>: <span class="string">&quot;18:00:27:40:BC:1B&quot;</span>,</span><br><span class="line">        <span class="string">&quot;port&quot;</span>: 51825,</span><br><span class="line">        <span class="string">&quot;pin&quot;</span>: <span class="string">&quot;031-45-154&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;platforms&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;platform&quot;</span> : <span class="string">&quot;yeelight&quot;</span>,</span><br><span class="line">            <span class="string">&quot;name&quot;</span> : <span class="string">&quot;yeelight&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>保存好配置文件后，检查一下树莓派的蓝牙是否处于开启状态，然后重启 Homebridge。这时，树莓派附近的 Yeelight 烛光氛围灯就可以被发现了。</p>
-<p>最后，使用 iOS 的家庭 App，扫描 Homebridge 运行时输出的二维码，即可完成配置。</p>
-<p>参考文章：借助树莓派与 HomeBridge ，将 YeeLight 彩光灯接入 Apple HomeKit | Matrix 精选</p>
-<p>🍭支持一根棒棒糖！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>😊常用部署命令大杂烩</title>
-    <url>/2021/05/17/hello-world/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
-</div>
-
-<hr>
-<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
-
-<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-
-<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
-<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
-<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
-</ol>
-]]></content>
-      <categories>
-        <category>音乐の世界</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>🎵记录弹过唱过的小清新歌曲</title>
-    <url>/2022/03/19/%F0%9F%8E%B5%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%88%91%E5%A5%8F%E8%BF%87%E7%9A%84%E5%B0%8F%E6%83%85%E6%AD%8C/</url>
-    <content><![CDATA[<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
-<div class="timenode"><div class="meta"><p><p>2020-06-30 早期原创音频</p>
-</p></div><div class="body"><ol><li><p>City of Star 爱乐之城 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>Canon in D 卡农 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>悬崖上的金鱼姬 宫崎骏 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 原创歌曲视频</p>
-</p></div><div class="body"><ol><li>指纹-杜宣达</li></ol><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 原创纯音乐视频</p>
-</p></div><div class="body"><ol><li>Por Una Cabeza<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 抖音神曲翻唱</p>
-</p></div><div class="body"><ol><li>指纹-杜宣达<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-
-</div>]]></content>
-  </entry>
-  <entry>
-    <title>😰那些我不能说的秘密</title>
-    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>心情故事</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>🌏让你的浏览器好用100倍</title>
     <url>/2021/08/22/%F0%9F%8C%8F%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A5%BD%E7%94%A8100%E5%80%8D/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
@@ -550,6 +512,151 @@
 <p>网页上的图片、视频、音频 他都可以很轻松的嗅探出来并且支持一键批量下载，当然有些加密的视频可能没办法下载，这时候我们就只能另辟奇径了。</p>
 <p>总的来说 Chrono 让浏览器的下载能力提升了的一个大档次，不需要单独安装下载工具，在浏览器内就可以完成所有下载管理功能。配合上开启浏览器的多线程下载功能，真的不需要安装 IDM 了，主要是完全免费！</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>😰那些我不能说的秘密</title>
+    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>心情故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>🎹十年乐队故事🎸我的音乐时光机</title>
+    <url>/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>记人生的一段乐队旅程，从美国到祖国，十年光阴匆匆流过，那些人和故事、觥筹交错的日子，终将留藏在我们每个人的心中，感谢音乐一路陪伴我们长大，愿初心不忘，愿那些旋律，感动常在，直至老去</p>
+<h1 id="后续更新计划（To-be-continue…）"><a href="#后续更新计划（To-be-continue…）" class="headerlink" title="后续更新计划（To be continue…）"></a>后续更新计划（To be continue…）</h1><div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>每位在我生命中出现的合作伙伴动态标签页，欢迎follow~</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>依据时间线，收集整理图片和视频资料</p>
+            </div>
+</div>
+
+
+<hr>
+<h1 id="Asteroid乐队故事-🎵"><a href="#Asteroid乐队故事-🎵" class="headerlink" title="Asteroid乐队故事 🎵"></a>Asteroid乐队故事 🎵</h1><blockquote>
+<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+</blockquote>
+<div class="site-card-group">
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">银川</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/ContentoCustomBackground.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">朱峰</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">大鱼</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">康逸夫</span><span class="desc">吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Moon(韩国)</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">张凌舒</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">子轩</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">吴倩</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">唐璐瑶</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Perin</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
+</div>
+
+<hr>
+<h1 id="金融街三号乐队故事-🎵"><a href="#金融街三号乐队故事-🎵" class="headerlink" title="金融街三号乐队故事 🎵"></a>金融街三号乐队故事 🎵</h1><blockquote>
+<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+</blockquote>
+<div class="site-card-group">
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">田老师</span><span class="desc">电吉他手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">秋子</span><span class="desc">贝斯手</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">彭博</span><span class="desc">吉他手</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">红霞辰琳，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">鼓手</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">鹏飞，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">男主唱</span></div></a>
+
+<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">潇艺，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">卓然</span><span class="desc">键盘手/女主唱</span></div></a>
+
+<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">书君</span><span class="desc">小提琴</span></div></a>
+</div>
+
+<hr>
+<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><ol><li>金融街三号乐队携全体队员献礼红歌会，用音乐唱出对党的爱与祝福<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-28 努力排练，预备演出</p>
+</p></div><div class="body"><ol><li>金鼎大厦的13楼有我们排练的身影~<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
+</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
+
+
+
+
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>🎵记录弹过唱过的小清新歌曲</title>
+    <url>/2022/03/19/%F0%9F%8E%B5%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%88%91%E5%A5%8F%E8%BF%87%E7%9A%84%E5%B0%8F%E6%83%85%E6%AD%8C/</url>
+    <content><![CDATA[<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>2020-06-30 早期原创音频</p>
+</p></div><div class="body"><ol><li><p>City of Star 爱乐之城 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>Canon in D 卡农 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>悬崖上的金鱼姬 宫崎骏 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 原创歌曲视频</p>
+</p></div><div class="body"><ol><li>指纹-杜宣达</li></ol><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 原创纯音乐视频</p>
+</p></div><div class="body"><ol><li>Por Una Cabeza<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 抖音神曲翻唱</p>
+</p></div><div class="body"><ol><li>指纹-杜宣达<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+
+</div>]]></content>
   </entry>
   <entry>
     <title>😊TOGAF考题汇总习题版</title>
@@ -1080,41 +1187,6 @@
       </tags>
   </entry>
   <entry>
-    <title>😨使用TorBrowser秘密访问暗网世界</title>
-    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
-    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
-</div>
-
-
-<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
-</div>
-
-<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
-
-<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
-<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
-</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>下载地址</p>
-</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>使用方法</p>
-</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
-</div>
-
-<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
-<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
-
-<div class="timeline">
-<div class="timenode"><div class="meta"><p><p>常用地址</p>
-</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
-</div>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>😊原创TOGAF架构方法总结</title>
     <url>/2021/08/16/%F0%9F%98%8A%E5%8E%9F%E5%88%9BTOGAF%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本大王基于TOGAF9.2英文版教程，整合各类资料以及个人对架构方法的理解，对每一章的内容高度概括并提取重点内容。集天地之灵气，采日月之精华，保证满篇都是知识点，没有一句废话。</p>
@@ -1198,117 +1270,45 @@
 ]]></content>
   </entry>
   <entry>
+    <title>😨使用TorBrowser秘密访问暗网世界</title>
+    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
+    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
+</div>
+
+
+<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
+</div>
+
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
+
+<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
+</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>下载地址</p>
+</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>使用方法</p>
+</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
+</div>
+
+<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
+
+<div class="timeline">
+<div class="timenode"><div class="meta"><p><p>常用地址</p>
+</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
+</div>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>🚀实时文章推送功能测试</title>
     <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
 <span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
-    <title>🎹十年乐队故事🎸我的音乐时光机</title>
-    <url>/2021/07/10/%F0%9F%8E%B9%E5%8D%81%E5%B9%B4%E4%B9%90%E9%98%9F%E6%95%85%E4%BA%8B%F0%9F%8E%B8%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%97%B6%E5%85%89%E6%9C%BA/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>记人生的一段乐队旅程，从美国到祖国，十年光阴匆匆流过，那些人和故事、觥筹交错的日子，终将留藏在我们每个人的心中，感谢音乐一路陪伴我们长大，愿初心不忘，愿那些旋律，感动常在，直至老去</p>
-<h1 id="后续更新计划（To-be-continue…）"><a href="#后续更新计划（To-be-continue…）" class="headerlink" title="后续更新计划（To be continue…）"></a>后续更新计划（To be continue…）</h1><div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>每位在我生命中出现的合作伙伴动态标签页，欢迎follow~</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>依据时间线，收集整理图片和视频资料</p>
-            </div>
-</div>
-
-
-<hr>
-<h1 id="Asteroid乐队故事-🎵"><a href="#Asteroid乐队故事-🎵" class="headerlink" title="Asteroid乐队故事 🎵"></a>Asteroid乐队故事 🎵</h1><blockquote>
-<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-</blockquote>
-<div class="site-card-group">
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">银川</span><span class="desc">鼓手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://cdn.jsdelivr.net/gh/Wangmofei/AssetsRepo/img/ContentoCustomBackground.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">朱峰</span><span class="desc">电吉他手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">大鱼</span><span class="desc">电吉他手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">康逸夫</span><span class="desc">吉他手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Moon(韩国)</span><span class="desc">贝斯手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">张凌舒</span><span class="desc">贝斯手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">子轩</span><span class="desc">鼓手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">吴倩</span><span class="desc">女主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">唐璐瑶</span><span class="desc">女主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">Perin</span><span class="desc">男主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">涂瑞</span><span class="desc">男主唱</span></div></a>
-</div>
-
-<hr>
-<h1 id="金融街三号乐队故事-🎵"><a href="#金融街三号乐队故事-🎵" class="headerlink" title="金融街三号乐队故事 🎵"></a>金融街三号乐队故事 🎵</h1><blockquote>
-<p>乐队介绍：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-</blockquote>
-<div class="site-card-group">
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">田老师</span><span class="desc">电吉他手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">秋子</span><span class="desc">贝斯手</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">彭博</span><span class="desc">吉他手</span></div></a>
-
-<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">红霞辰琳，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">鼓手</span></div></a>
-
-<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png"/><span class="title">鹏飞，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">男主唱</span></div></a>
-
-<a class="site-card" href=""><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">潇艺，url=https://mofei.wang//2021/07/10/☺生活语录长期连载/</span><span class="desc">女主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">卓然</span><span class="desc">键盘手/女主唱</span></div></a>
-
-<a class="site-card" href="https://mofei.wang//2021/07/10/☺生活语录长期连载/"><div class="img"><img src="https://i.loli.net/2020/08/22/d24zpPlhLYWX6D1.png"/></div><div class="info"><img src="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png"/><span class="title">书君</span><span class="desc">小提琴</span></div></a>
-</div>
-
-<hr>
-<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><ol><li>金融街三号乐队携全体队员献礼红歌会，用音乐唱出对党的爱与祝福<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-28 努力排练，预备演出</p>
-</p></div><div class="body"><ol><li>金鼎大厦的13楼有我们排练的身影~<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 为党献礼，百年红歌会</p>
-</p></div><div class="body"><p>2.50%宽度</p><div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div>
-
-
-
-
-</div>
 ]]></content>
   </entry>
   <entry>
