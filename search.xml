@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>😊Github爬虫提速</title>
-    <url>/2021/06/22/Github%E6%8F%90%E9%80%9F/</url>
-    <content><![CDATA[<h3 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h3><p>Github 时不时抽风，老是访问不了，诚然，用科学上网能解决一切这类问题，但是，能不翻墙还是不要翻墙的好。这里采用的是通过修改本地 hosts，配置域名和 IP 映射关系，这样一来，当我们访问 github 时，这些域名可以直接从本地 hosts 文件中获取 IP，而不需要再去 DNS 服务器上询问一圈。从而提高访问速度。</p>
-<h3 id="修改-hosts"><a href="#修改-hosts" class="headerlink" title="修改 hosts"></a>修改 hosts</h3><p>以 Windows 系统为例，hosts 的路径是 C:\Windows\System32\drivers\etc，<br>打开后将以下内容复制到文件最下方。保存后，win+X，按A，以管理员权限启动 powershell，输入刷新 DNS 缓存。之后就能变快了……</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">185.199.108.154               github.githubassets.com</span><br><span class="line">199.232.68.133                camo.githubusercontent.com</span><br><span class="line">199.232.68.133                github.map.fastly.net</span><br><span class="line">199.232.69.194                github.global.ssl.fastly.net</span><br><span class="line">140.82.113.3                  gist.github.com <span class="comment">#gist现在被墙的很彻底，就算添加进hosts也访问不了。</span></span><br><span class="line">185.199.108.153               github.io</span><br><span class="line">140.82.113.4                  github.com</span><br><span class="line">140.82.114.5                  api.github.com</span><br><span class="line">199.232.68.133                raw.githubusercontent.com</span><br><span class="line">199.232.68.133                user-images.githubusercontent.com</span><br><span class="line">199.232.68.133                favicons.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars2.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars1.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars0.githubusercontent.com</span><br><span class="line">140.82.114.9                  codeload.github.com</span><br><span class="line">52.217.83.84                  github-cloud.s3.amazonaws.com</span><br><span class="line">52.216.229.155                github-com.s3.amazonaws.com</span><br><span class="line">52.216.30.60                  github-production-release-asset-2e65be.s3.amazonaws.com</span><br><span class="line">52.216.17.0                   github-production-user-asset-6210df.s3.amazonaws.com</span><br><span class="line">52.216.236.43                 github-production-repository-file-5c1aeb.s3.amazonaws.com</span><br></pre></td></tr></table></figure>
-<p>保存后，win+X，按A，以管理员权限启动 powershell，输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
-<p>刷新 DNS 缓存。之后就能变快了……</p>
-<p>才怪嘞，因为上述域名的 IP 是不停在变的，这一串映射仅仅适用于今天而已，到了明天，ip 一变动，又登不上了，我总不可能天天来更新吧？</p>
-<h3 id="使用爬虫脚本实时获取最新-ip"><a href="#使用爬虫脚本实时获取最新-ip" class="headerlink" title="使用爬虫脚本实时获取最新 ip"></a>使用爬虫脚本实时获取最新 ip</h3><p>因为 github 相关的诸多域名的 ip 是在变动的，为了能够实时获取最新的 ip，我们可以使用爬虫来从站长之家或其余 ip 查询网站上爬取最新 ip。</p>
-<p>这里要用到 python，安装推荐使用 Anaconda，Anaconda 安装方式推荐参看 Win10 重装日记的 3.2 章节。根据 Anaconda 版本与 python 版本的对照选择自己需要的 Anaconda 安装包，然后直接安装即可，路径建议修改为非系统盘，同时务必勾选将 python 路径加入到环境变量的选项。</p>
-<p>新建一个 python 脚本 ——githosts.py（最简单的方法，新建一个 txt 文本文件，把下面的代码粘贴进去以后，修改后缀为.py）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># 待查询的域名</span></span><br><span class="line">s = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">github.githubassets.com</span></span><br><span class="line"><span class="string">camo.githubusercontent.com</span></span><br><span class="line"><span class="string">github.map.fastly.net</span></span><br><span class="line"><span class="string">github.global.ssl.fastly.net</span></span><br><span class="line"><span class="string">gist.github.com</span></span><br><span class="line"><span class="string">github.io</span></span><br><span class="line"><span class="string">github.com</span></span><br><span class="line"><span class="string">api.github.com</span></span><br><span class="line"><span class="string">raw.githubusercontent.com</span></span><br><span class="line"><span class="string">user-images.githubusercontent.com</span></span><br><span class="line"><span class="string">favicons.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars5.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars4.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars3.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars2.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars1.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars0.githubusercontent.com</span></span><br><span class="line"><span class="string">codeload.github.com</span></span><br><span class="line"><span class="string">github-cloud.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-com.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-release-asset-2e65be.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-user-asset-6210df.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-repository-file-5c1aeb.s3.amazonaws.com</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 引入必要的包库</span></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import os</span><br><span class="line"><span class="comment"># 分割s list，然后逐个查询对应的ip，之后逐个加入到ans list中</span></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s.split():</span><br><span class="line">    try:</span><br><span class="line">        url = <span class="string">&quot;http://ip.tool.chinaz.com/&quot;</span> + i.strip()</span><br><span class="line">        resp = requests.get(url)</span><br><span class="line">        soup = BeautifulSoup(resp.text,<span class="string">&quot;html5lib&quot;</span>)</span><br><span class="line">        x = soup.find(class_=<span class="string">&quot;IcpMain02&quot;</span>)</span><br><span class="line">        x = x.find_all(<span class="string">&quot;span&quot;</span>, class_=<span class="string">&quot;Whwtdhalf&quot;</span>)</span><br><span class="line">        x = <span class="string">&quot;%s %s&quot;</span> % (x[5].string.strip(), i.strip())</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">        ans.append(x)</span><br><span class="line">    except:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;返回值为null，查询失败。请确保域名正确&quot;</span>)</span><br><span class="line"><span class="comment"># 打开hosts文件，写入结果</span></span><br><span class="line">hosts = r<span class="string">&quot;C:\Windows\System32\drivers\etc\hosts&quot;</span></span><br><span class="line">with open(hosts, <span class="string">&quot;r&quot;</span>) as f:</span><br><span class="line">    content = [i <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines() <span class="keyword">if</span> i.startswith(<span class="string">&quot;#&quot;</span>)]</span><br><span class="line">    content.extend(ans)</span><br><span class="line">with open(hosts, <span class="string">&quot;w&quot;</span>) as f:</span><br><span class="line">    f.write(<span class="string">&quot;\n&quot;</span>.<span class="built_in">join</span>(content))</span><br><span class="line"><span class="comment"># 调用os，执行刷新dns指令</span></span><br><span class="line">os.system(<span class="string">&#x27;ipconfig /flushdns&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>然后把 githosts.py 放到 C:\Windows\System32 目录下（不放其实也可以，只是这样一来每次都要自己 cd 路径。）<br>win+X，按A， 以管理员权限启动 Powershell，输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python githosts.py</span><br></pre></td></tr></table></figure>
-<p>然后脚本就会自动爬取最新的 IP 与域名到你的 hosts 文件中了。</p>
-]]></content>
-      <categories>
-        <category>感悟の世界</category>
-      </categories>
-      <tags>
-        <tag>数据分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>😊常用部署命令大杂烩</title>
-    <url>/2021/05/17/hello-world/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
-</div>
-
-<hr>
-<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
-
-<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-
-<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
-<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
-<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
-</ol>
-]]></content>
-      <categories>
-        <category>音乐の世界</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>⭐Yeelight烛光氛围灯接入HomeKit</title>
     <url>/2021/08/16/%E2%AD%90Yeelight%20%E7%83%9B%E5%85%89%E6%B0%9B%E5%9B%B4%E7%81%AF%E6%8E%A5%E5%85%A5%20Apple%20HomeKit/</url>
     <content><![CDATA[<div class="tip warning"><p>大王我第一次在购物网站上看到 Yeelight 烛光氛围灯时，便被它精巧的外观设计所吸引，果断地入手了一台。使用 Yeelight 配套 App，灯光的亮度可以通过蓝牙进行控制，非常方便。</p>
@@ -449,6 +391,64 @@
       </tags>
   </entry>
   <entry>
+    <title>😊Github爬虫提速</title>
+    <url>/2021/06/22/Github%E6%8F%90%E9%80%9F/</url>
+    <content><![CDATA[<h3 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h3><p>Github 时不时抽风，老是访问不了，诚然，用科学上网能解决一切这类问题，但是，能不翻墙还是不要翻墙的好。这里采用的是通过修改本地 hosts，配置域名和 IP 映射关系，这样一来，当我们访问 github 时，这些域名可以直接从本地 hosts 文件中获取 IP，而不需要再去 DNS 服务器上询问一圈。从而提高访问速度。</p>
+<h3 id="修改-hosts"><a href="#修改-hosts" class="headerlink" title="修改 hosts"></a>修改 hosts</h3><p>以 Windows 系统为例，hosts 的路径是 C:\Windows\System32\drivers\etc，<br>打开后将以下内容复制到文件最下方。保存后，win+X，按A，以管理员权限启动 powershell，输入刷新 DNS 缓存。之后就能变快了……</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">185.199.108.154               github.githubassets.com</span><br><span class="line">199.232.68.133                camo.githubusercontent.com</span><br><span class="line">199.232.68.133                github.map.fastly.net</span><br><span class="line">199.232.69.194                github.global.ssl.fastly.net</span><br><span class="line">140.82.113.3                  gist.github.com <span class="comment">#gist现在被墙的很彻底，就算添加进hosts也访问不了。</span></span><br><span class="line">185.199.108.153               github.io</span><br><span class="line">140.82.113.4                  github.com</span><br><span class="line">140.82.114.5                  api.github.com</span><br><span class="line">199.232.68.133                raw.githubusercontent.com</span><br><span class="line">199.232.68.133                user-images.githubusercontent.com</span><br><span class="line">199.232.68.133                favicons.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars2.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars1.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars0.githubusercontent.com</span><br><span class="line">140.82.114.9                  codeload.github.com</span><br><span class="line">52.217.83.84                  github-cloud.s3.amazonaws.com</span><br><span class="line">52.216.229.155                github-com.s3.amazonaws.com</span><br><span class="line">52.216.30.60                  github-production-release-asset-2e65be.s3.amazonaws.com</span><br><span class="line">52.216.17.0                   github-production-user-asset-6210df.s3.amazonaws.com</span><br><span class="line">52.216.236.43                 github-production-repository-file-5c1aeb.s3.amazonaws.com</span><br></pre></td></tr></table></figure>
+<p>保存后，win+X，按A，以管理员权限启动 powershell，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
+<p>刷新 DNS 缓存。之后就能变快了……</p>
+<p>才怪嘞，因为上述域名的 IP 是不停在变的，这一串映射仅仅适用于今天而已，到了明天，ip 一变动，又登不上了，我总不可能天天来更新吧？</p>
+<h3 id="使用爬虫脚本实时获取最新-ip"><a href="#使用爬虫脚本实时获取最新-ip" class="headerlink" title="使用爬虫脚本实时获取最新 ip"></a>使用爬虫脚本实时获取最新 ip</h3><p>因为 github 相关的诸多域名的 ip 是在变动的，为了能够实时获取最新的 ip，我们可以使用爬虫来从站长之家或其余 ip 查询网站上爬取最新 ip。</p>
+<p>这里要用到 python，安装推荐使用 Anaconda，Anaconda 安装方式推荐参看 Win10 重装日记的 3.2 章节。根据 Anaconda 版本与 python 版本的对照选择自己需要的 Anaconda 安装包，然后直接安装即可，路径建议修改为非系统盘，同时务必勾选将 python 路径加入到环境变量的选项。</p>
+<p>新建一个 python 脚本 ——githosts.py（最简单的方法，新建一个 txt 文本文件，把下面的代码粘贴进去以后，修改后缀为.py）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># 待查询的域名</span></span><br><span class="line">s = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">github.githubassets.com</span></span><br><span class="line"><span class="string">camo.githubusercontent.com</span></span><br><span class="line"><span class="string">github.map.fastly.net</span></span><br><span class="line"><span class="string">github.global.ssl.fastly.net</span></span><br><span class="line"><span class="string">gist.github.com</span></span><br><span class="line"><span class="string">github.io</span></span><br><span class="line"><span class="string">github.com</span></span><br><span class="line"><span class="string">api.github.com</span></span><br><span class="line"><span class="string">raw.githubusercontent.com</span></span><br><span class="line"><span class="string">user-images.githubusercontent.com</span></span><br><span class="line"><span class="string">favicons.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars5.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars4.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars3.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars2.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars1.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars0.githubusercontent.com</span></span><br><span class="line"><span class="string">codeload.github.com</span></span><br><span class="line"><span class="string">github-cloud.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-com.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-release-asset-2e65be.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-user-asset-6210df.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-repository-file-5c1aeb.s3.amazonaws.com</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 引入必要的包库</span></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import os</span><br><span class="line"><span class="comment"># 分割s list，然后逐个查询对应的ip，之后逐个加入到ans list中</span></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s.split():</span><br><span class="line">    try:</span><br><span class="line">        url = <span class="string">&quot;http://ip.tool.chinaz.com/&quot;</span> + i.strip()</span><br><span class="line">        resp = requests.get(url)</span><br><span class="line">        soup = BeautifulSoup(resp.text,<span class="string">&quot;html5lib&quot;</span>)</span><br><span class="line">        x = soup.find(class_=<span class="string">&quot;IcpMain02&quot;</span>)</span><br><span class="line">        x = x.find_all(<span class="string">&quot;span&quot;</span>, class_=<span class="string">&quot;Whwtdhalf&quot;</span>)</span><br><span class="line">        x = <span class="string">&quot;%s %s&quot;</span> % (x[5].string.strip(), i.strip())</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">        ans.append(x)</span><br><span class="line">    except:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;返回值为null，查询失败。请确保域名正确&quot;</span>)</span><br><span class="line"><span class="comment"># 打开hosts文件，写入结果</span></span><br><span class="line">hosts = r<span class="string">&quot;C:\Windows\System32\drivers\etc\hosts&quot;</span></span><br><span class="line">with open(hosts, <span class="string">&quot;r&quot;</span>) as f:</span><br><span class="line">    content = [i <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines() <span class="keyword">if</span> i.startswith(<span class="string">&quot;#&quot;</span>)]</span><br><span class="line">    content.extend(ans)</span><br><span class="line">with open(hosts, <span class="string">&quot;w&quot;</span>) as f:</span><br><span class="line">    f.write(<span class="string">&quot;\n&quot;</span>.<span class="built_in">join</span>(content))</span><br><span class="line"><span class="comment"># 调用os，执行刷新dns指令</span></span><br><span class="line">os.system(<span class="string">&#x27;ipconfig /flushdns&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>然后把 githosts.py 放到 C:\Windows\System32 目录下（不放其实也可以，只是这样一来每次都要自己 cd 路径。）<br>win+X，按A， 以管理员权限启动 Powershell，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python githosts.py</span><br></pre></td></tr></table></figure>
+<p>然后脚本就会自动爬取最新的 IP 与域名到你的 hosts 文件中了。</p>
+]]></content>
+      <categories>
+        <category>感悟の世界</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>😊常用部署命令大杂烩</title>
+    <url>/2021/05/17/hello-world/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
+</div>
+
+<hr>
+<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+
+<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
+<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
+<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
+</ol>
+]]></content>
+      <categories>
+        <category>音乐の世界</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>😎通过URLScheme一键打开健康码</title>
     <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
     <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
@@ -657,6 +657,124 @@
 
 </div>
 ]]></content>
+  </entry>
+  <entry>
+    <title>😊原创TOGAF架构方法总结</title>
+    <url>/2021/08/16/%F0%9F%98%8A%E5%8E%9F%E5%88%9BTOGAF%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本大王基于TOGAF9.2英文版教程，整合各类资料以及个人对架构方法的理解，对每一章的内容高度概括并提取重点内容。集天地之灵气，采日月之精华，保证满篇都是知识点，没有一句废话。</p>
+</div>
+
+
+<h1 id="章节概要"><a href="#章节概要" class="headerlink" title="章节概要"></a>章节概要</h1><div class="note simple"><ol>
+<li>第一章：<code>TOGAF关键概念</code></li>
+<li>第二章：<code>ADM架构开发方法</code></li>
+<li>第三章：<code>ADM关键技术和交付物</code></li>
+<li>第四章：<code>ADM调整的指导策略</code></li>
+<li>第五章：<code>架构内容框架</code></li>
+<li>第六章：<code>企业连续系列</code></li>
+<li>第七章：<code>架构能力框架</code></li>
+</ol>
+</div>
+
+<hr>
+<h1 id="架构开发方法ADM"><a href="#架构开发方法ADM" class="headerlink" title="架构开发方法ADM"></a>架构开发方法ADM</h1><p><span><img src='\images\pasted-1.png'></span></p>
+<h2 id="ADM的阶段"><a href="#ADM的阶段" class="headerlink" title="ADM的阶段"></a>ADM的阶段</h2><p>预备阶段：TOGAF框架剪裁、制定架构原则、选择工具<br>需求管理（A-H阶段）：基于并验证业务需求。识别，存储需求<br>架构愿景（A阶段）：利益相关者，架构工作生命批准<br>业务架构（B阶段）：业务策略，治理，组织和关键业务流程<br>信息架构（C阶段）：应用架构组织的逻辑和物理数据资产以及数据管理资源的结构、数据架构待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图<br>技术架构（D阶段）：支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准<br>机会与解决方案（E阶段）：初步实施规划，确认前阶段的构建块载体，组成过渡架构<br>迁移计划（F阶段）：详细迁移和实施计划，基线架构到目标架构的迁移<br>实施治理（G阶段）：架构监督、建筑合同、确保实施符合架构<br>架构变更（H阶段）：监视和变更管理，响应需求变化</p>
+<hr>
+<h1 id="ADM架构开发的32个方法"><a href="#ADM架构开发的32个方法" class="headerlink" title="ADM架构开发的32个方法"></a>ADM架构开发的32个方法</h1><p>1.架构框架剪裁(预备阶段):：<code>选原则选方法为主</code>，选交付选工具选参考为辅<br>2.企业架构组织(预备阶段)：<code>重要交付成果</code>,<code>获得角色职责支持</code>一总<code>企业架构</code>，四分<code>业务、应用、数据、技术架构</code>，两管理<code>项目管理，资产管理</code><br>3.架构原则：由企业架构师和利益相关者制定，架构委员会批准。<br>整体原则：名称积极，声明无二义、依据有价值、相关保一致<br>原则质量：易懂看用户、健壮看复杂、完整看覆盖、一致看冲突、稳定看变化<br>业务企业战略，应用统一设计应用互联安全，数据资产化数据共享数据重用，<br>数据治理，谁生产谁管理谁负责，技术集交互的可操作性 ，平台化建设，系统性能<br>4.业务驱动：能力导向<br>5.架构存储库：架构框架存方法、标准信息库存标准、架构景观存设计、参考架构存案例、治理日志存偏差<br>6.架构工具：预备阶段 ARCHI开源<br>7.架构工作请求（立项）：预备阶段，高层发起，高层赞助<br>8.架构工作说明书（实施方案）：阶段A交付 Background,Plan,Input,Cost,Time,Output<br>9.架构愿景：阶段A 高层授权，部门支持，向下宣贯<br>10.利益相关者管理：阶段A  1找出干系人 2找出关键干系人(权力者，魅力大)3.关注为导向 4.引领干系人评判早反馈节约晚返工<br>11.沟通计划：阶段A 向上求授权，对等求支持，向下求落实<br>     识别干系人，确认沟通需求，确认沟通机制，确认沟通时间表<br>12.业务转换的准备就绪评估：阶段A  立足转换找风险，立足增量找可行<br>13.能力评估: 阶段A 确认企业基线和目标水平<br>14.风险的识别， 阶段A 度量，量化，权衡，对策，循环<br>15.架构定义文件：面向业务能力（抽象），核心架构制品容器，B创建，C更新，D更新<br>16.架构需求规格：面向平台做设计（具体），业务应用数据具体设计。<br>17.架构路线图：根据能力，划分阶段， 过渡架构<br>18.业务场景：阶段B 双合一（业务逻辑流箭头+数据流）可以描述交互<br>19.差距分析：直接分析识别工作包，间接分析选方案，有方案才能立项<br>    差距矩阵：基线ABB构建块垂直，目标ABB构建块水平<br>    差距类型：缺，弱，重<br>20.架构视点：阶段A-D 架构视点共识化的干系人关注，<br>21.架构视图：阶段A-D  协调利益相关者冲突，<br>      架构视图是目录、矩阵、图形，视图是看到的，视点是从哪看，通用的存在视点库<br>22.架构构建块：阶段A-D，（甲方的一个视点+视图封装）ABB按企业连续分类的企业架构存储库<br>23.解决方案构建块：阶段A-D，（乙方的一个视点+相关方案封装）ABB指导解决方案构建块SBB，有利于重用<br>24.基于能力的规划：阶段E-F,<br>25.迁移规划技术：阶段E-F, 技术规划，预算投入规划，价值目标规划，风险保障规划 Tech Cost Value Risk技术<br>     实施因素评估和推论矩阵：阶段E,实施因素推论<br>     整合差距、解决方案、依赖矩阵：分析差距找出可能的解决方案<br>     架构定义增量表：过渡方案的能力组合<br>     业务价值评估技术：高级管理人员制定的象限矩阵（分先后，分影响）<br>26.实施和迁移计划：阶段E-F 管理投资组合和计划的可执行项目<br>27.过渡架构：阶段E  别名里程碑，业务流程建设，数据治理，技术平台改造系统建设上对能力提升描述<br>28.治理模型：阶段F  定政策（红头文件），建组织，明流程，做考核<br>29.架构契约：阶段G 公正公正公开的遵循架构原则<br>30.变更请求：阶段H 需求的变化，治理的偏差，整体变更看战略，增量变更加能力，简单变更是IT<br>31.合规评估：阶段G 却确定设计和实施符合企业战略和架构目的<br>32.需求影响评估：识别业务需求和架构关注点的关联性</p>
+<hr>
+<h1 id="调整ADM指引"><a href="#调整ADM指引" class="headerlink" title="调整ADM指引"></a>调整ADM指引</h1><ol>
+<li><p>裁剪：</p>
+<blockquote>
+<p>ADM依赖企业成熟度<br>ADM阶段顺序企业可以根据业务和架构原则定义<br>ADM可以联合其他企业架构<br>企业应对ADM方法进行剪裁使用<br>外包使用ADM方法实现自主可控<br>小企业裁剪ADM方法实现单个能力<br>企业建立联盟关系</p>
+</blockquote>
+</li>
+<li><p>迭代：</p>
+<blockquote>
+<p>愿景是上下文共识，架构是定义共识、迁移是规划迭代、治理是最终迭代<br>战略是未来的目标，资产是前进的路线<br>战略明确+资产丰富 目标先行自上而<br>战略含混+资产匮乏 基线先行自下而上</p>
+<p>周期性迭代：时间迭代<br>阶段间迭代：上下文之间<br>阶段内迭代；架构设计内部多次交付<br>团队间迭代：多团队并行ADM周期，保持日常沟通</p>
+</blockquote>
+</li>
+<li><p>层次：<br>主题取决于业务种类、时间取决于长短、细节取决于粒度<br>战略取决于全局、分段取决于业态、能力取决于单元</p>
+</li>
+</ol>
+<hr>
+<h1 id="架构内容框架"><a href="#架构内容框架" class="headerlink" title="架构内容框架"></a>架构内容框架</h1><ol>
+<li><p>架构元模型：统一概念和视图的业务域关键能力</p>
+</li>
+<li><p>架构工作产品：</p>
+<blockquote>
+<p>日常产出构建块 -&gt; 阶段产出为制品 -&gt; 最终产出交付物（架构合同）<br>可重用构建块 -&gt; 架构存储库 -&gt; 制品存储库 -&gt; 交付物存储库</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="企业连续系列"><a href="#企业连续系列" class="headerlink" title="企业连续系列"></a>企业连续系列</h1><ol>
+<li><p>企业连续序列（甲方）：<br>基础架构看标准&gt;通用架构看跨越&gt;行业架构看产业&gt;特定组织看企业</p>
+</li>
+<li><p>解决方案连续序列（乙方）：<br>标准&gt;跨越&gt;产业&gt;企业</p>
+</li>
+<li><p>架构标准库：面向重用等级的虚拟划分<br>a.架构元模型：描述了经组织裁剪的架构框架的应用方<br>式，包括一个架构内容的元模型<br>b.架构能力：定义了支持架构存储库治理的参数、结构和流程<br>c.架构景观：展现了当前组织内使用的构建块的架构视图（如，一份在用的应用系统的列表）。景观很可能存在于多个抽象级别上，以满足不同的架构<br>目的<br>d.标准信息库：捕获新的架构必须符合的标准，可包括行业标准、选定供应商的产品和服务或已在组织中部署的共享服务<br>e.参考库：提供指引、模板、模式和其他形式的参考资料，可用来加速企业新架构的创建<br>f.治理日志：提供整个企业内的治理活动的记录</p>
+</li>
+</ol>
+<hr>
+<h1 id="参考模型"><a href="#参考模型" class="headerlink" title="参考模型"></a>参考模型</h1><ol>
+<li><p>技术架构TRM模型： 1.属于基础级模型 2.用于指导技术架构设计 3. 有利技术架构明确位置与分类</p>
+</li>
+<li><p>集成信息基础设施参考III-RM模型：属于集成应用架构 1.开放互联用标准，2.协同访问叫代理 3.打造无边界信息流（数据流）4.强代理管权限（企业服务总线），弱代理管身份（微服务分布式权限管理）</p>
+</li>
+</ol>
+<hr>
+<h1 id="架构能力框架"><a href="#架构能力框架" class="headerlink" title="架构能力框架"></a>架构能力框架</h1><p>如果成为一名真正的企业架构师：需要进行专业的培训，从项目的沉淀中不断自我总结，提取可复用的架构能力。</p>
+<ol>
+<li>设计能力架构：业务、数据、应用、技术架构师</li>
+<li>架构治理：治理能力管理部主导，领导层与业务部门协同</li>
+<li>架构委员会：主要负责解决架构冲突和架构请求提交</li>
+<li>架构合规：确保实施过程符合架构原则</li>
+<li>架构合同：定义和使用架构合同的准则</li>
+</ol>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li><p>数字化是面向几大业务流推动数据流，通过应用集成支持的管道。数据治理加大数据不等于企业数字化，企业数字化是解决企业和客户的关系，信息化解决客户和企业的关系，两者方向不同</p>
+</li>
+<li><p>我认为企业数字化的进程是以面向个人为核心，构建一系列价值流的过程。让业务流赋能数据流的流程建设，最终形成业务流与数据流的双流价值流，才是真正的数字化转型之路。</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>😨使用TorBrowser秘密访问暗网世界</title>
+    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
+    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
+</div>
+
+
+<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
+</div>
+
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
+
+<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
+</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>下载地址</p>
+</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>使用方法</p>
+</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
+</div>
+
+<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
+
+<div class="timeline">
+<div class="timenode"><div class="meta"><p><p>常用地址</p>
+</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
+</div>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
   </entry>
   <entry>
     <title>😊TOGAF考题汇总习题版</title>
@@ -1187,94 +1305,289 @@
       </tags>
   </entry>
   <entry>
-    <title>😊原创TOGAF架构方法总结</title>
-    <url>/2021/08/16/%F0%9F%98%8A%E5%8E%9F%E5%88%9BTOGAF%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本大王基于TOGAF9.2英文版教程，整合各类资料以及个人对架构方法的理解，对每一章的内容高度概括并提取重点内容。集天地之灵气，采日月之精华，保证满篇都是知识点，没有一句废话。</p>
-</div>
-
-
-<h1 id="章节概要"><a href="#章节概要" class="headerlink" title="章节概要"></a>章节概要</h1><div class="note simple"><ol>
-<li>第一章：<code>TOGAF关键概念</code></li>
-<li>第二章：<code>ADM架构开发方法</code></li>
-<li>第三章：<code>ADM关键技术和交付物</code></li>
-<li>第四章：<code>ADM调整的指导策略</code></li>
-<li>第五章：<code>架构内容框架</code></li>
-<li>第六章：<code>企业连续系列</code></li>
-<li>第七章：<code>架构能力框架</code></li>
-</ol>
-</div>
-
-<hr>
-<h1 id="架构开发方法ADM"><a href="#架构开发方法ADM" class="headerlink" title="架构开发方法ADM"></a>架构开发方法ADM</h1><p><span><img src='\images\pasted-1.png'></span></p>
-<h2 id="ADM的阶段"><a href="#ADM的阶段" class="headerlink" title="ADM的阶段"></a>ADM的阶段</h2><p>预备阶段：TOGAF框架剪裁、制定架构原则、选择工具<br>需求管理（A-H阶段）：基于并验证业务需求。识别，存储需求<br>架构愿景（A阶段）：利益相关者，架构工作生命批准<br>业务架构（B阶段）：业务策略，治理，组织和关键业务流程<br>信息架构（C阶段）：应用架构组织的逻辑和物理数据资产以及数据管理资源的结构、数据架构待部署的各个应用程序，它们之间的交互以及与组织核心业务流程的关系的蓝图<br>技术架构（D阶段）：支持业务，数据和应用程序服务部署所需的逻辑软件和硬件功准<br>机会与解决方案（E阶段）：初步实施规划，确认前阶段的构建块载体，组成过渡架构<br>迁移计划（F阶段）：详细迁移和实施计划，基线架构到目标架构的迁移<br>实施治理（G阶段）：架构监督、建筑合同、确保实施符合架构<br>架构变更（H阶段）：监视和变更管理，响应需求变化</p>
-<hr>
-<h1 id="ADM架构开发的32个方法"><a href="#ADM架构开发的32个方法" class="headerlink" title="ADM架构开发的32个方法"></a>ADM架构开发的32个方法</h1><p>1.架构框架剪裁(预备阶段):：<code>选原则选方法为主</code>，选交付选工具选参考为辅<br>2.企业架构组织(预备阶段)：<code>重要交付成果</code>,<code>获得角色职责支持</code>一总<code>企业架构</code>，四分<code>业务、应用、数据、技术架构</code>，两管理<code>项目管理，资产管理</code><br>3.架构原则：由企业架构师和利益相关者制定，架构委员会批准。<br>整体原则：名称积极，声明无二义、依据有价值、相关保一致<br>原则质量：易懂看用户、健壮看复杂、完整看覆盖、一致看冲突、稳定看变化<br>业务企业战略，应用统一设计应用互联安全，数据资产化数据共享数据重用，<br>数据治理，谁生产谁管理谁负责，技术集交互的可操作性 ，平台化建设，系统性能<br>4.业务驱动：能力导向<br>5.架构存储库：架构框架存方法、标准信息库存标准、架构景观存设计、参考架构存案例、治理日志存偏差<br>6.架构工具：预备阶段 ARCHI开源<br>7.架构工作请求（立项）：预备阶段，高层发起，高层赞助<br>8.架构工作说明书（实施方案）：阶段A交付 Background,Plan,Input,Cost,Time,Output<br>9.架构愿景：阶段A 高层授权，部门支持，向下宣贯<br>10.利益相关者管理：阶段A  1找出干系人 2找出关键干系人(权力者，魅力大)3.关注为导向 4.引领干系人评判早反馈节约晚返工<br>11.沟通计划：阶段A 向上求授权，对等求支持，向下求落实<br>     识别干系人，确认沟通需求，确认沟通机制，确认沟通时间表<br>12.业务转换的准备就绪评估：阶段A  立足转换找风险，立足增量找可行<br>13.能力评估: 阶段A 确认企业基线和目标水平<br>14.风险的识别， 阶段A 度量，量化，权衡，对策，循环<br>15.架构定义文件：面向业务能力（抽象），核心架构制品容器，B创建，C更新，D更新<br>16.架构需求规格：面向平台做设计（具体），业务应用数据具体设计。<br>17.架构路线图：根据能力，划分阶段， 过渡架构<br>18.业务场景：阶段B 双合一（业务逻辑流箭头+数据流）可以描述交互<br>19.差距分析：直接分析识别工作包，间接分析选方案，有方案才能立项<br>    差距矩阵：基线ABB构建块垂直，目标ABB构建块水平<br>    差距类型：缺，弱，重<br>20.架构视点：阶段A-D 架构视点共识化的干系人关注，<br>21.架构视图：阶段A-D  协调利益相关者冲突，<br>      架构视图是目录、矩阵、图形，视图是看到的，视点是从哪看，通用的存在视点库<br>22.架构构建块：阶段A-D，（甲方的一个视点+视图封装）ABB按企业连续分类的企业架构存储库<br>23.解决方案构建块：阶段A-D，（乙方的一个视点+相关方案封装）ABB指导解决方案构建块SBB，有利于重用<br>24.基于能力的规划：阶段E-F,<br>25.迁移规划技术：阶段E-F, 技术规划，预算投入规划，价值目标规划，风险保障规划 Tech Cost Value Risk技术<br>     实施因素评估和推论矩阵：阶段E,实施因素推论<br>     整合差距、解决方案、依赖矩阵：分析差距找出可能的解决方案<br>     架构定义增量表：过渡方案的能力组合<br>     业务价值评估技术：高级管理人员制定的象限矩阵（分先后，分影响）<br>26.实施和迁移计划：阶段E-F 管理投资组合和计划的可执行项目<br>27.过渡架构：阶段E  别名里程碑，业务流程建设，数据治理，技术平台改造系统建设上对能力提升描述<br>28.治理模型：阶段F  定政策（红头文件），建组织，明流程，做考核<br>29.架构契约：阶段G 公正公正公开的遵循架构原则<br>30.变更请求：阶段H 需求的变化，治理的偏差，整体变更看战略，增量变更加能力，简单变更是IT<br>31.合规评估：阶段G 却确定设计和实施符合企业战略和架构目的<br>32.需求影响评估：识别业务需求和架构关注点的关联性</p>
-<hr>
-<h1 id="调整ADM指引"><a href="#调整ADM指引" class="headerlink" title="调整ADM指引"></a>调整ADM指引</h1><ol>
-<li><p>裁剪：</p>
-<blockquote>
-<p>ADM依赖企业成熟度<br>ADM阶段顺序企业可以根据业务和架构原则定义<br>ADM可以联合其他企业架构<br>企业应对ADM方法进行剪裁使用<br>外包使用ADM方法实现自主可控<br>小企业裁剪ADM方法实现单个能力<br>企业建立联盟关系</p>
-</blockquote>
-</li>
-<li><p>迭代：</p>
-<blockquote>
-<p>愿景是上下文共识，架构是定义共识、迁移是规划迭代、治理是最终迭代<br>战略是未来的目标，资产是前进的路线<br>战略明确+资产丰富 目标先行自上而<br>战略含混+资产匮乏 基线先行自下而上</p>
-<p>周期性迭代：时间迭代<br>阶段间迭代：上下文之间<br>阶段内迭代；架构设计内部多次交付<br>团队间迭代：多团队并行ADM周期，保持日常沟通</p>
-</blockquote>
-</li>
-<li><p>层次：<br>主题取决于业务种类、时间取决于长短、细节取决于粒度<br>战略取决于全局、分段取决于业态、能力取决于单元</p>
-</li>
-</ol>
-<hr>
-<h1 id="架构内容框架"><a href="#架构内容框架" class="headerlink" title="架构内容框架"></a>架构内容框架</h1><ol>
-<li><p>架构元模型：统一概念和视图的业务域关键能力</p>
-</li>
-<li><p>架构工作产品：</p>
-<blockquote>
-<p>日常产出构建块 -&gt; 阶段产出为制品 -&gt; 最终产出交付物（架构合同）<br>可重用构建块 -&gt; 架构存储库 -&gt; 制品存储库 -&gt; 交付物存储库</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h1 id="企业连续系列"><a href="#企业连续系列" class="headerlink" title="企业连续系列"></a>企业连续系列</h1><ol>
-<li><p>企业连续序列（甲方）：<br>基础架构看标准&gt;通用架构看跨越&gt;行业架构看产业&gt;特定组织看企业</p>
-</li>
-<li><p>解决方案连续序列（乙方）：<br>标准&gt;跨越&gt;产业&gt;企业</p>
-</li>
-<li><p>架构标准库：面向重用等级的虚拟划分<br>a.架构元模型：描述了经组织裁剪的架构框架的应用方<br>式，包括一个架构内容的元模型<br>b.架构能力：定义了支持架构存储库治理的参数、结构和流程<br>c.架构景观：展现了当前组织内使用的构建块的架构视图（如，一份在用的应用系统的列表）。景观很可能存在于多个抽象级别上，以满足不同的架构<br>目的<br>d.标准信息库：捕获新的架构必须符合的标准，可包括行业标准、选定供应商的产品和服务或已在组织中部署的共享服务<br>e.参考库：提供指引、模板、模式和其他形式的参考资料，可用来加速企业新架构的创建<br>f.治理日志：提供整个企业内的治理活动的记录</p>
-</li>
-</ol>
-<hr>
-<h1 id="参考模型"><a href="#参考模型" class="headerlink" title="参考模型"></a>参考模型</h1><ol>
-<li><p>技术架构TRM模型： 1.属于基础级模型 2.用于指导技术架构设计 3. 有利技术架构明确位置与分类</p>
-</li>
-<li><p>集成信息基础设施参考III-RM模型：属于集成应用架构 1.开放互联用标准，2.协同访问叫代理 3.打造无边界信息流（数据流）4.强代理管权限（企业服务总线），弱代理管身份（微服务分布式权限管理）</p>
-</li>
-</ol>
-<hr>
-<h1 id="架构能力框架"><a href="#架构能力框架" class="headerlink" title="架构能力框架"></a>架构能力框架</h1><p>如果成为一名真正的企业架构师：需要进行专业的培训，从项目的沉淀中不断自我总结，提取可复用的架构能力。</p>
-<ol>
-<li>设计能力架构：业务、数据、应用、技术架构师</li>
-<li>架构治理：治理能力管理部主导，领导层与业务部门协同</li>
-<li>架构委员会：主要负责解决架构冲突和架构请求提交</li>
-<li>架构合规：确保实施过程符合架构原则</li>
-<li>架构合同：定义和使用架构合同的准则</li>
-</ol>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li><p>数字化是面向几大业务流推动数据流，通过应用集成支持的管道。数据治理加大数据不等于企业数字化，企业数字化是解决企业和客户的关系，信息化解决客户和企业的关系，两者方向不同</p>
-</li>
-<li><p>我认为企业数字化的进程是以面向个人为核心，构建一系列价值流的过程。让业务流赋能数据流的流程建设，最终形成业务流与数据流的双流价值流，才是真正的数字化转型之路。</p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>🚀实时文章推送功能测试</title>
     <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
 <span id="more"></span>
 ]]></content>
+  </entry>
+  <entry>
+    <title>🦋小站重生记 · 从三个坏掉的模块到跨版本升级</title>
+    <url>/2026/08/18/%F0%9F%A6%8B%E5%B0%8F%E7%AB%99%E9%87%8D%E7%94%9F%E8%AE%B0/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>这个小站从 2021 年搭起来，2022 年之后就安静了。源码丢过一次，后来从单位电脑上翻了回来。打开一看，首页三个模块是坏的，主题还停在五年前的版本。</p>
+<p>本来只想修 bug，结果一路修到了架构升级。这篇把过程原样记下来 —— 包括我判断错的那几次。</p>
+</div>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先承认，站是坏的，而且我早就知道：</p>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>首页轮播不转了</p>
+            </div>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>GitHub 贡献图不显示</p>
+            </div>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>侧边栏有个模块永远停在「加载中」</p>
+            </div>
+
+<p>三个毛病看着不相干，查下去才发现是<strong>同一个根因</strong>。而那个根因又牵出了整套技术栈已经老到什么程度。</p>
+<hr>
+<h1 id="第一幕：一个死掉的-CDN，拖垮四个模块"><a href="#第一幕：一个死掉的-CDN，拖垮四个模块" class="headerlink" title="第一幕：一个死掉的 CDN，拖垮四个模块"></a>第一幕：一个死掉的 CDN，拖垮四个模块</h1><p>打开控制台，两行报错把方向指得很清楚：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Uncaught ReferenceError: Swiper is not defined</span><br><span class="line">Uncaught ReferenceError: GitCalendarInit is not defined</span><br></pre></td></tr></table></figure>
+
+<p>函数未定义，说明外部 JS 根本没加载进来。把首页引用的 53 个外部资源逐个探活，结果异常干净 —— 所有失败请求都指向同一个主机：</p>
+<div class="note danger flat"><p><code>unpkg.zhimg.com</code> —— 知乎当年做的 unpkg 镜像，现在已经废弃。swiper 相关返回 403，其余全是 404。</p>
+</div>
+
+<p>而同一时刻，<code>cdn.jsdelivr.net</code> 上的 33 个资源无一失败。</p>
+<table>
+<thead>
+<tr>
+<th align="left">模块</th>
+<th align="left">资源状态</th>
+<th align="left">表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">hexo-butterfly-swiper</td>
+<td align="left">403</td>
+<td align="left">首页轮播不转</td>
+</tr>
+<tr>
+<td align="left">hexo-filter-gitcalendar</td>
+<td align="left">404</td>
+<td align="left">贡献图不显示</td>
+</tr>
+<tr>
+<td align="left">hexo-butterfly-artitalk-pro</td>
+<td align="left">404</td>
+<td align="left">说说卡在加载中</td>
+</tr>
+<tr>
+<td align="left">hexo-butterfly-clock</td>
+<td align="left">404</td>
+<td align="left">电子钟（这个我之前都没注意到）</td>
+</tr>
+</tbody></table>
+<p>修法很朴素：在 <code>_config.yml</code> 里给这四个插件显式指定 jsDelivr 地址，覆盖掉它们写死的默认值。11 个资源实测全部 200，重新构建，四个模块一起活了。</p>
+<div class="tip "><p>一个第三方镜像站关停，能同时打掉一个博客的四个功能。这不是运气不好，是把可用性押在别人手里的必然结果。</p>
+</div>
+
+<hr>
+<h1 id="第二幕：贡献图，拒绝再踩同一个坑"><a href="#第二幕：贡献图，拒绝再踩同一个坑" class="headerlink" title="第二幕：贡献图，拒绝再踩同一个坑"></a>第二幕：贡献图，拒绝再踩同一个坑</h1><p>CDN 修好后，贡献图的脚本回来了，图还是空的。因为坏的不是脚本，是<strong>数据源</strong>。</p>
+<p>插件默认调用 <code>github-calendar-api.vercel.app</code>。我拿自己的用户名去问，返回 <code>&#123;&quot;total&quot;:0,&quot;contributions&quot;:[]&#125;</code>。换 torvalds 再问一次 —— 还是 0。那位的贡献量不可能是零，所以结论只有一个：<strong>这个 API 已经废了，对所有人返回空。</strong></p>
+<p>这次我没有去找另一个第三方 API 顶上。刚被一个第三方服务坑过，再换一家只是把同样的雷重埋一次。改成了站内静态数据：</p>
+<details cyan open><summary> 具体怎么做的 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tools/update-gitcalendar.py    <span class="comment"># 抓数据，转成插件要的 53 周嵌套结构</span></span><br><span class="line"><span class="built_in">source</span>/gitcalendar/data.json   <span class="comment"># 结果随站点一起发布</span></span><br></pre></td></tr></table></figure><p>配置里这么写：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiurl:</span> <span class="string">&#x27;/gitcalendar/data.json#&#x27;</span></span><br></pre></td></tr></table></figure><p>最后那个 <code>#</code> 是关键。插件写死了要拼成 <code>&lt;apiurl&gt;/api?&lt;user&gt;</code>，而井号让后半截变成 URL 片段，浏览器实际只请求那个 JSON。<strong>运行时零第三方依赖，那个 API 再也影响不到我。</strong></p>
+              </div>
+            </details>
+
+<p>顺带看到了自己的数据，有点唏嘘：</p>
+<table>
+<thead>
+<tr>
+<th align="left">年份</th>
+<th align="left">贡献数</th>
+<th align="left">活跃天数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2020</td>
+<td align="left">732</td>
+<td align="left">366（一天没落）</td>
+</tr>
+<tr>
+<td align="left">2021</td>
+<td align="left">1077</td>
+<td align="left">237</td>
+</tr>
+<tr>
+<td align="left">2022</td>
+<td align="left">46</td>
+<td align="left">16</td>
+</tr>
+<tr>
+<td align="left">2023 – 2025</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody></table>
+<p>数字比记忆诚实。我最后选择让贡献图显示<strong>真实的最近一年</strong> —— 虽然它现在基本是空的，唯一那两格还是修这个博客时提交的。</p>
+<hr>
+<h1 id="第三幕：该不该升级"><a href="#第三幕：该不该升级" class="headerlink" title="第三幕：该不该升级"></a>第三幕：该不该升级</h1><p>主题停在 butterfly 3.7.1（2021-03），最新是 5.7.0。中间隔着 <strong>54 个正式版本、两个大版本、五年半</strong>。</p>
+<p>我一开始的判断是<strong>不建议升</strong>，理由列了四条：技术栈要连坐升级、配置要重写、1700 行魔改要重贴、插件生态已经冻结（有六个插件多年没发过新版）。最后一条尤其吓人 —— 那些插件靠往特定 DOM 容器里插内容工作，主题一重构就可能全碎。</p>
+<p>然后我去验了这一条。把 butterfly 5.7.0 解包，grep 那几个挂载点：</p>
+<table>
+<thead>
+<tr>
+<th align="left">插件依赖的挂载点</th>
+<th align="left">3.7.1</th>
+<th align="left">5.7.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>recent-posts</code></td>
+<td align="left">5 个布局文件</td>
+<td align="left">6 个</td>
+</tr>
+<tr>
+<td align="left"><code>sticky_layout</code></td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><code>aside-content</code></td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><code>card-widget</code></td>
+<td align="left">11</td>
+<td align="left">13</td>
+</tr>
+</tbody></table>
+<div class="note success flat"><p>四个挂载点在新版里一个不少。我那条最重的理由，证据不支持。</p>
+</div>
+
+<p>于是改口。这不是嘴硬的问题 —— 如果我坚持原判断，这次升级根本不会发生。<strong>预感值得说出来，但只有证据能定案。</strong></p>
+<hr>
+<h1 id="第四幕：四个障碍"><a href="#第四幕：四个障碍" class="headerlink" title="第四幕：四个障碍"></a>第四幕：四个障碍</h1><p>跨越五年半、两个大版本，全过程只撞到四个真实障碍，比预期少太多。</p>
+<details red><summary> 其一 · 插件不检查存在性，直接把构建打崩 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>TypeError: Cannot read properties of undefined (reading &#39;cover&#39;)</code>，构建直接中止。</p><p><strong>根因</strong>：<code>hexo-butterfly-envelope</code> 1.0.13+ 把四张图收进了 <code>custom_pic</code> 子节点，而代码里不做任何存在性检查就往下读。旧配置没这一节，于是整个构建崩溃。</p><p><strong>处置</strong>：补齐配置节点。顺带发现它的默认值也指向那个已废弃的镜像，一并改掉。</p>
+              </div>
+            </details>
+
+<details red><summary> 其二 · 一个全局函数搬进了命名空间 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>ReferenceError: getScript is not defined</code>，说说加载不出来。</p><p><strong>根因</strong>：butterfly 3.x 把 <code>getScript</code> 直接挂在 <code>window</code> 上，5.x 起收进了 <code>window.btf</code> 命名空间。老插件注入的内联脚本调的是裸函数，自然找不到。</p><p><strong>处置</strong>：在 <code>inject.head</code> 加一段<strong>惰性垫片</strong> —— 调用时才去取 <code>btf</code>，因此不依赖脚本加载顺序。六行代码，一个插件都不用改。</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">getScript</span> = <span class="variable language_">window</span>.<span class="property">getScript</span> || <span class="keyword">function</span> (<span class="params">u, a</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">btf</span>.<span class="title function_">getScript</span>(u, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<details red><summary> 其三 · 同名标签，少注册了一个 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>unknown block tag: timenode</code>，文章渲染失败。</p><p><strong>根因</strong>：butterfly 5 自带了 <code>timeline</code> 标签，但只注册这一个；我用的第三方版本还注册了 <code>timenode</code>，而文章里用了 30 次。</p><p><strong>处置</strong>：保留第三方版本覆盖官方的。顺带统计了一下自己对标签插件的依赖深度 —— <code>checkbox</code> 326 次、<code>tip</code> 83 次、<code>folding</code> 77 次，全站 600 多处调用。这些标签早就是文章的骨架了。</p>
+              </div>
+            </details>
+
+<details red><summary> 其四 · 配置写错了地方，升级即丢 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：升级后导航菜单整个消失，16 个菜单项全没了。</p><p><strong>根因</strong>：菜单写在 <code>themes/butterfly/_config.yml</code> 里。那个文件<strong>属于主题本体</strong>，换主题目录时被整个覆盖。</p><p><strong>处置</strong>：迁移到 <code>_config.butterfly.yml</code> —— 那才是官方推荐的覆盖文件。这条修的不只是这次，是<strong>以后每一次升级</strong>。</p>
+              </div>
+            </details>
+
+<hr>
+<h1 id="方法：三方合并"><a href="#方法：三方合并" class="headerlink" title="方法：三方合并"></a>方法：三方合并</h1><p>11 个魔改文件、约 1700 行改动。直接拿旧文件覆盖，等于把上游五年的改进全扔掉；直接用新文件，等于把自己的东西全扔掉。</p>
+<p>正确做法是三方合并，以<strong>原版 3.7.1 作为共同祖先</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge-file --diff3 &lt;5.7.0原版&gt; &lt;3.7.1原版&gt; &lt;我的魔改版&gt;</span><br><span class="line"><span class="comment">#                        ours        base        theirs</span></span><br><span class="line"><span class="comment"># 结果 = 上游改进 + 我的改动，两边都不丢</span></span><br></pre></td></tr></table></figure>
+
+<p>这一步暴露出一件我完全没料到的事：<strong>我当年那些「魔改」里，有相当一部分其实是手动前移植的 butterfly 新版写法</strong> —— <code>fragment_cache</code>、<code>preloader.enable</code>、<code>#body-wrap</code> —— 5.x 已经原生实现了。</p>
+<p>也就是说 <code>layout.pug</code> 这个文件的「改动」其实是零，直接取上游即可。升级不但没让我损失什么，还甩掉了三个维护负担。</p>
+<p>真正属于我的东西，一样没丢：</p>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>多款式加载动画（小巫师 / 稻草人 / ironheart），1434 行样式</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>首页分类栏</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>页脚的心形版权、徽章墙、养鱼挂件</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>文章版权卡片：四格信息 + 图标水印 + 深色模式呼吸辉光</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>Tag Plugins 标签包（就是这篇文章里一直在用的那些）</p>
+            </div>
+
+<hr>
+<h1 id="最阴的一类问题：不报错，只是静默失效"><a href="#最阴的一类问题：不报错，只是静默失效" class="headerlink" title="最阴的一类问题：不报错，只是静默失效"></a>最阴的一类问题：不报错，只是静默失效</h1><p>butterfly 5 归并改名了 29 个配置项。旧键名<strong>不会报错</strong>，只是读不到 —— 构建照样成功，功能悄悄消失。</p>
+<p>最典型的一个：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 旧写法（连字符）           # 新写法（下划线）</span></span><br><span class="line"><span class="attr">font:                       font:</span></span><br><span class="line">  <span class="attr">global-font-size:           global_font_size:</span></span><br><span class="line">  <span class="attr">font-family: mofei          font_family:</span> <span class="string">mofei</span></span><br></pre></td></tr></table></figure>
+
+<p><code>mofei</code> 是我自定义的那个字体。不改的话，全站字体就悄无声息地退回默认了。</p>
+<div class="note warning flat"><p>如果只做「升级 → 构建成功 → 页面能打开」这三步验收，这类问题一个都发现不了。等哪天自己觉得「字体好像不太对」，已经过去半年。</p>
+</div>
+
+<p>我是靠逐项比对新旧版本的配置键才揪出来的。类似的归并还有一堆：</p>
+<table>
+<thead>
+<tr>
+<th align="left">旧写法</th>
+<th align="left">新写法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>highlight_*</code> × 6 + <code>code_word_wrap</code></td>
+<td align="left"><code>code_blocks</code></td>
+</tr>
+<tr>
+<td align="left"><code>algolia_search</code> + <code>local_search</code></td>
+<td align="left"><code>search</code></td>
+</tr>
+<tr>
+<td align="left"><code>mathjax</code> + <code>katex</code></td>
+<td align="left"><code>math</code></td>
+</tr>
+<tr>
+<td align="left"><code>addThis</code> + <code>sharejs</code> + <code>addtoany</code></td>
+<td align="left"><code>share</code></td>
+</tr>
+<tr>
+<td align="left"><code>medium_zoom</code> + <code>fancybox</code></td>
+<td align="left"><code>lightbox</code></td>
+</tr>
+<tr>
+<td align="left"><code>footer_bg</code></td>
+<td align="left"><code>footer_img</code></td>
+</tr>
+<tr>
+<td align="left"><code>runtimeshow</code></td>
+<td align="left"><code>card_webinfo.runtime_date</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="全程在副本上做"><a href="#全程在副本上做" class="headerlink" title="全程在副本上做"></a>全程在副本上做</h1><p>从头到尾，正式仓库和线上站点一根汗毛没动，直到全部验证通过：</p>
+<ol>
+<li><strong>可行性验证</strong> —— 副本上装新技术栈直接构建，看什么真的碎。这一步是探针不是承诺，结果太糟随时可以停。</li>
+<li><strong>移植魔改</strong> —— 60 个新增文件整体搬运，11 个改动文件做三方合并，每合并一个就构建一次。</li>
+<li><strong>配置现代化</strong> —— 29 项失效键逐个映射，并把误放在主题目录里的配置全部迁走。</li>
+<li><strong>验收后才落地</strong> —— 26 个插件、5 个模块、14 个页面全部实测通过，才同步进正式仓库。</li>
+</ol>
+<p>验收也不能只看「构建成功」。<strong>构建成功不等于模块能显示</strong> —— 我是拿浏览器跑 JS 去查 DOM 实际状态的：轮播查 <code>el.swiper</code> 存不存在、<code>autoplay.running</code> 是不是 true；加载动画把 <code>loaded</code> 类摘掉，量它的 <code>animationName</code> 和尺寸。</p>
+<hr>
+<h1 id="我判断错的三次"><a href="#我判断错的三次" class="headerlink" title="我判断错的三次"></a>我判断错的三次</h1><p>只列成果那是宣传稿，不是记录。这三次都实实在在改变了后续走向。</p>
+<div class="note danger flat"><p><strong>把「说说」的后端判了死刑</strong></p>
+<p>我用 curl 打 LeanCloud 的 REST 接口，带上正确的 appId 和 appKey，拿到 401，于是断定「后端已失效，换 CDN 也救不回来」。<strong>错的。</strong> SDK 用的鉴权方式和我手工构造的不同 —— 页面上说说一直能正常拉到 2022 年的内容。</p>
+<p>教训：别用一个你不熟悉的接口的报错，去给整个服务判死刑。</p>
+</div>
+
+<div class="note danger flat"><p><strong>把控制台报错等同于功能坏掉</strong></p>
+<p>首页有个 <code>Swiper is not defined</code> 一闪而过，我据此认为轮播没修好。实际上 butterfly 的 pjax 之后会重跑脚本并初始化成功，轮播一直在转。</p>
+<p>教训：判断模块死活要看 DOM 实际状态，不能只看控制台。</p>
+</div>
+
+<div class="note danger flat"><p><strong>对升级过于悲观</strong></p>
+<p>我一度断言升级「很可能打碎刚修好的模块」。去验之后发现，插件依赖的四个挂载点在新版里一个不少。</p>
+<p>教训：这条要是没去验，这次升级根本不会发生。</p>
+</div>
+
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>站还是那个站 —— 小巫师还在转，页脚的心还在跳，版权卡片在深色模式下还是会呼吸发光。这些是我当年一个个挑出来、试出来的，一样没丢。</p>
+<p>变的是底下：技术栈从 Hexo 5 到 7，主题跨了两个大版本，所有第三方依赖里最脆的那两个被换掉了，配置搬到了升级安全的地方，字体不再静默失效。</p>
+<div class="tip success"><p>修一个停更四年的东西，最难的不是技术，是分清哪些是「上游的演进」、哪些是「当年的自己」。前者应该拥抱，后者值得保住。</p>
+</div>
+
+<p>最后还有个意外收获。那套加载动画的出处，是 <a href="https://akilar.top/posts/3d221bf2/">Akilar 的 Loading Animation</a> —— 和我站上的 swiper、gitcalendar、电子钟、说说、留言板<strong>全部同源</strong>。翻出来才意识到，这个博客的一大半，是照着同一个人的文章搭起来的。</p>
+<p>而那篇教程最后更新停在 2022-04-27，和我的博客差不多同时安静下来。</p>
+<p>那就从这篇开始，重新写点东西吧。</p>
+]]></content>
+      <categories>
+        <category>学习の世界</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>😮企业架构复习手册</title>
@@ -1838,318 +2151,5 @@
 <li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
 </ol>
 <h1 id="番茄牛腩"><a href="#番茄牛腩" class="headerlink" title="番茄牛腩"></a>番茄牛腩</h1><h1 id="板栗烧鸡"><a href="#板栗烧鸡" class="headerlink" title="板栗烧鸡"></a>板栗烧鸡</h1><h1 id="香菇小油菜"><a href="#香菇小油菜" class="headerlink" title="香菇小油菜"></a>香菇小油菜</h1><h1 id="鸡丝凉面"><a href="#鸡丝凉面" class="headerlink" title="鸡丝凉面"></a>鸡丝凉面</h1><h1 id="传统小咸菜"><a href="#传统小咸菜" class="headerlink" title="传统小咸菜"></a>传统小咸菜</h1><h1 id="广式香肠炒荷兰豆（待更新）"><a href="#广式香肠炒荷兰豆（待更新）" class="headerlink" title="广式香肠炒荷兰豆（待更新）"></a>广式香肠炒荷兰豆（待更新）</h1><h1 id="海南椰子鸡汤（待更新）"><a href="#海南椰子鸡汤（待更新）" class="headerlink" title="海南椰子鸡汤（待更新）"></a>海南椰子鸡汤（待更新）</h1><h1 id="油闷大虾（待更新）"><a href="#油闷大虾（待更新）" class="headerlink" title="油闷大虾（待更新）"></a>油闷大虾（待更新）</h1><h1 id="排骨粉藕海带汤（待更新）"><a href="#排骨粉藕海带汤（待更新）" class="headerlink" title="排骨粉藕海带汤（待更新）"></a>排骨粉藕海带汤（待更新）</h1><h1 id="农家小炒肉（待更新）"><a href="#农家小炒肉（待更新）" class="headerlink" title="农家小炒肉（待更新）"></a>农家小炒肉（待更新）</h1><h1 id="油焖大虾（待更新）"><a href="#油焖大虾（待更新）" class="headerlink" title="油焖大虾（待更新）"></a>油焖大虾（待更新）</h1><h1 id="鲅鱼饺子（待更新）"><a href="#鲅鱼饺子（待更新）" class="headerlink" title="鲅鱼饺子（待更新）"></a>鲅鱼饺子（待更新）</h1><h1 id="芝士焗生蚝（待更新）"><a href="#芝士焗生蚝（待更新）" class="headerlink" title="芝士焗生蚝（待更新）"></a>芝士焗生蚝（待更新）</h1><h1 id="鸡蛋塔塔饼（待更新）"><a href="#鸡蛋塔塔饼（待更新）" class="headerlink" title="鸡蛋塔塔饼（待更新）"></a>鸡蛋塔塔饼（待更新）</h1><h1 id="葡式蛋挞（待更新）"><a href="#葡式蛋挞（待更新）" class="headerlink" title="葡式蛋挞（待更新）"></a>葡式蛋挞（待更新）</h1><h1 id="菠萝酥-香蕉酥（待更新）"><a href="#菠萝酥-香蕉酥（待更新）" class="headerlink" title="菠萝酥/香蕉酥（待更新）"></a>菠萝酥/香蕉酥（待更新）</h1><h1 id="咸蛋黄豆沙月饼（待更新）"><a href="#咸蛋黄豆沙月饼（待更新）" class="headerlink" title="咸蛋黄豆沙月饼（待更新）"></a>咸蛋黄豆沙月饼（待更新）</h1><h1 id="广式香肠荷兰豆（待更新）"><a href="#广式香肠荷兰豆（待更新）" class="headerlink" title="广式香肠荷兰豆（待更新）"></a>广式香肠荷兰豆（待更新）</h1><h1 id="青椒塞肉（待更新）"><a href="#青椒塞肉（待更新）" class="headerlink" title="青椒塞肉（待更新）"></a>青椒塞肉（待更新）</h1><h1 id="虎皮青椒（待更新）"><a href="#虎皮青椒（待更新）" class="headerlink" title="虎皮青椒（待更新）"></a>虎皮青椒（待更新）</h1><h1 id="凉拌麻将肘子（待更新）"><a href="#凉拌麻将肘子（待更新）" class="headerlink" title="凉拌麻将肘子（待更新）"></a>凉拌麻将肘子（待更新）</h1><h1 id="辣子鸡丁（待更新）"><a href="#辣子鸡丁（待更新）" class="headerlink" title="辣子鸡丁（待更新）"></a>辣子鸡丁（待更新）</h1><h1 id="四川回锅肉（待更新）"><a href="#四川回锅肉（待更新）" class="headerlink" title="四川回锅肉（待更新）"></a>四川回锅肉（待更新）</h1><h1 id="清炒香菇油菜（待更新）"><a href="#清炒香菇油菜（待更新）" class="headerlink" title="清炒香菇油菜（待更新）"></a>清炒香菇油菜（待更新）</h1><h1 id="家常饺子（待更新）"><a href="#家常饺子（待更新）" class="headerlink" title="家常饺子（待更新）"></a>家常饺子（待更新）</h1><h1 id="香菜白萝卜汆丸子（待更新）"><a href="#香菜白萝卜汆丸子（待更新）" class="headerlink" title="香菜白萝卜汆丸子（待更新）"></a>香菜白萝卜汆丸子（待更新）</h1><h1 id="红烧牛肉面（待更新）"><a href="#红烧牛肉面（待更新）" class="headerlink" title="红烧牛肉面（待更新）"></a>红烧牛肉面（待更新）</h1><h1 id="五花肉打卤面（待更新）"><a href="#五花肉打卤面（待更新）" class="headerlink" title="五花肉打卤面（待更新）"></a>五花肉打卤面（待更新）</h1><h1 id="西红柿打卤面（待更新）"><a href="#西红柿打卤面（待更新）" class="headerlink" title="西红柿打卤面（待更新）"></a>西红柿打卤面（待更新）</h1><h1 id="鸡腿肉炒杏鲍菇"><a href="#鸡腿肉炒杏鲍菇" class="headerlink" title="鸡腿肉炒杏鲍菇"></a>鸡腿肉炒杏鲍菇</h1><h1 id="小时候番茄鸡蛋饼"><a href="#小时候番茄鸡蛋饼" class="headerlink" title="小时候番茄鸡蛋饼"></a>小时候番茄鸡蛋饼</h1><h1 id="传统韩式拌饭"><a href="#传统韩式拌饭" class="headerlink" title="传统韩式拌饭"></a>传统韩式拌饭</h1><h1 id="鳗鱼蛋包饭"><a href="#鳗鱼蛋包饭" class="headerlink" title="鳗鱼蛋包饭"></a>鳗鱼蛋包饭</h1><h1 id="蟹味菇素炒面"><a href="#蟹味菇素炒面" class="headerlink" title="蟹味菇素炒面"></a>蟹味菇素炒面</h1><h1 id="皮蛋豆腐"><a href="#皮蛋豆腐" class="headerlink" title="皮蛋豆腐"></a>皮蛋豆腐</h1>]]></content>
-  </entry>
-  <entry>
-    <title>😨使用TorBrowser秘密访问暗网世界</title>
-    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
-    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
-</div>
-
-
-<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
-</div>
-
-<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
-
-<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
-<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
-</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>下载地址</p>
-</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>使用方法</p>
-</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
-</div>
-
-<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
-<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
-
-<div class="timeline">
-<div class="timenode"><div class="meta"><p><p>常用地址</p>
-</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
-</div>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>🦋小站重生记 · 从三个坏掉的模块到跨版本升级</title>
-    <url>/2026/08/18/%F0%9F%A6%8B%E5%B0%8F%E7%AB%99%E9%87%8D%E7%94%9F%E8%AE%B0/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>这个小站从 2021 年搭起来，2022 年之后就安静了。源码丢过一次，后来从单位电脑上翻了回来。打开一看，首页三个模块是坏的，主题还停在五年前的版本。</p>
-<p>本来只想修 bug，结果一路修到了架构升级。这篇把过程原样记下来 —— 包括我判断错的那几次。</p>
-</div>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先承认，站是坏的，而且我早就知道：</p>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>首页轮播不转了</p>
-            </div>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>GitHub 贡献图不显示</p>
-            </div>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>侧边栏有个模块永远停在「加载中」</p>
-            </div>
-
-<p>三个毛病看着不相干，查下去才发现是<strong>同一个根因</strong>。而那个根因又牵出了整套技术栈已经老到什么程度。</p>
-<hr>
-<h1 id="第一幕：一个死掉的-CDN，拖垮四个模块"><a href="#第一幕：一个死掉的-CDN，拖垮四个模块" class="headerlink" title="第一幕：一个死掉的 CDN，拖垮四个模块"></a>第一幕：一个死掉的 CDN，拖垮四个模块</h1><p>打开控制台，两行报错把方向指得很清楚：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Uncaught ReferenceError: Swiper is not defined</span><br><span class="line">Uncaught ReferenceError: GitCalendarInit is not defined</span><br></pre></td></tr></table></figure>
-
-<p>函数未定义，说明外部 JS 根本没加载进来。把首页引用的 53 个外部资源逐个探活，结果异常干净 —— 所有失败请求都指向同一个主机：</p>
-<div class="note danger flat"><p><code>unpkg.zhimg.com</code> —— 知乎当年做的 unpkg 镜像，现在已经废弃。swiper 相关返回 403，其余全是 404。</p>
-</div>
-
-<p>而同一时刻，<code>cdn.jsdelivr.net</code> 上的 33 个资源无一失败。</p>
-<table>
-<thead>
-<tr>
-<th align="left">模块</th>
-<th align="left">资源状态</th>
-<th align="left">表现</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">hexo-butterfly-swiper</td>
-<td align="left">403</td>
-<td align="left">首页轮播不转</td>
-</tr>
-<tr>
-<td align="left">hexo-filter-gitcalendar</td>
-<td align="left">404</td>
-<td align="left">贡献图不显示</td>
-</tr>
-<tr>
-<td align="left">hexo-butterfly-artitalk-pro</td>
-<td align="left">404</td>
-<td align="left">说说卡在加载中</td>
-</tr>
-<tr>
-<td align="left">hexo-butterfly-clock</td>
-<td align="left">404</td>
-<td align="left">电子钟（这个我之前都没注意到）</td>
-</tr>
-</tbody></table>
-<p>修法很朴素：在 <code>_config.yml</code> 里给这四个插件显式指定 jsDelivr 地址，覆盖掉它们写死的默认值。11 个资源实测全部 200，重新构建，四个模块一起活了。</p>
-<div class="tip "><p>一个第三方镜像站关停，能同时打掉一个博客的四个功能。这不是运气不好，是把可用性押在别人手里的必然结果。</p>
-</div>
-
-<hr>
-<h1 id="第二幕：贡献图，拒绝再踩同一个坑"><a href="#第二幕：贡献图，拒绝再踩同一个坑" class="headerlink" title="第二幕：贡献图，拒绝再踩同一个坑"></a>第二幕：贡献图，拒绝再踩同一个坑</h1><p>CDN 修好后，贡献图的脚本回来了，图还是空的。因为坏的不是脚本，是<strong>数据源</strong>。</p>
-<p>插件默认调用 <code>github-calendar-api.vercel.app</code>。我拿自己的用户名去问，返回 <code>&#123;&quot;total&quot;:0,&quot;contributions&quot;:[]&#125;</code>。换 torvalds 再问一次 —— 还是 0。那位的贡献量不可能是零，所以结论只有一个：<strong>这个 API 已经废了，对所有人返回空。</strong></p>
-<p>这次我没有去找另一个第三方 API 顶上。刚被一个第三方服务坑过，再换一家只是把同样的雷重埋一次。改成了站内静态数据：</p>
-<details cyan open><summary> 具体怎么做的 </summary>
-              <div class='content'>
-              <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tools/update-gitcalendar.py    <span class="comment"># 抓数据，转成插件要的 53 周嵌套结构</span></span><br><span class="line"><span class="built_in">source</span>/gitcalendar/data.json   <span class="comment"># 结果随站点一起发布</span></span><br></pre></td></tr></table></figure><p>配置里这么写：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiurl:</span> <span class="string">&#x27;/gitcalendar/data.json#&#x27;</span></span><br></pre></td></tr></table></figure><p>最后那个 <code>#</code> 是关键。插件写死了要拼成 <code>&lt;apiurl&gt;/api?&lt;user&gt;</code>，而井号让后半截变成 URL 片段，浏览器实际只请求那个 JSON。<strong>运行时零第三方依赖，那个 API 再也影响不到我。</strong></p>
-              </div>
-            </details>
-
-<p>顺带看到了自己的数据，有点唏嘘：</p>
-<table>
-<thead>
-<tr>
-<th align="left">年份</th>
-<th align="left">贡献数</th>
-<th align="left">活跃天数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">2020</td>
-<td align="left">732</td>
-<td align="left">366（一天没落）</td>
-</tr>
-<tr>
-<td align="left">2021</td>
-<td align="left">1077</td>
-<td align="left">237</td>
-</tr>
-<tr>
-<td align="left">2022</td>
-<td align="left">46</td>
-<td align="left">16</td>
-</tr>
-<tr>
-<td align="left">2023 – 2025</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-</tbody></table>
-<p>数字比记忆诚实。我最后选择让贡献图显示<strong>真实的最近一年</strong> —— 虽然它现在基本是空的，唯一那两格还是修这个博客时提交的。</p>
-<hr>
-<h1 id="第三幕：该不该升级"><a href="#第三幕：该不该升级" class="headerlink" title="第三幕：该不该升级"></a>第三幕：该不该升级</h1><p>主题停在 butterfly 3.7.1（2021-03），最新是 5.7.0。中间隔着 <strong>54 个正式版本、两个大版本、五年半</strong>。</p>
-<p>我一开始的判断是<strong>不建议升</strong>，理由列了四条：技术栈要连坐升级、配置要重写、1700 行魔改要重贴、插件生态已经冻结（有六个插件多年没发过新版）。最后一条尤其吓人 —— 那些插件靠往特定 DOM 容器里插内容工作，主题一重构就可能全碎。</p>
-<p>然后我去验了这一条。把 butterfly 5.7.0 解包，grep 那几个挂载点：</p>
-<table>
-<thead>
-<tr>
-<th align="left">插件依赖的挂载点</th>
-<th align="left">3.7.1</th>
-<th align="left">5.7.0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>recent-posts</code></td>
-<td align="left">5 个布局文件</td>
-<td align="left">6 个</td>
-</tr>
-<tr>
-<td align="left"><code>sticky_layout</code></td>
-<td align="left">1</td>
-<td align="left">1</td>
-</tr>
-<tr>
-<td align="left"><code>aside-content</code></td>
-<td align="left">1</td>
-<td align="left">1</td>
-</tr>
-<tr>
-<td align="left"><code>card-widget</code></td>
-<td align="left">11</td>
-<td align="left">13</td>
-</tr>
-</tbody></table>
-<div class="note success flat"><p>四个挂载点在新版里一个不少。我那条最重的理由，证据不支持。</p>
-</div>
-
-<p>于是改口。这不是嘴硬的问题 —— 如果我坚持原判断，这次升级根本不会发生。<strong>预感值得说出来，但只有证据能定案。</strong></p>
-<hr>
-<h1 id="第四幕：四个障碍"><a href="#第四幕：四个障碍" class="headerlink" title="第四幕：四个障碍"></a>第四幕：四个障碍</h1><p>跨越五年半、两个大版本，全过程只撞到四个真实障碍，比预期少太多。</p>
-<details red><summary> 其一 · 插件不检查存在性，直接把构建打崩 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>TypeError: Cannot read properties of undefined (reading &#39;cover&#39;)</code>，构建直接中止。</p><p><strong>根因</strong>：<code>hexo-butterfly-envelope</code> 1.0.13+ 把四张图收进了 <code>custom_pic</code> 子节点，而代码里不做任何存在性检查就往下读。旧配置没这一节，于是整个构建崩溃。</p><p><strong>处置</strong>：补齐配置节点。顺带发现它的默认值也指向那个已废弃的镜像，一并改掉。</p>
-              </div>
-            </details>
-
-<details red><summary> 其二 · 一个全局函数搬进了命名空间 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>ReferenceError: getScript is not defined</code>，说说加载不出来。</p><p><strong>根因</strong>：butterfly 3.x 把 <code>getScript</code> 直接挂在 <code>window</code> 上，5.x 起收进了 <code>window.btf</code> 命名空间。老插件注入的内联脚本调的是裸函数，自然找不到。</p><p><strong>处置</strong>：在 <code>inject.head</code> 加一段<strong>惰性垫片</strong> —— 调用时才去取 <code>btf</code>，因此不依赖脚本加载顺序。六行代码，一个插件都不用改。</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">getScript</span> = <span class="variable language_">window</span>.<span class="property">getScript</span> || <span class="keyword">function</span> (<span class="params">u, a</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">btf</span>.<span class="title function_">getScript</span>(u, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
-
-<details red><summary> 其三 · 同名标签，少注册了一个 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>unknown block tag: timenode</code>，文章渲染失败。</p><p><strong>根因</strong>：butterfly 5 自带了 <code>timeline</code> 标签，但只注册这一个；我用的第三方版本还注册了 <code>timenode</code>，而文章里用了 30 次。</p><p><strong>处置</strong>：保留第三方版本覆盖官方的。顺带统计了一下自己对标签插件的依赖深度 —— <code>checkbox</code> 326 次、<code>tip</code> 83 次、<code>folding</code> 77 次，全站 600 多处调用。这些标签早就是文章的骨架了。</p>
-              </div>
-            </details>
-
-<details red><summary> 其四 · 配置写错了地方，升级即丢 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：升级后导航菜单整个消失，16 个菜单项全没了。</p><p><strong>根因</strong>：菜单写在 <code>themes/butterfly/_config.yml</code> 里。那个文件<strong>属于主题本体</strong>，换主题目录时被整个覆盖。</p><p><strong>处置</strong>：迁移到 <code>_config.butterfly.yml</code> —— 那才是官方推荐的覆盖文件。这条修的不只是这次，是<strong>以后每一次升级</strong>。</p>
-              </div>
-            </details>
-
-<hr>
-<h1 id="方法：三方合并"><a href="#方法：三方合并" class="headerlink" title="方法：三方合并"></a>方法：三方合并</h1><p>11 个魔改文件、约 1700 行改动。直接拿旧文件覆盖，等于把上游五年的改进全扔掉；直接用新文件，等于把自己的东西全扔掉。</p>
-<p>正确做法是三方合并，以<strong>原版 3.7.1 作为共同祖先</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge-file --diff3 &lt;5.7.0原版&gt; &lt;3.7.1原版&gt; &lt;我的魔改版&gt;</span><br><span class="line"><span class="comment">#                        ours        base        theirs</span></span><br><span class="line"><span class="comment"># 结果 = 上游改进 + 我的改动，两边都不丢</span></span><br></pre></td></tr></table></figure>
-
-<p>这一步暴露出一件我完全没料到的事：<strong>我当年那些「魔改」里，有相当一部分其实是手动前移植的 butterfly 新版写法</strong> —— <code>fragment_cache</code>、<code>preloader.enable</code>、<code>#body-wrap</code> —— 5.x 已经原生实现了。</p>
-<p>也就是说 <code>layout.pug</code> 这个文件的「改动」其实是零，直接取上游即可。升级不但没让我损失什么，还甩掉了三个维护负担。</p>
-<p>真正属于我的东西，一样没丢：</p>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>多款式加载动画（小巫师 / 稻草人 / ironheart），1434 行样式</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>首页分类栏</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>页脚的心形版权、徽章墙、养鱼挂件</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>文章版权卡片：四格信息 + 图标水印 + 深色模式呼吸辉光</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>Tag Plugins 标签包（就是这篇文章里一直在用的那些）</p>
-            </div>
-
-<hr>
-<h1 id="最阴的一类问题：不报错，只是静默失效"><a href="#最阴的一类问题：不报错，只是静默失效" class="headerlink" title="最阴的一类问题：不报错，只是静默失效"></a>最阴的一类问题：不报错，只是静默失效</h1><p>butterfly 5 归并改名了 29 个配置项。旧键名<strong>不会报错</strong>，只是读不到 —— 构建照样成功，功能悄悄消失。</p>
-<p>最典型的一个：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 旧写法（连字符）           # 新写法（下划线）</span></span><br><span class="line"><span class="attr">font:                       font:</span></span><br><span class="line">  <span class="attr">global-font-size:           global_font_size:</span></span><br><span class="line">  <span class="attr">font-family: mofei          font_family:</span> <span class="string">mofei</span></span><br></pre></td></tr></table></figure>
-
-<p><code>mofei</code> 是我自定义的那个字体。不改的话，全站字体就悄无声息地退回默认了。</p>
-<div class="note warning flat"><p>如果只做「升级 → 构建成功 → 页面能打开」这三步验收，这类问题一个都发现不了。等哪天自己觉得「字体好像不太对」，已经过去半年。</p>
-</div>
-
-<p>我是靠逐项比对新旧版本的配置键才揪出来的。类似的归并还有一堆：</p>
-<table>
-<thead>
-<tr>
-<th align="left">旧写法</th>
-<th align="left">新写法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>highlight_*</code> × 6 + <code>code_word_wrap</code></td>
-<td align="left"><code>code_blocks</code></td>
-</tr>
-<tr>
-<td align="left"><code>algolia_search</code> + <code>local_search</code></td>
-<td align="left"><code>search</code></td>
-</tr>
-<tr>
-<td align="left"><code>mathjax</code> + <code>katex</code></td>
-<td align="left"><code>math</code></td>
-</tr>
-<tr>
-<td align="left"><code>addThis</code> + <code>sharejs</code> + <code>addtoany</code></td>
-<td align="left"><code>share</code></td>
-</tr>
-<tr>
-<td align="left"><code>medium_zoom</code> + <code>fancybox</code></td>
-<td align="left"><code>lightbox</code></td>
-</tr>
-<tr>
-<td align="left"><code>footer_bg</code></td>
-<td align="left"><code>footer_img</code></td>
-</tr>
-<tr>
-<td align="left"><code>runtimeshow</code></td>
-<td align="left"><code>card_webinfo.runtime_date</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="全程在副本上做"><a href="#全程在副本上做" class="headerlink" title="全程在副本上做"></a>全程在副本上做</h1><p>从头到尾，正式仓库和线上站点一根汗毛没动，直到全部验证通过：</p>
-<ol>
-<li><strong>可行性验证</strong> —— 副本上装新技术栈直接构建，看什么真的碎。这一步是探针不是承诺，结果太糟随时可以停。</li>
-<li><strong>移植魔改</strong> —— 60 个新增文件整体搬运，11 个改动文件做三方合并，每合并一个就构建一次。</li>
-<li><strong>配置现代化</strong> —— 29 项失效键逐个映射，并把误放在主题目录里的配置全部迁走。</li>
-<li><strong>验收后才落地</strong> —— 26 个插件、5 个模块、14 个页面全部实测通过，才同步进正式仓库。</li>
-</ol>
-<p>验收也不能只看「构建成功」。<strong>构建成功不等于模块能显示</strong> —— 我是拿浏览器跑 JS 去查 DOM 实际状态的：轮播查 <code>el.swiper</code> 存不存在、<code>autoplay.running</code> 是不是 true；加载动画把 <code>loaded</code> 类摘掉，量它的 <code>animationName</code> 和尺寸。</p>
-<hr>
-<h1 id="我判断错的三次"><a href="#我判断错的三次" class="headerlink" title="我判断错的三次"></a>我判断错的三次</h1><p>只列成果那是宣传稿，不是记录。这三次都实实在在改变了后续走向。</p>
-<div class="note danger flat"><p><strong>把「说说」的后端判了死刑</strong></p>
-<p>我用 curl 打 LeanCloud 的 REST 接口，带上正确的 appId 和 appKey，拿到 401，于是断定「后端已失效，换 CDN 也救不回来」。<strong>错的。</strong> SDK 用的鉴权方式和我手工构造的不同 —— 页面上说说一直能正常拉到 2022 年的内容。</p>
-<p>教训：别用一个你不熟悉的接口的报错，去给整个服务判死刑。</p>
-</div>
-
-<div class="note danger flat"><p><strong>把控制台报错等同于功能坏掉</strong></p>
-<p>首页有个 <code>Swiper is not defined</code> 一闪而过，我据此认为轮播没修好。实际上 butterfly 的 pjax 之后会重跑脚本并初始化成功，轮播一直在转。</p>
-<p>教训：判断模块死活要看 DOM 实际状态，不能只看控制台。</p>
-</div>
-
-<div class="note danger flat"><p><strong>对升级过于悲观</strong></p>
-<p>我一度断言升级「很可能打碎刚修好的模块」。去验之后发现，插件依赖的四个挂载点在新版里一个不少。</p>
-<p>教训：这条要是没去验，这次升级根本不会发生。</p>
-</div>
-
-<hr>
-<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>站还是那个站 —— 小巫师还在转，页脚的心还在跳，版权卡片在深色模式下还是会呼吸发光。这些是我当年一个个挑出来、试出来的，一样没丢。</p>
-<p>变的是底下：技术栈从 Hexo 5 到 7，主题跨了两个大版本，所有第三方依赖里最脆的那两个被换掉了，配置搬到了升级安全的地方，字体不再静默失效。</p>
-<div class="tip success"><p>修一个停更四年的东西，最难的不是技术，是分清哪些是「上游的演进」、哪些是「当年的自己」。前者应该拥抱，后者值得保住。</p>
-</div>
-
-<p>最后还有个意外收获。那套加载动画的出处，是 <a href="https://akilar.top/posts/3d221bf2/">Akilar 的 Loading Animation</a> —— 和我站上的 swiper、gitcalendar、电子钟、说说、留言板<strong>全部同源</strong>。翻出来才意识到，这个博客的一大半，是照着同一个人的文章搭起来的。</p>
-<p>而那篇教程最后更新停在 2022-04-27，和我的博客差不多同时安静下来。</p>
-<p>那就从这篇开始，重新写点东西吧。</p>
-]]></content>
-      <categories>
-        <category>学习の世界</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
 </search>

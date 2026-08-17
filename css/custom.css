@@ -142,3 +142,25 @@ i:hover{
   margin: 0 0 14px;
   line-height: 2.1;
 }
+
+
+/* --- 「管理」菜单项只在本地可见 ---
+   该项指向 localhost:4000/admin/（本地 hexo server 的后台），
+   对访客毫无意义，所以默认隐藏；只有从 localhost 访问时才显示。
+   判定由 inject.head 里的一小段脚本给 <html> 加 .local-admin 完成，
+   脚本在 head 中执行，因此不会出现「先显示再消失」的闪烁。
+
+   注意特异性：butterfly 有 `#nav .menus_item` 这类带 id 的规则，
+   只写 `.menus_item:has(...)` 会被它压过去（实测顶部导航没能隐藏），
+   所以这里带上 #nav / #sidebar 并加 !important。 */
+#nav .menus_item:has(> a[href*="localhost:4000/admin"]),
+#sidebar .menus_item:has(> a[href*="localhost:4000/admin"]),
+.menus_item:has(> a[href*="localhost:4000/admin"]) { display: none !important; }
+
+/* 不支持 :has() 的老浏览器退化为只隐藏链接本身 */
+.menus_item > a[href*="localhost:4000/admin"] { display: none; }
+
+html.local-admin #nav .menus_item:has(> a[href*="localhost:4000/admin"]),
+html.local-admin .menus_item:has(> a[href*="localhost:4000/admin"]) { display: inline-block !important; }
+html.local-admin #sidebar .menus_item:has(> a[href*="localhost:4000/admin"]) { display: block !important; }
+html.local-admin .menus_item > a[href*="localhost:4000/admin"] { display: revert; }
