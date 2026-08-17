@@ -90,3 +90,55 @@ i:hover{
 #nav .site-page:hover{
       cursor: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/cur/hf.cur'),auto;
 }
+
+
+/* ============================================================
+   2026-08-18 升级后的修补
+   ============================================================ */
+
+/* --- 时钟的 LED 字体 ---
+   插件自带的 clock.min.css 把字体写死在 unpkg.zhimg.com（已废弃，404），
+   导致数字回退成系统字体。这里用同一字体的 jsDelivr 地址覆盖掉。
+   声明在本文件即可生效：晚于插件 CSS 加载，同名 @font-face 后者胜出。 */
+@font-face {
+  font-family: 'UnidreamLED';
+  src: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf');
+  font-display: swap;
+}
+
+/* --- 养鱼的「海」---
+   fish.js 只画鱼（浅灰 hsl(0,0%,95%)），canvas 本身是透明的，
+   所以原来看到的「白色海面」其实是页脚底色透出来。
+   给容器加海蓝渐变当水体，浅色的鱼在上面正好有对比。 */
+#jsi-flying-fish-container {
+  position: relative;
+  /* 必须给显式高度：fish.js 用 $container.height() 取高，又把 canvas 塞回容器里，
+     两者会互相喂 —— 不定高时高度会失控（实测涨到 617px）。 */
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2E7BA6 0%, #17527A 55%, #0E3A5C 100%);
+  box-shadow: inset 0 6px 18px -6px rgba(0, 0, 0, .45);
+}
+
+/* 水面高光，让它更像水而不是一块蓝色 */
+#jsi-flying-fish-container::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 34%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+#jsi-flying-fish-container canvas {
+  display: block;
+  width: 100%;
+}
+
+/* --- 页脚间距 ---
+   徽章墙与养鱼区之间原来贴得太紧，给一点呼吸。 */
+#ghbdages {
+  margin: 0 0 14px;
+  line-height: 2.1;
+}
