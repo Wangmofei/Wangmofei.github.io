@@ -100,36 +100,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>😎通过URLScheme一键打开健康码</title>
-    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
-</div>
-
-<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-
-<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
-
-<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
-
-<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到这一段</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
-
-<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
-<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
-</code></pre>
-<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
-
-<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-]]></content>
-  </entry>
-  <entry>
     <title>😊干货之常用标签写法</title>
     <url>/2021/06/24/%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>本文记录一些常用的标签项，防止自己忘记该怎么写</p>
@@ -479,6 +449,55 @@
       </tags>
   </entry>
   <entry>
+    <title>😎通过URLScheme一键打开健康码</title>
+    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
+</div>
+
+<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+
+<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
+
+<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
+
+<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到这一段</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
+
+<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
+<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
+</code></pre>
+<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
+
+<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+]]></content>
+  </entry>
+  <entry>
+    <title>😰那些我不能说的秘密</title>
+    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>心情故事</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>🌏让你的浏览器好用100倍</title>
     <url>/2021/08/22/%F0%9F%8C%8F%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A5%BD%E7%94%A8100%E5%80%8D/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
@@ -514,23 +533,23 @@
 ]]></content>
   </entry>
   <entry>
-    <title>😰那些我不能说的秘密</title>
-    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>心情故事</tag>
-      </tags>
+    <title>🎵记录弹过唱过的小清新歌曲</title>
+    <url>/2022/03/19/%F0%9F%8E%B5%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%88%91%E5%A5%8F%E8%BF%87%E7%9A%84%E5%B0%8F%E6%83%85%E6%AD%8C/</url>
+    <content><![CDATA[<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>2020-06-30 早期原创音频</p>
+</p></div><div class="body"><ol><li><p>City of Star 爱乐之城 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>Canon in D 卡农 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>悬崖上的金鱼姬 宫崎骏 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 原创歌曲视频</p>
+</p></div><div class="body"><ol><li>指纹-杜宣达</li></ol><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 原创纯音乐视频</p>
+</p></div><div class="body"><ol><li>Por Una Cabeza<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>2020-06-30 抖音神曲翻唱</p>
+</p></div><div class="body"><ol><li>指纹-杜宣达<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
+
+
+</div>]]></content>
   </entry>
   <entry>
     <title>🎹十年乐队故事🎸我的音乐时光机</title>
@@ -638,25 +657,6 @@
 
 </div>
 ]]></content>
-  </entry>
-  <entry>
-    <title>🎵记录弹过唱过的小清新歌曲</title>
-    <url>/2022/03/19/%F0%9F%8E%B5%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%88%91%E5%A5%8F%E8%BF%87%E7%9A%84%E5%B0%8F%E6%83%85%E6%AD%8C/</url>
-    <content><![CDATA[<h1 id="舞台の瞬间-🎵"><a href="#舞台の瞬间-🎵" class="headerlink" title="舞台の瞬间 🎵"></a>舞台の瞬间 🎵</h1><div class="timeline">
-<div class="timenode"><div class="meta"><p><p>2020-06-30 早期原创音频</p>
-</p></div><div class="body"><ol><li><p>City of Star 爱乐之城 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>Canon in D 卡农 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li><li><p>悬崖上的金鱼姬 宫崎骏 钢琴版</p><div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 原创歌曲视频</p>
-</p></div><div class="body"><ol><li>指纹-杜宣达</li></ol><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 原创纯音乐视频</p>
-</p></div><div class="body"><ol><li>Por Una Cabeza<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>2020-06-30 抖音神曲翻唱</p>
-</p></div><div class="body"><ol><li>指纹-杜宣达<div class="videos" col='2'><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div><div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></li></ol></div></div>
-
-
-</div>]]></content>
   </entry>
   <entry>
     <title>😊TOGAF考题汇总习题版</title>
@@ -1270,536 +1270,11 @@
 ]]></content>
   </entry>
   <entry>
-    <title>😨使用TorBrowser秘密访问暗网世界</title>
-    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
-    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
-</div>
-
-
-<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
-</div>
-
-<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
-
-<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
-<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
-</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
-
-<div class="timenode"><div class="meta"><p><p>下载地址</p>
-</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
-
-<div class="timenode"><div class="meta"><p><p>使用方法</p>
-</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
-</div>
-
-<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
-<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
-
-<div class="timeline">
-<div class="timenode"><div class="meta"><p><p>常用地址</p>
-</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
-</div>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>🚀实时文章推送功能测试</title>
     <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
 <span id="more"></span>
 ]]></content>
-  </entry>
-  <entry>
-    <title>🥩超级无敌美味私房菜谱</title>
-    <url>/2021/07/12/%F0%9F%A5%A9%E8%B6%85%E5%A5%BD%E5%90%83%E7%A7%81%E6%88%BF%E5%93%92%E8%8F%9C%E8%B0%B1/</url>
-    <content><![CDATA[<p>🥩🍷🍭🌯🍝🌮🍻<br>🍔大王的私房菜谱🍲<br>🥟🍗🍖🍹🍜🍢🍡</p>
-<hr>
-<h1 id="红烧排骨"><a href="#红烧排骨" class="headerlink" title="红烧排骨"></a>红烧排骨</h1><div class="tip warning faa-horizontal animated"><p>主料：排骨800g<br>配料：八角2个、桂皮1个、香叶1片、花椒1把、大葱1节、姜片4片<br>辅料；盐、生抽、老抽、耗油、料酒、冰糖</p>
-</div>
-
-<ol>
-<li>首先洗净新鲜排骨，放入锅中焯水去血沫。</li>
-<li>准备葱姜、花椒、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
-<li>加入排骨翻炒上糖色至金黄</li>
-<li>加入生抽、老抽、料酒翻炒半分钟</li>
-<li>加水至没过排骨，慢炖1小时，加入耗油调味</li>
-<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
-</ol>
-<h1 id="鲍鱼鹌鹑红烧肉"><a href="#鲍鱼鹌鹑红烧肉" class="headerlink" title="鲍鱼鹌鹑红烧肉"></a>鲍鱼鹌鹑红烧肉</h1><div class="tip warning faa-horizontal animated"><p>主料：五花肉1000g、鲍鱼6个、鹌鹑蛋200g<br>配料：八角4个、桂皮2个、香叶2片、大葱半根、姜5片、话梅5个<br>辅料；生抽、耗油、料酒、冰糖</p>
-</div>
-
-<ol>
-<li>首先洗净新鲜五花肉，放入锅中焯水去血沫。</li>
-<li>半热油锅翻炒冰糖至融化,加入排骨翻炒上糖色至金黄，盛出备用</li>
-<li>准备葱姜、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
-<li>加水至没过五花肉，慢炖30分钟后加入鹌鹑蛋，慢炖20分钟，加入鲍鱼和话梅，慢炖15分钟</li>
-<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
-</ol>
-<h1 id="糖醋里脊"><a href="#糖醋里脊" class="headerlink" title="糖醋里脊"></a>糖醋里脊</h1><div class="tip warning faa-horizontal animated"><p>主料：里脊肉500g、玉米淀粉20g、番茄酱100mg、白芝麻10g<br>配料：无<br>辅料；料酒、白糖、白醋、盐</p>
-</div>
-
-<ol>
-<li>首先洗净新鲜里脊肉，切成细长条备用</li>
-<li>碗中倒入盐、料酒腌制20分钟后，加入玉米淀粉包裹均匀</li>
-<li>半热油锅逐条放入里脊条,炸至六分熟</li>
-<li>滚烫油锅下入全部里脊，复炸至金黄捞出备用</li>
-<li>准备白醋、白糖、番茄酱，倒入锅中翻炒30秒</li>
-<li>加入金黄里脊肉翻炒上色，起锅盛盘</li>
-</ol>
-<h1 id="三杯鸡"><a href="#三杯鸡" class="headerlink" title="三杯鸡"></a>三杯鸡</h1><div class="tip warning faa-horizontal animated"><p>主料：鸡腿肉500g<br>配料：蒜半头、姜片4片（这入小碗）<br>辅料；盐、老抽、百里香、耗油、料酒、白砂糖</p>
-</div>
-
-<ol>
-<li>首先洗净新鲜鸡腿肉，去骨剔肉。</li>
-<li>准备姜片、蒜末，用香油鞭炒香</li>
-<li>倒入鸡腿肉翻炒至肉质偏干</li>
-<li>加入少许耗油、大量料酒、白砂糖翻炒</li>
-<li>加入老抽上色，点缀一些百里香，起锅盛盘</li>
-</ol>
-<h1 id="牛腩萝卜"><a href="#牛腩萝卜" class="headerlink" title="牛腩萝卜"></a>牛腩萝卜</h1><div class="tip warning faa-horizontal animated"><p>主料：牛腩500g、白萝卜300g（切滚刀块）<br>配料：八角2个、桂皮1个、花椒1把、蒜半头、姜片4片（这入小碗）<br>辅料: 盐、耗油、冰糖3块、黑胡椒、白胡椒、柱侯酱</p>
-</div>
-
-<ol>
-<li>首先将牛腩洗净备用，将小碗中的配料入油翻炒</li>
-<li>倒入牛腩翻炒至肉质偏干</li>
-<li>加入冰糖 、黑胡椒、白胡椒、耗油、柱侯酱、耗油 、盐，继续翻炒</li>
-<li>加入高压锅慢炖半小时 最后加入萝卜炖10分钟，加入一点鸡精</li>
-<li>煮米粉，起牛腩锅，盛盘加入米粉</li>
-</ol>
-<h1 id="浓香炖带鱼"><a href="#浓香炖带鱼" class="headerlink" title="浓香炖带鱼"></a>浓香炖带鱼</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜带鱼1000g、鸡蛋一颗<br>配料：八角3个、桂皮2个、花椒1把、大葱2节、蒜1头、姜片8片、香叶1片<br>辅料: 白酒食醋、生抽、老抽、蚝油、鸡精、盐、白砂糖</p>
-</div>
-
-<ol>
-<li>将新鲜带鱼洗净，切成段儿后擦干水份彻底晾干</li>
-<li>锅内放油将带鱼煎至两面金黄（加鸡蛋液），盛出带鱼备用</li>
-<li>锅内下底油，加入葱姜蒜、八角、花椒、桂皮、香叶、大料煸炒</li>
-<li>加水至没过带鱼，倒入白酒、食醋、生抽、老抽、蚝油、白糖</li>
-<li>小火焖炖20分钟后，开锅收汤，将汤汁收到浓稠</li>
-</ol>
-<h1 id="王记油泼面"><a href="#王记油泼面" class="headerlink" title="王记油泼面"></a>王记油泼面</h1><div class="tip warning faa-horizontal animated"><p>主料：新鲜切面300g<br>配料：大葱2节、蒜1头、十三香10g、辣椒面10g、白芝麻10g<br>辅料: 生抽、鸡精、盐、芝麻</p>
-</div>
-
-<ol>
-<li>将新鲜面条煮熟置于碗中</li>
-<li>面上铺满蒜末、葱花、鸡精、白芝麻、十三香、辣椒面</li>
-<li>小锅烧热油，浇到面上，点些酱油</li>
-</ol>
-<h1 id="番茄炒鸡蛋"><a href="#番茄炒鸡蛋" class="headerlink" title="番茄炒鸡蛋"></a>番茄炒鸡蛋</h1><div class="tip warning faa-horizontal animated"><p>主料：西红柿500g、鲜鸡蛋4颗<br>配料：大葱1节<br>辅料: 味极鲜、盐、白芝麻10g</p>
-</div>
-
-<ol>
-<li>将西红柿洗净，切成滚刀块后擦干水份彻底晾干</li>
-<li>锅内放入底油，将鸡蛋糊倒入锅中翻炒，盛出备用</li>
-<li>锅内放入底油，将西红柿倒入锅中，加入番茄酱翻炒片刻（可加糖）</li>
-<li>加入炒鸡蛋翻炒片刻，关火放葱提味</li>
-</ol>
-<h1 id="可乐鸡翅"><a href="#可乐鸡翅" class="headerlink" title="可乐鸡翅"></a>可乐鸡翅</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜鸡翅1000g<br>配料：大葱2节、蒜8瓣、姜片8片、可乐1瓶<br>辅料: 生抽、蚝油</p>
-</div>
-
-<ol>
-<li>将新鲜鸡翅洗净，加入葱姜，煮开5分钟</li>
-<li>锅内放油将鸡翅煎至表面金黄，盛出鸡翅备用</li>
-<li>锅内下底油，加入葱姜蒜、鸡翅煸炒</li>
-<li>倒入生抽、蚝油、盐调味儿，煸炒5分钟</li>
-<li>倒入可乐至没过鸡翅，盖盖闷炖1小时</li>
-<li>开锅收汤，将汤汁收到浓稠</li>
-</ol>
-<h1 id="白灼基围虾"><a href="#白灼基围虾" class="headerlink" title="白灼基围虾"></a>白灼基围虾</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜虾500g<br>配料：大葱2节、姜片8片、花椒1把、柠檬1片、小辣椒1个<br>辅料: 生抽</p>
-</div>
-
-<ol>
-<li>将鲜虾洗净去虾线，加入葱姜，煮开3分钟</li>
-<li>蘸料：柠檬切片，小辣椒切片，加入生抽拌匀</li>
-</ol>
-<h1 id="清蒸海鲈鱼"><a href="#清蒸海鲈鱼" class="headerlink" title="清蒸海鲈鱼"></a>清蒸海鲈鱼</h1><div class="tip warning faa-horizontal animated"><p>主料：新鲜海鲈鱼500g<br>配料：大葱2节、姜片8片、花椒1把、柠檬1片、小米辣椒4个<br>辅料: 生抽</p>
-</div>
-
-<ol>
-<li>将鲜鱼洗净，加入葱姜，上锅蒸10分钟</li>
-<li>锅内放入底油，烧至冒青烟，加入生抽烹制出霍气</li>
-<li>盖锅盖静置至油温七分热，霍气溶解，加入切好的葱丝</li>
-<li>将酱汁淋在蒸鱼，出锅盛盘</li>
-</ol>
-<h1 id="秘制川味鸡丝凉面"><a href="#秘制川味鸡丝凉面" class="headerlink" title="秘制川味鸡丝凉面"></a>秘制川味鸡丝凉面</h1><div class="tip warning faa-horizontal animated"><p>主料：切面500g、鸡丝50克<br>配料：姜片8片、花椒1把、大蒜1头<br>辅料: 生抽、蚝油、白糖、辣椒油、醋</p>
-</div>
-
-<ol>
-<li>将切面煮熟过凉水，加入香油拌匀放凉</li>
-<li>将锅烧热，加入花椒烤至焦香，用擀面杖捻碎备用</li>
-<li>按生抽、醋、耗油比例2：1：0.5配置料汁，其他配料依喜好添加</li>
-<li>加入鸡丝，将酱汁淋在面上</li>
-</ol>
-<h1 id="葱爆羊肉"><a href="#葱爆羊肉" class="headerlink" title="葱爆羊肉"></a>葱爆羊肉</h1><div class="tip warning faa-horizontal animated"><p>主料：羊肉片500g、洋葱1个<br>配料：大葱4节、姜片8片、花椒1把<br>辅料: 玉米淀粉、生抽、料酒、蚝油、剁辣椒酱</p>
-</div>
-
-<ol>
-<li>将羊肉片解冻、挂玉米淀粉糊拌匀</li>
-<li>锅内下底油烧热，将葱姜末和花椒炒香炒香</li>
-<li>加入羊肉片翻炒片刻烹入料酒生抽炒熟备用</li>
-<li>锅内下底油烧热，加入洋葱片和生抽烹炒至洋葱变软</li>
-<li>倒入备好羊肉，加入蚝油、剁辣椒翻炒片刻后出锅</li>
-</ol>
-<h1 id="冰镇梅渍圣女果"><a href="#冰镇梅渍圣女果" class="headerlink" title="冰镇梅渍圣女果"></a>冰镇梅渍圣女果</h1><div class="tip warning faa-horizontal animated"><p>主料：圣女果300g、话梅50g、柠檬5片、雪碧1听<br>配料：无<br>辅料: 无</p>
-</div>
-
-<ol>
-<li>将圣女果去根，尾部切十字刀，焯水10秒后去皮备用</li>
-<li>干净密封容器内加入去柠檬片、话梅、去皮圣女果和雪碧</li>
-<li>将容器放入冰箱密封腌制一晚后可食用</li>
-</ol>
-<h1 id="泰式鲜虾蔬菜沙拉"><a href="#泰式鲜虾蔬菜沙拉" class="headerlink" title="泰式鲜虾蔬菜沙拉"></a>泰式鲜虾蔬菜沙拉</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜虾300g、洋葱1/4个、香菜、柠檬3片<br>配料：南姜片2片、小米辣椒3个、香茅草粉、九层塔、冬阴功酱<br>辅料: 红烧汁、椰汁</p>
-</div>
-
-<ol>
-<li>将鲜虾洗净去虾线，加入葱姜，煮开3分钟后备用</li>
-<li>将洋葱切丁，香菜、南姜和小米辣椒切末，柠檬片挤出汁</li>
-<li>加入香茅草粉、九层塔、冬阴功酱、椰汁</li>
-<li>加入鲜虾和少量无盐红烧汁拌匀</li>
-</ol>
-<h1 id="十全甜品滋补汤"><a href="#十全甜品滋补汤" class="headerlink" title="十全甜品滋补汤"></a>十全甜品滋补汤</h1><div class="tip warning faa-horizontal animated"><p>主料：银耳3块、红枣10颗、龙眼10颗、榛子10颗、核桃5颗、特技枸杞20g、山楂条5条<br>配料：姜片8片、阿胶红糖30g、良食记醪糟500g、鸡蛋1个<br>辅料: 矿泉水</p>
-</div>
-
-<ol>
-<li>将龙眼、榛子、核桃去壳洗净，银耳泡发备用</li>
-<li>砂锅内倒入矿泉水，冷水加入红枣、核桃、榛子、姜片、阿胶红糖炖煮10分钟</li>
-<li>加入银耳、龙眼、醪糟、山楂条、再炖煮10分钟</li>
-<li>鸡蛋打散成蛋液，缓缓倒入沸腾汤汁成蛋絮</li>
-<li>关火前加入枸杞，5分钟后即可食用</li>
-</ol>
-<h1 id="土豆咖喱饭（待更新）"><a href="#土豆咖喱饭（待更新）" class="headerlink" title="土豆咖喱饭（待更新）"></a>土豆咖喱饭（待更新）</h1><div class="tip warning faa-horizontal animated"><p>主料：牛肉300g、糯米土豆2个、洋葱2个、胡萝卜1个<br>配料：料酒<br>辅料: 好侍黑盒辣咖喱一盒、椰汁1/2份、牛奶1盒子</p>
-</div>
-
-<ol>
-<li>牛肉、胡萝卜、洋葱、土豆切块备用</li>
-<li>锅中加水烧热加入牛肉焯水，料酒去腥撇沫备用</li>
-<li>油锅烧热加入洋葱炒香</li>
-<li>加入咖喱块与牛肉、胡萝卜、土豆翻炒片刻加水至没过食材</li>
-<li>加入椰汁、牛奶慢炖20分钟即可</li>
-</ol>
-<h1 id="无名贝果"><a href="#无名贝果" class="headerlink" title="无名贝果"></a>无名贝果</h1><div class="tip warning faa-horizontal animated"><p>主料：鸡蛋1个、贝果1个、牛油果1/2个、<br>配料：Wartburg Cream Cheese、海盐、黑芝麻<br>辅料: 橄榄油</p>
-</div>
-
-<ol>
-<li>平底锅热油煎溏心蛋，贝果用橄榄油上锅烤热，牛油果切片备用</li>
-<li>贝果涂干酪，夹牛油果和溏心蛋</li>
-<li>撒上海盐和黑芝麻即可</li>
-</ol>
-<h1 id="虫草人参鸡汤"><a href="#虫草人参鸡汤" class="headerlink" title="虫草人参鸡汤"></a>虫草人参鸡汤</h1><div class="tip warning faa-horizontal animated"><p>主料：散养走地老母鸡半只、人参3根、虫草一把、黄芪4个、红枣4个<br>配料：大葱4节、姜片8片、枸杞一把<br>辅料: 无</p>
-</div>
-
-<ol>
-<li>鸡肉焯水和食材洗净备用</li>
-<li>锅中加矿泉水，加入所有食材小火慢炖3小时</li>
-<li>起锅前加入枸杞，小碗盛出加盐调味即可</li>
-</ol>
-<h1 id="美式热狗"><a href="#美式热狗" class="headerlink" title="美式热狗"></a>美式热狗</h1><div class="tip warning faa-horizontal animated"><p>主料：宜家牛肉肠1根、盒马热狗坯1个<br>配料：Master芥辣酱、Hertz番茄酱、酸黄瓜酱<br>辅料: 无</p>
-</div>
-
-<ol>
-<li>面包加热30秒，肉肠加热1分钟</li>
-<li>面包夹肠，涂Master芥辣酱、Hertz番茄酱、酸黄瓜酱即可</li>
-</ol>
-<h1 id="香煎西冷牛排"><a href="#香煎西冷牛排" class="headerlink" title="香煎西冷牛排"></a>香煎西冷牛排</h1><div class="tip warning faa-horizontal animated"><p>主料：山姆西冷牛排500g、芦笋100g、圣女果5个、蒜头3个、迷迭香2根<br>配料：黄油15g、黑胡椒3g、海盐3g<br>辅料: 橄榄油</p>
-</div>
-
-<ol>
-<li>将牛排擦干后双面涂橄榄油，涂抹海盐和黑胡椒腌制10分钟。</li>
-<li>锅内放油烧热放牛排，单面煎50秒至牛排两面金黄后封边。</li>
-<li>捞出牛排放黄油，烧热后放入蒜头、圣女果、迷迭香、芦笋，翻炒片刻淋在牛排上。</li>
-<li>煎一个鸡蛋做装饰，出锅装盘。</li>
-</ol>
-<h1 id="川辣小炒肉"><a href="#川辣小炒肉" class="headerlink" title="川辣小炒肉"></a>川辣小炒肉</h1><div class="tip warning faa-horizontal animated"><p>主料：里脊肉100克、二荆条300克、小米辣3个<br>配料：大蒜4瓣、大葱1节、姜片4片<br>辅料；盐、生抽、老抽、耗油、料酒、白糖</p>
-</div>
-
-<ol>
-<li>首先洗净新鲜排骨，放入锅中焯水去血沫。</li>
-<li>准备葱姜、花椒、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
-<li>加入排骨翻炒上糖色至金黄</li>
-<li>加入生抽、老抽、料酒翻炒半分钟</li>
-<li>加水至没过排骨，慢炖1小时，加入耗油调味</li>
-<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
-</ol>
-<h1 id="番茄牛腩"><a href="#番茄牛腩" class="headerlink" title="番茄牛腩"></a>番茄牛腩</h1><h1 id="板栗烧鸡"><a href="#板栗烧鸡" class="headerlink" title="板栗烧鸡"></a>板栗烧鸡</h1><h1 id="香菇小油菜"><a href="#香菇小油菜" class="headerlink" title="香菇小油菜"></a>香菇小油菜</h1><h1 id="鸡丝凉面"><a href="#鸡丝凉面" class="headerlink" title="鸡丝凉面"></a>鸡丝凉面</h1><h1 id="传统小咸菜"><a href="#传统小咸菜" class="headerlink" title="传统小咸菜"></a>传统小咸菜</h1><h1 id="广式香肠炒荷兰豆（待更新）"><a href="#广式香肠炒荷兰豆（待更新）" class="headerlink" title="广式香肠炒荷兰豆（待更新）"></a>广式香肠炒荷兰豆（待更新）</h1><h1 id="海南椰子鸡汤（待更新）"><a href="#海南椰子鸡汤（待更新）" class="headerlink" title="海南椰子鸡汤（待更新）"></a>海南椰子鸡汤（待更新）</h1><h1 id="油闷大虾（待更新）"><a href="#油闷大虾（待更新）" class="headerlink" title="油闷大虾（待更新）"></a>油闷大虾（待更新）</h1><h1 id="排骨粉藕海带汤（待更新）"><a href="#排骨粉藕海带汤（待更新）" class="headerlink" title="排骨粉藕海带汤（待更新）"></a>排骨粉藕海带汤（待更新）</h1><h1 id="农家小炒肉（待更新）"><a href="#农家小炒肉（待更新）" class="headerlink" title="农家小炒肉（待更新）"></a>农家小炒肉（待更新）</h1><h1 id="油焖大虾（待更新）"><a href="#油焖大虾（待更新）" class="headerlink" title="油焖大虾（待更新）"></a>油焖大虾（待更新）</h1><h1 id="鲅鱼饺子（待更新）"><a href="#鲅鱼饺子（待更新）" class="headerlink" title="鲅鱼饺子（待更新）"></a>鲅鱼饺子（待更新）</h1><h1 id="芝士焗生蚝（待更新）"><a href="#芝士焗生蚝（待更新）" class="headerlink" title="芝士焗生蚝（待更新）"></a>芝士焗生蚝（待更新）</h1><h1 id="鸡蛋塔塔饼（待更新）"><a href="#鸡蛋塔塔饼（待更新）" class="headerlink" title="鸡蛋塔塔饼（待更新）"></a>鸡蛋塔塔饼（待更新）</h1><h1 id="葡式蛋挞（待更新）"><a href="#葡式蛋挞（待更新）" class="headerlink" title="葡式蛋挞（待更新）"></a>葡式蛋挞（待更新）</h1><h1 id="菠萝酥-香蕉酥（待更新）"><a href="#菠萝酥-香蕉酥（待更新）" class="headerlink" title="菠萝酥/香蕉酥（待更新）"></a>菠萝酥/香蕉酥（待更新）</h1><h1 id="咸蛋黄豆沙月饼（待更新）"><a href="#咸蛋黄豆沙月饼（待更新）" class="headerlink" title="咸蛋黄豆沙月饼（待更新）"></a>咸蛋黄豆沙月饼（待更新）</h1><h1 id="广式香肠荷兰豆（待更新）"><a href="#广式香肠荷兰豆（待更新）" class="headerlink" title="广式香肠荷兰豆（待更新）"></a>广式香肠荷兰豆（待更新）</h1><h1 id="青椒塞肉（待更新）"><a href="#青椒塞肉（待更新）" class="headerlink" title="青椒塞肉（待更新）"></a>青椒塞肉（待更新）</h1><h1 id="虎皮青椒（待更新）"><a href="#虎皮青椒（待更新）" class="headerlink" title="虎皮青椒（待更新）"></a>虎皮青椒（待更新）</h1><h1 id="凉拌麻将肘子（待更新）"><a href="#凉拌麻将肘子（待更新）" class="headerlink" title="凉拌麻将肘子（待更新）"></a>凉拌麻将肘子（待更新）</h1><h1 id="辣子鸡丁（待更新）"><a href="#辣子鸡丁（待更新）" class="headerlink" title="辣子鸡丁（待更新）"></a>辣子鸡丁（待更新）</h1><h1 id="四川回锅肉（待更新）"><a href="#四川回锅肉（待更新）" class="headerlink" title="四川回锅肉（待更新）"></a>四川回锅肉（待更新）</h1><h1 id="清炒香菇油菜（待更新）"><a href="#清炒香菇油菜（待更新）" class="headerlink" title="清炒香菇油菜（待更新）"></a>清炒香菇油菜（待更新）</h1><h1 id="家常饺子（待更新）"><a href="#家常饺子（待更新）" class="headerlink" title="家常饺子（待更新）"></a>家常饺子（待更新）</h1><h1 id="香菜白萝卜汆丸子（待更新）"><a href="#香菜白萝卜汆丸子（待更新）" class="headerlink" title="香菜白萝卜汆丸子（待更新）"></a>香菜白萝卜汆丸子（待更新）</h1><h1 id="红烧牛肉面（待更新）"><a href="#红烧牛肉面（待更新）" class="headerlink" title="红烧牛肉面（待更新）"></a>红烧牛肉面（待更新）</h1><h1 id="五花肉打卤面（待更新）"><a href="#五花肉打卤面（待更新）" class="headerlink" title="五花肉打卤面（待更新）"></a>五花肉打卤面（待更新）</h1><h1 id="西红柿打卤面（待更新）"><a href="#西红柿打卤面（待更新）" class="headerlink" title="西红柿打卤面（待更新）"></a>西红柿打卤面（待更新）</h1><h1 id="鸡腿肉炒杏鲍菇"><a href="#鸡腿肉炒杏鲍菇" class="headerlink" title="鸡腿肉炒杏鲍菇"></a>鸡腿肉炒杏鲍菇</h1><h1 id="小时候番茄鸡蛋饼"><a href="#小时候番茄鸡蛋饼" class="headerlink" title="小时候番茄鸡蛋饼"></a>小时候番茄鸡蛋饼</h1><h1 id="传统韩式拌饭"><a href="#传统韩式拌饭" class="headerlink" title="传统韩式拌饭"></a>传统韩式拌饭</h1><h1 id="鳗鱼蛋包饭"><a href="#鳗鱼蛋包饭" class="headerlink" title="鳗鱼蛋包饭"></a>鳗鱼蛋包饭</h1><h1 id="蟹味菇素炒面"><a href="#蟹味菇素炒面" class="headerlink" title="蟹味菇素炒面"></a>蟹味菇素炒面</h1><h1 id="皮蛋豆腐"><a href="#皮蛋豆腐" class="headerlink" title="皮蛋豆腐"></a>皮蛋豆腐</h1>]]></content>
-  </entry>
-  <entry>
-    <title>🦋小站重生记 · 从三个坏掉的模块到跨版本升级</title>
-    <url>/2026/08/18/%F0%9F%A6%8B%E5%B0%8F%E7%AB%99%E9%87%8D%E7%94%9F%E8%AE%B0/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>这个小站从 2021 年搭起来，2022 年之后就安静了。源码丢过一次，后来从单位电脑上翻了回来。打开一看，首页三个模块是坏的，主题还停在五年前的版本。</p>
-<p>本来只想修 bug，结果一路修到了架构升级。这篇把过程原样记下来 —— 包括我判断错的那几次。</p>
-</div>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先承认，站是坏的，而且我早就知道：</p>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>首页轮播不转了</p>
-            </div>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>GitHub 贡献图不显示</p>
-            </div>
-<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
-            <p>侧边栏有个模块永远停在「加载中」</p>
-            </div>
-
-<p>三个毛病看着不相干，查下去才发现是<strong>同一个根因</strong>。而那个根因又牵出了整套技术栈已经老到什么程度。</p>
-<hr>
-<h1 id="第一幕：一个死掉的-CDN，拖垮四个模块"><a href="#第一幕：一个死掉的-CDN，拖垮四个模块" class="headerlink" title="第一幕：一个死掉的 CDN，拖垮四个模块"></a>第一幕：一个死掉的 CDN，拖垮四个模块</h1><p>打开控制台，两行报错把方向指得很清楚：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Uncaught ReferenceError: Swiper is not defined</span><br><span class="line">Uncaught ReferenceError: GitCalendarInit is not defined</span><br></pre></td></tr></table></figure>
-
-<p>函数未定义，说明外部 JS 根本没加载进来。把首页引用的 53 个外部资源逐个探活，结果异常干净 —— 所有失败请求都指向同一个主机：</p>
-<div class="note danger flat"><p><code>unpkg.zhimg.com</code> —— 知乎当年做的 unpkg 镜像，现在已经废弃。swiper 相关返回 403，其余全是 404。</p>
-</div>
-
-<p>而同一时刻，<code>cdn.jsdelivr.net</code> 上的 33 个资源无一失败。</p>
-<table>
-<thead>
-<tr>
-<th align="left">模块</th>
-<th align="left">资源状态</th>
-<th align="left">表现</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">hexo-butterfly-swiper</td>
-<td align="left">403</td>
-<td align="left">首页轮播不转</td>
-</tr>
-<tr>
-<td align="left">hexo-filter-gitcalendar</td>
-<td align="left">404</td>
-<td align="left">贡献图不显示</td>
-</tr>
-<tr>
-<td align="left">hexo-butterfly-artitalk-pro</td>
-<td align="left">404</td>
-<td align="left">说说卡在加载中</td>
-</tr>
-<tr>
-<td align="left">hexo-butterfly-clock</td>
-<td align="left">404</td>
-<td align="left">电子钟（这个我之前都没注意到）</td>
-</tr>
-</tbody></table>
-<p>修法很朴素：在 <code>_config.yml</code> 里给这四个插件显式指定 jsDelivr 地址，覆盖掉它们写死的默认值。11 个资源实测全部 200，重新构建，四个模块一起活了。</p>
-<div class="tip "><p>一个第三方镜像站关停，能同时打掉一个博客的四个功能。这不是运气不好，是把可用性押在别人手里的必然结果。</p>
-</div>
-
-<hr>
-<h1 id="第二幕：贡献图，拒绝再踩同一个坑"><a href="#第二幕：贡献图，拒绝再踩同一个坑" class="headerlink" title="第二幕：贡献图，拒绝再踩同一个坑"></a>第二幕：贡献图，拒绝再踩同一个坑</h1><p>CDN 修好后，贡献图的脚本回来了，图还是空的。因为坏的不是脚本，是<strong>数据源</strong>。</p>
-<p>插件默认调用 <code>github-calendar-api.vercel.app</code>。我拿自己的用户名去问，返回 <code>&#123;&quot;total&quot;:0,&quot;contributions&quot;:[]&#125;</code>。换 torvalds 再问一次 —— 还是 0。那位的贡献量不可能是零，所以结论只有一个：<strong>这个 API 已经废了，对所有人返回空。</strong></p>
-<p>这次我没有去找另一个第三方 API 顶上。刚被一个第三方服务坑过，再换一家只是把同样的雷重埋一次。改成了站内静态数据：</p>
-<details cyan open><summary> 具体怎么做的 </summary>
-              <div class='content'>
-              <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tools/update-gitcalendar.py    <span class="comment"># 抓数据，转成插件要的 53 周嵌套结构</span></span><br><span class="line"><span class="built_in">source</span>/gitcalendar/data.json   <span class="comment"># 结果随站点一起发布</span></span><br></pre></td></tr></table></figure><p>配置里这么写：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiurl:</span> <span class="string">&#x27;/gitcalendar/data.json#&#x27;</span></span><br></pre></td></tr></table></figure><p>最后那个 <code>#</code> 是关键。插件写死了要拼成 <code>&lt;apiurl&gt;/api?&lt;user&gt;</code>，而井号让后半截变成 URL 片段，浏览器实际只请求那个 JSON。<strong>运行时零第三方依赖，那个 API 再也影响不到我。</strong></p>
-              </div>
-            </details>
-
-<p>顺带看到了自己的数据，有点唏嘘：</p>
-<table>
-<thead>
-<tr>
-<th align="left">年份</th>
-<th align="left">贡献数</th>
-<th align="left">活跃天数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">2020</td>
-<td align="left">732</td>
-<td align="left">366（一天没落）</td>
-</tr>
-<tr>
-<td align="left">2021</td>
-<td align="left">1077</td>
-<td align="left">237</td>
-</tr>
-<tr>
-<td align="left">2022</td>
-<td align="left">46</td>
-<td align="left">16</td>
-</tr>
-<tr>
-<td align="left">2023 – 2025</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-</tbody></table>
-<p>数字比记忆诚实。我最后选择让贡献图显示<strong>真实的最近一年</strong> —— 虽然它现在基本是空的，唯一那两格还是修这个博客时提交的。</p>
-<hr>
-<h1 id="第三幕：该不该升级"><a href="#第三幕：该不该升级" class="headerlink" title="第三幕：该不该升级"></a>第三幕：该不该升级</h1><p>主题停在 butterfly 3.7.1（2021-03），最新是 5.7.0。中间隔着 <strong>54 个正式版本、两个大版本、五年半</strong>。</p>
-<p>我一开始的判断是<strong>不建议升</strong>，理由列了四条：技术栈要连坐升级、配置要重写、1700 行魔改要重贴、插件生态已经冻结（有六个插件多年没发过新版）。最后一条尤其吓人 —— 那些插件靠往特定 DOM 容器里插内容工作，主题一重构就可能全碎。</p>
-<p>然后我去验了这一条。把 butterfly 5.7.0 解包，grep 那几个挂载点：</p>
-<table>
-<thead>
-<tr>
-<th align="left">插件依赖的挂载点</th>
-<th align="left">3.7.1</th>
-<th align="left">5.7.0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>recent-posts</code></td>
-<td align="left">5 个布局文件</td>
-<td align="left">6 个</td>
-</tr>
-<tr>
-<td align="left"><code>sticky_layout</code></td>
-<td align="left">1</td>
-<td align="left">1</td>
-</tr>
-<tr>
-<td align="left"><code>aside-content</code></td>
-<td align="left">1</td>
-<td align="left">1</td>
-</tr>
-<tr>
-<td align="left"><code>card-widget</code></td>
-<td align="left">11</td>
-<td align="left">13</td>
-</tr>
-</tbody></table>
-<div class="note success flat"><p>四个挂载点在新版里一个不少。我那条最重的理由，证据不支持。</p>
-</div>
-
-<p>于是改口。这不是嘴硬的问题 —— 如果我坚持原判断，这次升级根本不会发生。<strong>预感值得说出来，但只有证据能定案。</strong></p>
-<hr>
-<h1 id="第四幕：四个障碍"><a href="#第四幕：四个障碍" class="headerlink" title="第四幕：四个障碍"></a>第四幕：四个障碍</h1><p>跨越五年半、两个大版本，全过程只撞到四个真实障碍，比预期少太多。</p>
-<details red><summary> 其一 · 插件不检查存在性，直接把构建打崩 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>TypeError: Cannot read properties of undefined (reading &#39;cover&#39;)</code>，构建直接中止。</p><p><strong>根因</strong>：<code>hexo-butterfly-envelope</code> 1.0.13+ 把四张图收进了 <code>custom_pic</code> 子节点，而代码里不做任何存在性检查就往下读。旧配置没这一节，于是整个构建崩溃。</p><p><strong>处置</strong>：补齐配置节点。顺带发现它的默认值也指向那个已废弃的镜像，一并改掉。</p>
-              </div>
-            </details>
-
-<details red><summary> 其二 · 一个全局函数搬进了命名空间 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>ReferenceError: getScript is not defined</code>，说说加载不出来。</p><p><strong>根因</strong>：butterfly 3.x 把 <code>getScript</code> 直接挂在 <code>window</code> 上，5.x 起收进了 <code>window.btf</code> 命名空间。老插件注入的内联脚本调的是裸函数，自然找不到。</p><p><strong>处置</strong>：在 <code>inject.head</code> 加一段<strong>惰性垫片</strong> —— 调用时才去取 <code>btf</code>，因此不依赖脚本加载顺序。六行代码，一个插件都不用改。</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">getScript</span> = <span class="variable language_">window</span>.<span class="property">getScript</span> || <span class="keyword">function</span> (<span class="params">u, a</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">btf</span>.<span class="title function_">getScript</span>(u, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
-
-<details red><summary> 其三 · 同名标签，少注册了一个 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：<code>unknown block tag: timenode</code>，文章渲染失败。</p><p><strong>根因</strong>：butterfly 5 自带了 <code>timeline</code> 标签，但只注册这一个；我用的第三方版本还注册了 <code>timenode</code>，而文章里用了 30 次。</p><p><strong>处置</strong>：保留第三方版本覆盖官方的。顺带统计了一下自己对标签插件的依赖深度 —— <code>checkbox</code> 326 次、<code>tip</code> 83 次、<code>folding</code> 77 次，全站 600 多处调用。这些标签早就是文章的骨架了。</p>
-              </div>
-            </details>
-
-<details red><summary> 其四 · 配置写错了地方，升级即丢 </summary>
-              <div class='content'>
-              <p><strong>症状</strong>：升级后导航菜单整个消失，16 个菜单项全没了。</p><p><strong>根因</strong>：菜单写在 <code>themes/butterfly/_config.yml</code> 里。那个文件<strong>属于主题本体</strong>，换主题目录时被整个覆盖。</p><p><strong>处置</strong>：迁移到 <code>_config.butterfly.yml</code> —— 那才是官方推荐的覆盖文件。这条修的不只是这次，是<strong>以后每一次升级</strong>。</p>
-              </div>
-            </details>
-
-<hr>
-<h1 id="方法：三方合并"><a href="#方法：三方合并" class="headerlink" title="方法：三方合并"></a>方法：三方合并</h1><p>11 个魔改文件、约 1700 行改动。直接拿旧文件覆盖，等于把上游五年的改进全扔掉；直接用新文件，等于把自己的东西全扔掉。</p>
-<p>正确做法是三方合并，以<strong>原版 3.7.1 作为共同祖先</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge-file --diff3 &lt;5.7.0原版&gt; &lt;3.7.1原版&gt; &lt;我的魔改版&gt;</span><br><span class="line"><span class="comment">#                        ours        base        theirs</span></span><br><span class="line"><span class="comment"># 结果 = 上游改进 + 我的改动，两边都不丢</span></span><br></pre></td></tr></table></figure>
-
-<p>这一步暴露出一件我完全没料到的事：<strong>我当年那些「魔改」里，有相当一部分其实是手动前移植的 butterfly 新版写法</strong> —— <code>fragment_cache</code>、<code>preloader.enable</code>、<code>#body-wrap</code> —— 5.x 已经原生实现了。</p>
-<p>也就是说 <code>layout.pug</code> 这个文件的「改动」其实是零，直接取上游即可。升级不但没让我损失什么，还甩掉了三个维护负担。</p>
-<p>真正属于我的东西，一样没丢：</p>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>多款式加载动画（小巫师 / 稻草人 / ironheart），1434 行样式</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>首页分类栏</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>页脚的心形版权、徽章墙、养鱼挂件</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>文章版权卡片：四格信息 + 图标水印 + 深色模式呼吸辉光</p>
-            </div>
-<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
-            <p>Tag Plugins 标签包（就是这篇文章里一直在用的那些）</p>
-            </div>
-
-<hr>
-<h1 id="最阴的一类问题：不报错，只是静默失效"><a href="#最阴的一类问题：不报错，只是静默失效" class="headerlink" title="最阴的一类问题：不报错，只是静默失效"></a>最阴的一类问题：不报错，只是静默失效</h1><p>butterfly 5 归并改名了 29 个配置项。旧键名<strong>不会报错</strong>，只是读不到 —— 构建照样成功，功能悄悄消失。</p>
-<p>最典型的一个：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 旧写法（连字符）           # 新写法（下划线）</span></span><br><span class="line"><span class="attr">font:                       font:</span></span><br><span class="line">  <span class="attr">global-font-size:           global_font_size:</span></span><br><span class="line">  <span class="attr">font-family: mofei          font_family:</span> <span class="string">mofei</span></span><br></pre></td></tr></table></figure>
-
-<p><code>mofei</code> 是我自定义的那个字体。不改的话，全站字体就悄无声息地退回默认了。</p>
-<div class="note warning flat"><p>如果只做「升级 → 构建成功 → 页面能打开」这三步验收，这类问题一个都发现不了。等哪天自己觉得「字体好像不太对」，已经过去半年。</p>
-</div>
-
-<p>我是靠逐项比对新旧版本的配置键才揪出来的。类似的归并还有一堆：</p>
-<table>
-<thead>
-<tr>
-<th align="left">旧写法</th>
-<th align="left">新写法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>highlight_*</code> × 6 + <code>code_word_wrap</code></td>
-<td align="left"><code>code_blocks</code></td>
-</tr>
-<tr>
-<td align="left"><code>algolia_search</code> + <code>local_search</code></td>
-<td align="left"><code>search</code></td>
-</tr>
-<tr>
-<td align="left"><code>mathjax</code> + <code>katex</code></td>
-<td align="left"><code>math</code></td>
-</tr>
-<tr>
-<td align="left"><code>addThis</code> + <code>sharejs</code> + <code>addtoany</code></td>
-<td align="left"><code>share</code></td>
-</tr>
-<tr>
-<td align="left"><code>medium_zoom</code> + <code>fancybox</code></td>
-<td align="left"><code>lightbox</code></td>
-</tr>
-<tr>
-<td align="left"><code>footer_bg</code></td>
-<td align="left"><code>footer_img</code></td>
-</tr>
-<tr>
-<td align="left"><code>runtimeshow</code></td>
-<td align="left"><code>card_webinfo.runtime_date</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="全程在副本上做"><a href="#全程在副本上做" class="headerlink" title="全程在副本上做"></a>全程在副本上做</h1><p>从头到尾，正式仓库和线上站点一根汗毛没动，直到全部验证通过：</p>
-<ol>
-<li><strong>可行性验证</strong> —— 副本上装新技术栈直接构建，看什么真的碎。这一步是探针不是承诺，结果太糟随时可以停。</li>
-<li><strong>移植魔改</strong> —— 60 个新增文件整体搬运，11 个改动文件做三方合并，每合并一个就构建一次。</li>
-<li><strong>配置现代化</strong> —— 29 项失效键逐个映射，并把误放在主题目录里的配置全部迁走。</li>
-<li><strong>验收后才落地</strong> —— 26 个插件、5 个模块、14 个页面全部实测通过，才同步进正式仓库。</li>
-</ol>
-<p>验收也不能只看「构建成功」。<strong>构建成功不等于模块能显示</strong> —— 我是拿浏览器跑 JS 去查 DOM 实际状态的：轮播查 <code>el.swiper</code> 存不存在、<code>autoplay.running</code> 是不是 true；加载动画把 <code>loaded</code> 类摘掉，量它的 <code>animationName</code> 和尺寸。</p>
-<hr>
-<h1 id="我判断错的三次"><a href="#我判断错的三次" class="headerlink" title="我判断错的三次"></a>我判断错的三次</h1><p>只列成果那是宣传稿，不是记录。这三次都实实在在改变了后续走向。</p>
-<div class="note danger flat"><p><strong>把「说说」的后端判了死刑</strong></p>
-<p>我用 curl 打 LeanCloud 的 REST 接口，带上正确的 appId 和 appKey，拿到 401，于是断定「后端已失效，换 CDN 也救不回来」。<strong>错的。</strong> SDK 用的鉴权方式和我手工构造的不同 —— 页面上说说一直能正常拉到 2022 年的内容。</p>
-<p>教训：别用一个你不熟悉的接口的报错，去给整个服务判死刑。</p>
-</div>
-
-<div class="note danger flat"><p><strong>把控制台报错等同于功能坏掉</strong></p>
-<p>首页有个 <code>Swiper is not defined</code> 一闪而过，我据此认为轮播没修好。实际上 butterfly 的 pjax 之后会重跑脚本并初始化成功，轮播一直在转。</p>
-<p>教训：判断模块死活要看 DOM 实际状态，不能只看控制台。</p>
-</div>
-
-<div class="note danger flat"><p><strong>对升级过于悲观</strong></p>
-<p>我一度断言升级「很可能打碎刚修好的模块」。去验之后发现，插件依赖的四个挂载点在新版里一个不少。</p>
-<p>教训：这条要是没去验，这次升级根本不会发生。</p>
-</div>
-
-<hr>
-<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>站还是那个站 —— 小巫师还在转，页脚的心还在跳，版权卡片在深色模式下还是会呼吸发光。这些是我当年一个个挑出来、试出来的，一样没丢。</p>
-<p>变的是底下：技术栈从 Hexo 5 到 7，主题跨了两个大版本，所有第三方依赖里最脆的那两个被换掉了，配置搬到了升级安全的地方，字体不再静默失效。</p>
-<div class="tip success"><p>修一个停更四年的东西，最难的不是技术，是分清哪些是「上游的演进」、哪些是「当年的自己」。前者应该拥抱，后者值得保住。</p>
-</div>
-
-<p>最后还有个意外收获。那套加载动画的出处，是 <a href="https://akilar.top/posts/3d221bf2/">Akilar 的 Loading Animation</a> —— 和我站上的 swiper、gitcalendar、电子钟、说说、留言板<strong>全部同源</strong>。翻出来才意识到，这个博客的一大半，是照着同一个人的文章搭起来的。</p>
-<p>而那篇教程最后更新停在 2022-04-27，和我的博客差不多同时安静下来。</p>
-<p>那就从这篇开始，重新写点东西吧。</p>
-]]></content>
-      <categories>
-        <category>学习の世界</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>😮企业架构复习手册</title>
@@ -2150,6 +1625,531 @@
 ]]></content>
       <tags>
         <tag>TOGAF教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>🥩超级无敌美味私房菜谱</title>
+    <url>/2021/07/12/%F0%9F%A5%A9%E8%B6%85%E5%A5%BD%E5%90%83%E7%A7%81%E6%88%BF%E5%93%92%E8%8F%9C%E8%B0%B1/</url>
+    <content><![CDATA[<p>🥩🍷🍭🌯🍝🌮🍻<br>🍔大王的私房菜谱🍲<br>🥟🍗🍖🍹🍜🍢🍡</p>
+<hr>
+<h1 id="红烧排骨"><a href="#红烧排骨" class="headerlink" title="红烧排骨"></a>红烧排骨</h1><div class="tip warning faa-horizontal animated"><p>主料：排骨800g<br>配料：八角2个、桂皮1个、香叶1片、花椒1把、大葱1节、姜片4片<br>辅料；盐、生抽、老抽、耗油、料酒、冰糖</p>
+</div>
+
+<ol>
+<li>首先洗净新鲜排骨，放入锅中焯水去血沫。</li>
+<li>准备葱姜、花椒、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
+<li>加入排骨翻炒上糖色至金黄</li>
+<li>加入生抽、老抽、料酒翻炒半分钟</li>
+<li>加水至没过排骨，慢炖1小时，加入耗油调味</li>
+<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
+</ol>
+<h1 id="鲍鱼鹌鹑红烧肉"><a href="#鲍鱼鹌鹑红烧肉" class="headerlink" title="鲍鱼鹌鹑红烧肉"></a>鲍鱼鹌鹑红烧肉</h1><div class="tip warning faa-horizontal animated"><p>主料：五花肉1000g、鲍鱼6个、鹌鹑蛋200g<br>配料：八角4个、桂皮2个、香叶2片、大葱半根、姜5片、话梅5个<br>辅料；生抽、耗油、料酒、冰糖</p>
+</div>
+
+<ol>
+<li>首先洗净新鲜五花肉，放入锅中焯水去血沫。</li>
+<li>半热油锅翻炒冰糖至融化,加入排骨翻炒上糖色至金黄，盛出备用</li>
+<li>准备葱姜、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
+<li>加水至没过五花肉，慢炖30分钟后加入鹌鹑蛋，慢炖20分钟，加入鲍鱼和话梅，慢炖15分钟</li>
+<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
+</ol>
+<h1 id="糖醋里脊"><a href="#糖醋里脊" class="headerlink" title="糖醋里脊"></a>糖醋里脊</h1><div class="tip warning faa-horizontal animated"><p>主料：里脊肉500g、玉米淀粉20g、番茄酱100mg、白芝麻10g<br>配料：无<br>辅料；料酒、白糖、白醋、盐</p>
+</div>
+
+<ol>
+<li>首先洗净新鲜里脊肉，切成细长条备用</li>
+<li>碗中倒入盐、料酒腌制20分钟后，加入玉米淀粉包裹均匀</li>
+<li>半热油锅逐条放入里脊条,炸至六分熟</li>
+<li>滚烫油锅下入全部里脊，复炸至金黄捞出备用</li>
+<li>准备白醋、白糖、番茄酱，倒入锅中翻炒30秒</li>
+<li>加入金黄里脊肉翻炒上色，起锅盛盘</li>
+</ol>
+<h1 id="三杯鸡"><a href="#三杯鸡" class="headerlink" title="三杯鸡"></a>三杯鸡</h1><div class="tip warning faa-horizontal animated"><p>主料：鸡腿肉500g<br>配料：蒜半头、姜片4片（这入小碗）<br>辅料；盐、老抽、百里香、耗油、料酒、白砂糖</p>
+</div>
+
+<ol>
+<li>首先洗净新鲜鸡腿肉，去骨剔肉。</li>
+<li>准备姜片、蒜末，用香油鞭炒香</li>
+<li>倒入鸡腿肉翻炒至肉质偏干</li>
+<li>加入少许耗油、大量料酒、白砂糖翻炒</li>
+<li>加入老抽上色，点缀一些百里香，起锅盛盘</li>
+</ol>
+<h1 id="牛腩萝卜"><a href="#牛腩萝卜" class="headerlink" title="牛腩萝卜"></a>牛腩萝卜</h1><div class="tip warning faa-horizontal animated"><p>主料：牛腩500g、白萝卜300g（切滚刀块）<br>配料：八角2个、桂皮1个、花椒1把、蒜半头、姜片4片（这入小碗）<br>辅料: 盐、耗油、冰糖3块、黑胡椒、白胡椒、柱侯酱</p>
+</div>
+
+<ol>
+<li>首先将牛腩洗净备用，将小碗中的配料入油翻炒</li>
+<li>倒入牛腩翻炒至肉质偏干</li>
+<li>加入冰糖 、黑胡椒、白胡椒、耗油、柱侯酱、耗油 、盐，继续翻炒</li>
+<li>加入高压锅慢炖半小时 最后加入萝卜炖10分钟，加入一点鸡精</li>
+<li>煮米粉，起牛腩锅，盛盘加入米粉</li>
+</ol>
+<h1 id="浓香炖带鱼"><a href="#浓香炖带鱼" class="headerlink" title="浓香炖带鱼"></a>浓香炖带鱼</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜带鱼1000g、鸡蛋一颗<br>配料：八角3个、桂皮2个、花椒1把、大葱2节、蒜1头、姜片8片、香叶1片<br>辅料: 白酒食醋、生抽、老抽、蚝油、鸡精、盐、白砂糖</p>
+</div>
+
+<ol>
+<li>将新鲜带鱼洗净，切成段儿后擦干水份彻底晾干</li>
+<li>锅内放油将带鱼煎至两面金黄（加鸡蛋液），盛出带鱼备用</li>
+<li>锅内下底油，加入葱姜蒜、八角、花椒、桂皮、香叶、大料煸炒</li>
+<li>加水至没过带鱼，倒入白酒、食醋、生抽、老抽、蚝油、白糖</li>
+<li>小火焖炖20分钟后，开锅收汤，将汤汁收到浓稠</li>
+</ol>
+<h1 id="王记油泼面"><a href="#王记油泼面" class="headerlink" title="王记油泼面"></a>王记油泼面</h1><div class="tip warning faa-horizontal animated"><p>主料：新鲜切面300g<br>配料：大葱2节、蒜1头、十三香10g、辣椒面10g、白芝麻10g<br>辅料: 生抽、鸡精、盐、芝麻</p>
+</div>
+
+<ol>
+<li>将新鲜面条煮熟置于碗中</li>
+<li>面上铺满蒜末、葱花、鸡精、白芝麻、十三香、辣椒面</li>
+<li>小锅烧热油，浇到面上，点些酱油</li>
+</ol>
+<h1 id="番茄炒鸡蛋"><a href="#番茄炒鸡蛋" class="headerlink" title="番茄炒鸡蛋"></a>番茄炒鸡蛋</h1><div class="tip warning faa-horizontal animated"><p>主料：西红柿500g、鲜鸡蛋4颗<br>配料：大葱1节<br>辅料: 味极鲜、盐、白芝麻10g</p>
+</div>
+
+<ol>
+<li>将西红柿洗净，切成滚刀块后擦干水份彻底晾干</li>
+<li>锅内放入底油，将鸡蛋糊倒入锅中翻炒，盛出备用</li>
+<li>锅内放入底油，将西红柿倒入锅中，加入番茄酱翻炒片刻（可加糖）</li>
+<li>加入炒鸡蛋翻炒片刻，关火放葱提味</li>
+</ol>
+<h1 id="可乐鸡翅"><a href="#可乐鸡翅" class="headerlink" title="可乐鸡翅"></a>可乐鸡翅</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜鸡翅1000g<br>配料：大葱2节、蒜8瓣、姜片8片、可乐1瓶<br>辅料: 生抽、蚝油</p>
+</div>
+
+<ol>
+<li>将新鲜鸡翅洗净，加入葱姜，煮开5分钟</li>
+<li>锅内放油将鸡翅煎至表面金黄，盛出鸡翅备用</li>
+<li>锅内下底油，加入葱姜蒜、鸡翅煸炒</li>
+<li>倒入生抽、蚝油、盐调味儿，煸炒5分钟</li>
+<li>倒入可乐至没过鸡翅，盖盖闷炖1小时</li>
+<li>开锅收汤，将汤汁收到浓稠</li>
+</ol>
+<h1 id="白灼基围虾"><a href="#白灼基围虾" class="headerlink" title="白灼基围虾"></a>白灼基围虾</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜虾500g<br>配料：大葱2节、姜片8片、花椒1把、柠檬1片、小辣椒1个<br>辅料: 生抽</p>
+</div>
+
+<ol>
+<li>将鲜虾洗净去虾线，加入葱姜，煮开3分钟</li>
+<li>蘸料：柠檬切片，小辣椒切片，加入生抽拌匀</li>
+</ol>
+<h1 id="清蒸海鲈鱼"><a href="#清蒸海鲈鱼" class="headerlink" title="清蒸海鲈鱼"></a>清蒸海鲈鱼</h1><div class="tip warning faa-horizontal animated"><p>主料：新鲜海鲈鱼500g<br>配料：大葱2节、姜片8片、花椒1把、柠檬1片、小米辣椒4个<br>辅料: 生抽</p>
+</div>
+
+<ol>
+<li>将鲜鱼洗净，加入葱姜，上锅蒸10分钟</li>
+<li>锅内放入底油，烧至冒青烟，加入生抽烹制出霍气</li>
+<li>盖锅盖静置至油温七分热，霍气溶解，加入切好的葱丝</li>
+<li>将酱汁淋在蒸鱼，出锅盛盘</li>
+</ol>
+<h1 id="秘制川味鸡丝凉面"><a href="#秘制川味鸡丝凉面" class="headerlink" title="秘制川味鸡丝凉面"></a>秘制川味鸡丝凉面</h1><div class="tip warning faa-horizontal animated"><p>主料：切面500g、鸡丝50克<br>配料：姜片8片、花椒1把、大蒜1头<br>辅料: 生抽、蚝油、白糖、辣椒油、醋</p>
+</div>
+
+<ol>
+<li>将切面煮熟过凉水，加入香油拌匀放凉</li>
+<li>将锅烧热，加入花椒烤至焦香，用擀面杖捻碎备用</li>
+<li>按生抽、醋、耗油比例2：1：0.5配置料汁，其他配料依喜好添加</li>
+<li>加入鸡丝，将酱汁淋在面上</li>
+</ol>
+<h1 id="葱爆羊肉"><a href="#葱爆羊肉" class="headerlink" title="葱爆羊肉"></a>葱爆羊肉</h1><div class="tip warning faa-horizontal animated"><p>主料：羊肉片500g、洋葱1个<br>配料：大葱4节、姜片8片、花椒1把<br>辅料: 玉米淀粉、生抽、料酒、蚝油、剁辣椒酱</p>
+</div>
+
+<ol>
+<li>将羊肉片解冻、挂玉米淀粉糊拌匀</li>
+<li>锅内下底油烧热，将葱姜末和花椒炒香炒香</li>
+<li>加入羊肉片翻炒片刻烹入料酒生抽炒熟备用</li>
+<li>锅内下底油烧热，加入洋葱片和生抽烹炒至洋葱变软</li>
+<li>倒入备好羊肉，加入蚝油、剁辣椒翻炒片刻后出锅</li>
+</ol>
+<h1 id="冰镇梅渍圣女果"><a href="#冰镇梅渍圣女果" class="headerlink" title="冰镇梅渍圣女果"></a>冰镇梅渍圣女果</h1><div class="tip warning faa-horizontal animated"><p>主料：圣女果300g、话梅50g、柠檬5片、雪碧1听<br>配料：无<br>辅料: 无</p>
+</div>
+
+<ol>
+<li>将圣女果去根，尾部切十字刀，焯水10秒后去皮备用</li>
+<li>干净密封容器内加入去柠檬片、话梅、去皮圣女果和雪碧</li>
+<li>将容器放入冰箱密封腌制一晚后可食用</li>
+</ol>
+<h1 id="泰式鲜虾蔬菜沙拉"><a href="#泰式鲜虾蔬菜沙拉" class="headerlink" title="泰式鲜虾蔬菜沙拉"></a>泰式鲜虾蔬菜沙拉</h1><div class="tip warning faa-horizontal animated"><p>主料：鲜虾300g、洋葱1/4个、香菜、柠檬3片<br>配料：南姜片2片、小米辣椒3个、香茅草粉、九层塔、冬阴功酱<br>辅料: 红烧汁、椰汁</p>
+</div>
+
+<ol>
+<li>将鲜虾洗净去虾线，加入葱姜，煮开3分钟后备用</li>
+<li>将洋葱切丁，香菜、南姜和小米辣椒切末，柠檬片挤出汁</li>
+<li>加入香茅草粉、九层塔、冬阴功酱、椰汁</li>
+<li>加入鲜虾和少量无盐红烧汁拌匀</li>
+</ol>
+<h1 id="十全甜品滋补汤"><a href="#十全甜品滋补汤" class="headerlink" title="十全甜品滋补汤"></a>十全甜品滋补汤</h1><div class="tip warning faa-horizontal animated"><p>主料：银耳3块、红枣10颗、龙眼10颗、榛子10颗、核桃5颗、特技枸杞20g、山楂条5条<br>配料：姜片8片、阿胶红糖30g、良食记醪糟500g、鸡蛋1个<br>辅料: 矿泉水</p>
+</div>
+
+<ol>
+<li>将龙眼、榛子、核桃去壳洗净，银耳泡发备用</li>
+<li>砂锅内倒入矿泉水，冷水加入红枣、核桃、榛子、姜片、阿胶红糖炖煮10分钟</li>
+<li>加入银耳、龙眼、醪糟、山楂条、再炖煮10分钟</li>
+<li>鸡蛋打散成蛋液，缓缓倒入沸腾汤汁成蛋絮</li>
+<li>关火前加入枸杞，5分钟后即可食用</li>
+</ol>
+<h1 id="土豆咖喱饭（待更新）"><a href="#土豆咖喱饭（待更新）" class="headerlink" title="土豆咖喱饭（待更新）"></a>土豆咖喱饭（待更新）</h1><div class="tip warning faa-horizontal animated"><p>主料：牛肉300g、糯米土豆2个、洋葱2个、胡萝卜1个<br>配料：料酒<br>辅料: 好侍黑盒辣咖喱一盒、椰汁1/2份、牛奶1盒子</p>
+</div>
+
+<ol>
+<li>牛肉、胡萝卜、洋葱、土豆切块备用</li>
+<li>锅中加水烧热加入牛肉焯水，料酒去腥撇沫备用</li>
+<li>油锅烧热加入洋葱炒香</li>
+<li>加入咖喱块与牛肉、胡萝卜、土豆翻炒片刻加水至没过食材</li>
+<li>加入椰汁、牛奶慢炖20分钟即可</li>
+</ol>
+<h1 id="无名贝果"><a href="#无名贝果" class="headerlink" title="无名贝果"></a>无名贝果</h1><div class="tip warning faa-horizontal animated"><p>主料：鸡蛋1个、贝果1个、牛油果1/2个、<br>配料：Wartburg Cream Cheese、海盐、黑芝麻<br>辅料: 橄榄油</p>
+</div>
+
+<ol>
+<li>平底锅热油煎溏心蛋，贝果用橄榄油上锅烤热，牛油果切片备用</li>
+<li>贝果涂干酪，夹牛油果和溏心蛋</li>
+<li>撒上海盐和黑芝麻即可</li>
+</ol>
+<h1 id="虫草人参鸡汤"><a href="#虫草人参鸡汤" class="headerlink" title="虫草人参鸡汤"></a>虫草人参鸡汤</h1><div class="tip warning faa-horizontal animated"><p>主料：散养走地老母鸡半只、人参3根、虫草一把、黄芪4个、红枣4个<br>配料：大葱4节、姜片8片、枸杞一把<br>辅料: 无</p>
+</div>
+
+<ol>
+<li>鸡肉焯水和食材洗净备用</li>
+<li>锅中加矿泉水，加入所有食材小火慢炖3小时</li>
+<li>起锅前加入枸杞，小碗盛出加盐调味即可</li>
+</ol>
+<h1 id="美式热狗"><a href="#美式热狗" class="headerlink" title="美式热狗"></a>美式热狗</h1><div class="tip warning faa-horizontal animated"><p>主料：宜家牛肉肠1根、盒马热狗坯1个<br>配料：Master芥辣酱、Hertz番茄酱、酸黄瓜酱<br>辅料: 无</p>
+</div>
+
+<ol>
+<li>面包加热30秒，肉肠加热1分钟</li>
+<li>面包夹肠，涂Master芥辣酱、Hertz番茄酱、酸黄瓜酱即可</li>
+</ol>
+<h1 id="香煎西冷牛排"><a href="#香煎西冷牛排" class="headerlink" title="香煎西冷牛排"></a>香煎西冷牛排</h1><div class="tip warning faa-horizontal animated"><p>主料：山姆西冷牛排500g、芦笋100g、圣女果5个、蒜头3个、迷迭香2根<br>配料：黄油15g、黑胡椒3g、海盐3g<br>辅料: 橄榄油</p>
+</div>
+
+<ol>
+<li>将牛排擦干后双面涂橄榄油，涂抹海盐和黑胡椒腌制10分钟。</li>
+<li>锅内放油烧热放牛排，单面煎50秒至牛排两面金黄后封边。</li>
+<li>捞出牛排放黄油，烧热后放入蒜头、圣女果、迷迭香、芦笋，翻炒片刻淋在牛排上。</li>
+<li>煎一个鸡蛋做装饰，出锅装盘。</li>
+</ol>
+<h1 id="川辣小炒肉"><a href="#川辣小炒肉" class="headerlink" title="川辣小炒肉"></a>川辣小炒肉</h1><div class="tip warning faa-horizontal animated"><p>主料：里脊肉100克、二荆条300克、小米辣3个<br>配料：大蒜4瓣、大葱1节、姜片4片<br>辅料；盐、生抽、老抽、耗油、料酒、白糖</p>
+</div>
+
+<ol>
+<li>首先洗净新鲜排骨，放入锅中焯水去血沫。</li>
+<li>准备葱姜、花椒、香叶、桂皮、八角、冰糖，加入油锅翻炒至冰糖融化</li>
+<li>加入排骨翻炒上糖色至金黄</li>
+<li>加入生抽、老抽、料酒翻炒半分钟</li>
+<li>加水至没过排骨，慢炖1小时，加入耗油调味</li>
+<li>大火收汤至汤汁浓稠，起锅盛盘，点缀小葱</li>
+</ol>
+<h1 id="番茄牛腩"><a href="#番茄牛腩" class="headerlink" title="番茄牛腩"></a>番茄牛腩</h1><h1 id="板栗烧鸡"><a href="#板栗烧鸡" class="headerlink" title="板栗烧鸡"></a>板栗烧鸡</h1><h1 id="香菇小油菜"><a href="#香菇小油菜" class="headerlink" title="香菇小油菜"></a>香菇小油菜</h1><h1 id="鸡丝凉面"><a href="#鸡丝凉面" class="headerlink" title="鸡丝凉面"></a>鸡丝凉面</h1><h1 id="传统小咸菜"><a href="#传统小咸菜" class="headerlink" title="传统小咸菜"></a>传统小咸菜</h1><h1 id="广式香肠炒荷兰豆（待更新）"><a href="#广式香肠炒荷兰豆（待更新）" class="headerlink" title="广式香肠炒荷兰豆（待更新）"></a>广式香肠炒荷兰豆（待更新）</h1><h1 id="海南椰子鸡汤（待更新）"><a href="#海南椰子鸡汤（待更新）" class="headerlink" title="海南椰子鸡汤（待更新）"></a>海南椰子鸡汤（待更新）</h1><h1 id="油闷大虾（待更新）"><a href="#油闷大虾（待更新）" class="headerlink" title="油闷大虾（待更新）"></a>油闷大虾（待更新）</h1><h1 id="排骨粉藕海带汤（待更新）"><a href="#排骨粉藕海带汤（待更新）" class="headerlink" title="排骨粉藕海带汤（待更新）"></a>排骨粉藕海带汤（待更新）</h1><h1 id="农家小炒肉（待更新）"><a href="#农家小炒肉（待更新）" class="headerlink" title="农家小炒肉（待更新）"></a>农家小炒肉（待更新）</h1><h1 id="油焖大虾（待更新）"><a href="#油焖大虾（待更新）" class="headerlink" title="油焖大虾（待更新）"></a>油焖大虾（待更新）</h1><h1 id="鲅鱼饺子（待更新）"><a href="#鲅鱼饺子（待更新）" class="headerlink" title="鲅鱼饺子（待更新）"></a>鲅鱼饺子（待更新）</h1><h1 id="芝士焗生蚝（待更新）"><a href="#芝士焗生蚝（待更新）" class="headerlink" title="芝士焗生蚝（待更新）"></a>芝士焗生蚝（待更新）</h1><h1 id="鸡蛋塔塔饼（待更新）"><a href="#鸡蛋塔塔饼（待更新）" class="headerlink" title="鸡蛋塔塔饼（待更新）"></a>鸡蛋塔塔饼（待更新）</h1><h1 id="葡式蛋挞（待更新）"><a href="#葡式蛋挞（待更新）" class="headerlink" title="葡式蛋挞（待更新）"></a>葡式蛋挞（待更新）</h1><h1 id="菠萝酥-香蕉酥（待更新）"><a href="#菠萝酥-香蕉酥（待更新）" class="headerlink" title="菠萝酥/香蕉酥（待更新）"></a>菠萝酥/香蕉酥（待更新）</h1><h1 id="咸蛋黄豆沙月饼（待更新）"><a href="#咸蛋黄豆沙月饼（待更新）" class="headerlink" title="咸蛋黄豆沙月饼（待更新）"></a>咸蛋黄豆沙月饼（待更新）</h1><h1 id="广式香肠荷兰豆（待更新）"><a href="#广式香肠荷兰豆（待更新）" class="headerlink" title="广式香肠荷兰豆（待更新）"></a>广式香肠荷兰豆（待更新）</h1><h1 id="青椒塞肉（待更新）"><a href="#青椒塞肉（待更新）" class="headerlink" title="青椒塞肉（待更新）"></a>青椒塞肉（待更新）</h1><h1 id="虎皮青椒（待更新）"><a href="#虎皮青椒（待更新）" class="headerlink" title="虎皮青椒（待更新）"></a>虎皮青椒（待更新）</h1><h1 id="凉拌麻将肘子（待更新）"><a href="#凉拌麻将肘子（待更新）" class="headerlink" title="凉拌麻将肘子（待更新）"></a>凉拌麻将肘子（待更新）</h1><h1 id="辣子鸡丁（待更新）"><a href="#辣子鸡丁（待更新）" class="headerlink" title="辣子鸡丁（待更新）"></a>辣子鸡丁（待更新）</h1><h1 id="四川回锅肉（待更新）"><a href="#四川回锅肉（待更新）" class="headerlink" title="四川回锅肉（待更新）"></a>四川回锅肉（待更新）</h1><h1 id="清炒香菇油菜（待更新）"><a href="#清炒香菇油菜（待更新）" class="headerlink" title="清炒香菇油菜（待更新）"></a>清炒香菇油菜（待更新）</h1><h1 id="家常饺子（待更新）"><a href="#家常饺子（待更新）" class="headerlink" title="家常饺子（待更新）"></a>家常饺子（待更新）</h1><h1 id="香菜白萝卜汆丸子（待更新）"><a href="#香菜白萝卜汆丸子（待更新）" class="headerlink" title="香菜白萝卜汆丸子（待更新）"></a>香菜白萝卜汆丸子（待更新）</h1><h1 id="红烧牛肉面（待更新）"><a href="#红烧牛肉面（待更新）" class="headerlink" title="红烧牛肉面（待更新）"></a>红烧牛肉面（待更新）</h1><h1 id="五花肉打卤面（待更新）"><a href="#五花肉打卤面（待更新）" class="headerlink" title="五花肉打卤面（待更新）"></a>五花肉打卤面（待更新）</h1><h1 id="西红柿打卤面（待更新）"><a href="#西红柿打卤面（待更新）" class="headerlink" title="西红柿打卤面（待更新）"></a>西红柿打卤面（待更新）</h1><h1 id="鸡腿肉炒杏鲍菇"><a href="#鸡腿肉炒杏鲍菇" class="headerlink" title="鸡腿肉炒杏鲍菇"></a>鸡腿肉炒杏鲍菇</h1><h1 id="小时候番茄鸡蛋饼"><a href="#小时候番茄鸡蛋饼" class="headerlink" title="小时候番茄鸡蛋饼"></a>小时候番茄鸡蛋饼</h1><h1 id="传统韩式拌饭"><a href="#传统韩式拌饭" class="headerlink" title="传统韩式拌饭"></a>传统韩式拌饭</h1><h1 id="鳗鱼蛋包饭"><a href="#鳗鱼蛋包饭" class="headerlink" title="鳗鱼蛋包饭"></a>鳗鱼蛋包饭</h1><h1 id="蟹味菇素炒面"><a href="#蟹味菇素炒面" class="headerlink" title="蟹味菇素炒面"></a>蟹味菇素炒面</h1><h1 id="皮蛋豆腐"><a href="#皮蛋豆腐" class="headerlink" title="皮蛋豆腐"></a>皮蛋豆腐</h1>]]></content>
+  </entry>
+  <entry>
+    <title>😨使用TorBrowser秘密访问暗网世界</title>
+    <url>/2021/07/07/%F0%9F%98%A8%E5%A6%82%E4%BD%95%E7%99%BB%E9%99%86%E6%9A%97%E7%BD%91/</url>
+    <content><![CDATA[<div class="tip ban faa-flash animated faa-slow"><p>本文章仅从技术方面讨论tor匿名网络的连接方法，仅供技术交流和学习用途。请勿用作其他非法用途，由此产生的任何后果均与本站无关，本网站将不负任何责任。</p>
+</div>
+
+
+<h1 id="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"><a href="#首先介绍一下大名鼎鼎的工具“洋葱头Tor”" class="headerlink" title="首先介绍一下大名鼎鼎的工具“洋葱头Tor”"></a>首先介绍一下大名鼎鼎的工具“洋葱头Tor”</h1><div class="note default simple"><p>Tor Project, Inc. 是一家位于西雅图的 501(c)(3) 研究教育非营利组织，由计算机科学家Roger Dingledine、Nick Mathewson和其他五人创立。Tor 项目主要负责维护Tor “Tor（匿名网络）</p>
+</div>
+
+<img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> Tor 网络就是我们所称的“暗网”。
+
+<h1 id="准备打开新世界的大门"><a href="#准备打开新世界的大门" class="headerlink" title="准备打开新世界的大门"></a>准备打开新世界的大门</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>安装Tor Browser</p>
+</p></div><div class="body"><ol><li>如果有 <code>TORY</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>TORY-offline</code> 插件，建议卸载，3.0 版本默认开启了 pac 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p><p>下载地址</p>
+</p></div><div class="body"><div class="btns rounded grid5">            <a class="button" href='https://www.torproject.org/dist/torbrowser/10.5/torbrowser-install-win64-10.5_en-US.exe' title='下载源码'><i class='fas fa-download'></i>下载源码</a><a class="button" href='https://2019.www.torproject.org/docs/documentation.html.en' title='查看文档'><i class='fas fa-book-open'></i>查看文档</a>          </div><ol><li><p>首先无脑推荐官方网站下载地址和官方文档，在里面根据你的系统版本进行下载即可。</p></li><li><p>上述下载地址如果被屏蔽，说明你可能需要 <del><code>翻墙</code></del>? 阿不..是通过<code>科学的方式上网</code>才行了</p></li><li><p>为了让没有魔法工具的朋友也能使用Tor，贴个视频大伙一起来学习一下穿搭，如果还没学会建议关闭本文喔亲</p></li></ol><div class="tag link"><a class="link-card" title="科学看世界姿势教程贴" href="https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603"><div class="left"><img src="https://i.loli.net/2021/04/26/W3DT4tCM62rA5du.png"/></div><div class="right"><p class="text">科学看世界姿势教程贴</p><p class="url">https://www.bilibili.com/video/BV1pt4y197A5?from=search&seid=4073363556251305603</p></div></a></div></div></div>
+
+<div class="timenode"><div class="meta"><p><p>使用方法</p>
+</p></div><div class="body"><ol><li><p>如果你有VPN但不想使用VPN作为Tor的代理，想直接使用网桥：你可以进入<a href="https://bridges.torproject.org/bridges">https://bridges.torproject.org/bridges</a> 获取最新的共享网桥。</p></li><li><p>你仍然可以使用其他可用的网桥来保证你连接上Tor服务。如果你想自己搭建网桥：去国外或者香港的云服务器提供商购买一个vps并参照网络上的资料搭建即可使用。</p></li><li><p>成功连接上Tor后，那么恭喜你，成功进入了Tor网络，你可以进行彻底的进行无痕迹浏览了。</p></li></ol></div></div>
+</div>
+
+<h1 id="打开潘多拉的魔盒"><a href="#打开潘多拉的魔盒" class="headerlink" title="打开潘多拉的魔盒"></a>打开潘多拉的魔盒</h1><p> 那么言归正传.准备龟速整理一些网站地址给大家</p>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>网址更新进度10%</p></div></div>
+
+<div class="timeline">
+<div class="timenode"><div class="meta"><p><p>常用地址</p>
+</p></div><div class="body"><ol><li><p>常用论坛站点分享: Zzz…睡着了  Zzz…睡着了 Zzz…睡着了…等我下班了一定更新</p></li><li><p>常用猎奇站点分享: Zzz…拖延中 Zzz…拖延中  Zzz…拖延中…等我睡醒了一定更新   </p></li></ol></div></div>
+</div>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>🦋小站重生记 · 从三个坏掉的模块到跨版本升级</title>
+    <url>/2026/08/18/%F0%9F%A6%8B%E5%B0%8F%E7%AB%99%E9%87%8D%E7%94%9F%E8%AE%B0/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>这个小站从 2021 年搭起来，2022 年之后就安静了。源码丢过一次，后来从单位电脑上翻了回来。打开一看，首页三个模块是坏的，主题还停在五年前的版本。</p>
+<p>本来只想修 bug，结果一路修到了架构升级。这篇把过程原样记下来 —— 包括我判断错的那几次。</p>
+</div>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先承认，站是坏的，而且我早就知道：</p>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>首页轮播不转了</p>
+            </div>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>GitHub 贡献图不显示</p>
+            </div>
+<div class='checkbox red checked'><input type="checkbox" checked="checked"/>
+            <p>侧边栏有个模块永远停在「加载中」</p>
+            </div>
+
+<p>三个毛病看着不相干，查下去才发现是<strong>同一个根因</strong>。而那个根因又牵出了整套技术栈已经老到什么程度。</p>
+<hr>
+<h1 id="第一幕：一个死掉的-CDN，拖垮四个模块"><a href="#第一幕：一个死掉的-CDN，拖垮四个模块" class="headerlink" title="第一幕：一个死掉的 CDN，拖垮四个模块"></a>第一幕：一个死掉的 CDN，拖垮四个模块</h1><p>打开控制台，两行报错把方向指得很清楚：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Uncaught ReferenceError: Swiper is not defined</span><br><span class="line">Uncaught ReferenceError: GitCalendarInit is not defined</span><br></pre></td></tr></table></figure>
+
+<p>函数未定义，说明外部 JS 根本没加载进来。把首页引用的 53 个外部资源逐个探活，结果异常干净 —— 所有失败请求都指向同一个主机：</p>
+<div class="note danger flat"><p><code>unpkg.zhimg.com</code> —— 知乎当年做的 unpkg 镜像，现在已经废弃。swiper 相关返回 403，其余全是 404。</p>
+</div>
+
+<p>而同一时刻，<code>cdn.jsdelivr.net</code> 上的 33 个资源无一失败。</p>
+<table>
+<thead>
+<tr>
+<th align="left">模块</th>
+<th align="left">资源状态</th>
+<th align="left">表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">hexo-butterfly-swiper</td>
+<td align="left">403</td>
+<td align="left">首页轮播不转</td>
+</tr>
+<tr>
+<td align="left">hexo-filter-gitcalendar</td>
+<td align="left">404</td>
+<td align="left">贡献图不显示</td>
+</tr>
+<tr>
+<td align="left">hexo-butterfly-artitalk-pro</td>
+<td align="left">404</td>
+<td align="left">说说卡在加载中</td>
+</tr>
+<tr>
+<td align="left">hexo-butterfly-clock</td>
+<td align="left">404</td>
+<td align="left">电子钟（这个我之前都没注意到）</td>
+</tr>
+</tbody></table>
+<p>修法很朴素：在 <code>_config.yml</code> 里给这四个插件显式指定 jsDelivr 地址，覆盖掉它们写死的默认值。11 个资源实测全部 200，重新构建，四个模块一起活了。</p>
+<div class="tip "><p>一个第三方镜像站关停，能同时打掉一个博客的四个功能。这不是运气不好，是把可用性押在别人手里的必然结果。</p>
+</div>
+
+<hr>
+<h1 id="第二幕：贡献图，拒绝再踩同一个坑"><a href="#第二幕：贡献图，拒绝再踩同一个坑" class="headerlink" title="第二幕：贡献图，拒绝再踩同一个坑"></a>第二幕：贡献图，拒绝再踩同一个坑</h1><p>CDN 修好后，贡献图的脚本回来了，图还是空的。因为坏的不是脚本，是<strong>数据源</strong>。</p>
+<p>插件默认调用 <code>github-calendar-api.vercel.app</code>。我拿自己的用户名去问，返回 <code>&#123;&quot;total&quot;:0,&quot;contributions&quot;:[]&#125;</code>。换 torvalds 再问一次 —— 还是 0。那位的贡献量不可能是零，所以结论只有一个：<strong>这个 API 已经废了，对所有人返回空。</strong></p>
+<p>这次我没有去找另一个第三方 API 顶上。刚被一个第三方服务坑过，再换一家只是把同样的雷重埋一次。改成了站内静态数据：</p>
+<details cyan open><summary> 具体怎么做的 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tools/update-gitcalendar.py    <span class="comment"># 抓数据，转成插件要的 53 周嵌套结构</span></span><br><span class="line"><span class="built_in">source</span>/gitcalendar/data.json   <span class="comment"># 结果随站点一起发布</span></span><br></pre></td></tr></table></figure><p>配置里这么写：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiurl:</span> <span class="string">&#x27;/gitcalendar/data.json#&#x27;</span></span><br></pre></td></tr></table></figure><p>最后那个 <code>#</code> 是关键。插件写死了要拼成 <code>&lt;apiurl&gt;/api?&lt;user&gt;</code>，而井号让后半截变成 URL 片段，浏览器实际只请求那个 JSON。<strong>运行时零第三方依赖，那个 API 再也影响不到我。</strong></p>
+              </div>
+            </details>
+
+<p>顺带看到了自己的数据，有点唏嘘：</p>
+<table>
+<thead>
+<tr>
+<th align="left">年份</th>
+<th align="left">贡献数</th>
+<th align="left">活跃天数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2020</td>
+<td align="left">732</td>
+<td align="left">366（一天没落）</td>
+</tr>
+<tr>
+<td align="left">2021</td>
+<td align="left">1077</td>
+<td align="left">237</td>
+</tr>
+<tr>
+<td align="left">2022</td>
+<td align="left">46</td>
+<td align="left">16</td>
+</tr>
+<tr>
+<td align="left">2023 – 2025</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody></table>
+<p>数字比记忆诚实。我最后选择让贡献图显示<strong>真实的最近一年</strong> —— 虽然它现在基本是空的，唯一那两格还是修这个博客时提交的。</p>
+<hr>
+<h1 id="第三幕：该不该升级"><a href="#第三幕：该不该升级" class="headerlink" title="第三幕：该不该升级"></a>第三幕：该不该升级</h1><p>主题停在 butterfly 3.7.1（2021-03），最新是 5.7.0。中间隔着 <strong>54 个正式版本、两个大版本、五年半</strong>。</p>
+<p>我一开始的判断是<strong>不建议升</strong>，理由列了四条：技术栈要连坐升级、配置要重写、1700 行魔改要重贴、插件生态已经冻结（有六个插件多年没发过新版）。最后一条尤其吓人 —— 那些插件靠往特定 DOM 容器里插内容工作，主题一重构就可能全碎。</p>
+<p>然后我去验了这一条。把 butterfly 5.7.0 解包，grep 那几个挂载点：</p>
+<table>
+<thead>
+<tr>
+<th align="left">插件依赖的挂载点</th>
+<th align="left">3.7.1</th>
+<th align="left">5.7.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>recent-posts</code></td>
+<td align="left">5 个布局文件</td>
+<td align="left">6 个</td>
+</tr>
+<tr>
+<td align="left"><code>sticky_layout</code></td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><code>aside-content</code></td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><code>card-widget</code></td>
+<td align="left">11</td>
+<td align="left">13</td>
+</tr>
+</tbody></table>
+<div class="note success flat"><p>四个挂载点在新版里一个不少。我那条最重的理由，证据不支持。</p>
+</div>
+
+<p>于是改口。这不是嘴硬的问题 —— 如果我坚持原判断，这次升级根本不会发生。<strong>预感值得说出来，但只有证据能定案。</strong></p>
+<hr>
+<h1 id="第四幕：四个障碍"><a href="#第四幕：四个障碍" class="headerlink" title="第四幕：四个障碍"></a>第四幕：四个障碍</h1><p>跨越五年半、两个大版本，全过程只撞到四个真实障碍，比预期少太多。</p>
+<details red><summary> 其一 · 插件不检查存在性，直接把构建打崩 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>TypeError: Cannot read properties of undefined (reading &#39;cover&#39;)</code>，构建直接中止。</p><p><strong>根因</strong>：<code>hexo-butterfly-envelope</code> 1.0.13+ 把四张图收进了 <code>custom_pic</code> 子节点，而代码里不做任何存在性检查就往下读。旧配置没这一节，于是整个构建崩溃。</p><p><strong>处置</strong>：补齐配置节点。顺带发现它的默认值也指向那个已废弃的镜像，一并改掉。</p>
+              </div>
+            </details>
+
+<details red><summary> 其二 · 一个全局函数搬进了命名空间 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>ReferenceError: getScript is not defined</code>，说说加载不出来。</p><p><strong>根因</strong>：butterfly 3.x 把 <code>getScript</code> 直接挂在 <code>window</code> 上，5.x 起收进了 <code>window.btf</code> 命名空间。老插件注入的内联脚本调的是裸函数，自然找不到。</p><p><strong>处置</strong>：在 <code>inject.head</code> 加一段<strong>惰性垫片</strong> —— 调用时才去取 <code>btf</code>，因此不依赖脚本加载顺序。六行代码，一个插件都不用改。</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">getScript</span> = <span class="variable language_">window</span>.<span class="property">getScript</span> || <span class="keyword">function</span> (<span class="params">u, a</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">btf</span>.<span class="title function_">getScript</span>(u, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<details red><summary> 其三 · 同名标签，少注册了一个 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：<code>unknown block tag: timenode</code>，文章渲染失败。</p><p><strong>根因</strong>：butterfly 5 自带了 <code>timeline</code> 标签，但只注册这一个；我用的第三方版本还注册了 <code>timenode</code>，而文章里用了 30 次。</p><p><strong>处置</strong>：保留第三方版本覆盖官方的。顺带统计了一下自己对标签插件的依赖深度 —— <code>checkbox</code> 326 次、<code>tip</code> 83 次、<code>folding</code> 77 次，全站 600 多处调用。这些标签早就是文章的骨架了。</p>
+              </div>
+            </details>
+
+<details red><summary> 其四 · 配置写错了地方，升级即丢 </summary>
+              <div class='content'>
+              <p><strong>症状</strong>：升级后导航菜单整个消失，16 个菜单项全没了。</p><p><strong>根因</strong>：菜单写在 <code>themes/butterfly/_config.yml</code> 里。那个文件<strong>属于主题本体</strong>，换主题目录时被整个覆盖。</p><p><strong>处置</strong>：迁移到 <code>_config.butterfly.yml</code> —— 那才是官方推荐的覆盖文件。这条修的不只是这次，是<strong>以后每一次升级</strong>。</p>
+              </div>
+            </details>
+
+<hr>
+<h1 id="方法：三方合并"><a href="#方法：三方合并" class="headerlink" title="方法：三方合并"></a>方法：三方合并</h1><p>11 个魔改文件、约 1700 行改动。直接拿旧文件覆盖，等于把上游五年的改进全扔掉；直接用新文件，等于把自己的东西全扔掉。</p>
+<p>正确做法是三方合并，以<strong>原版 3.7.1 作为共同祖先</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge-file --diff3 &lt;5.7.0原版&gt; &lt;3.7.1原版&gt; &lt;我的魔改版&gt;</span><br><span class="line"><span class="comment">#                        ours        base        theirs</span></span><br><span class="line"><span class="comment"># 结果 = 上游改进 + 我的改动，两边都不丢</span></span><br></pre></td></tr></table></figure>
+
+<p>这一步暴露出一件我完全没料到的事：<strong>我当年那些「魔改」里，有相当一部分其实是手动前移植的 butterfly 新版写法</strong> —— <code>fragment_cache</code>、<code>preloader.enable</code>、<code>#body-wrap</code> —— 5.x 已经原生实现了。</p>
+<p>也就是说 <code>layout.pug</code> 这个文件的「改动」其实是零，直接取上游即可。升级不但没让我损失什么，还甩掉了三个维护负担。</p>
+<p>真正属于我的东西，一样没丢：</p>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>多款式加载动画（小巫师 / 稻草人 / ironheart），1434 行样式</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>首页分类栏</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>页脚的心形版权、徽章墙、养鱼挂件</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>文章版权卡片：四格信息 + 图标水印 + 深色模式呼吸辉光</p>
+            </div>
+<div class='checkbox green checked'><input type="checkbox" checked="checked"/>
+            <p>Tag Plugins 标签包（就是这篇文章里一直在用的那些）</p>
+            </div>
+
+<hr>
+<h1 id="最阴的一类问题：不报错，只是静默失效"><a href="#最阴的一类问题：不报错，只是静默失效" class="headerlink" title="最阴的一类问题：不报错，只是静默失效"></a>最阴的一类问题：不报错，只是静默失效</h1><p>butterfly 5 归并改名了 29 个配置项。旧键名<strong>不会报错</strong>，只是读不到 —— 构建照样成功，功能悄悄消失。</p>
+<p>最典型的一个：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 旧写法（连字符）           # 新写法（下划线）</span></span><br><span class="line"><span class="attr">font:                       font:</span></span><br><span class="line">  <span class="attr">global-font-size:           global_font_size:</span></span><br><span class="line">  <span class="attr">font-family: mofei          font_family:</span> <span class="string">mofei</span></span><br></pre></td></tr></table></figure>
+
+<p><code>mofei</code> 是我自定义的那个字体。不改的话，全站字体就悄无声息地退回默认了。</p>
+<div class="note warning flat"><p>如果只做「升级 → 构建成功 → 页面能打开」这三步验收，这类问题一个都发现不了。等哪天自己觉得「字体好像不太对」，已经过去半年。</p>
+</div>
+
+<p>我是靠逐项比对新旧版本的配置键才揪出来的。类似的归并还有一堆：</p>
+<table>
+<thead>
+<tr>
+<th align="left">旧写法</th>
+<th align="left">新写法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>highlight_*</code> × 6 + <code>code_word_wrap</code></td>
+<td align="left"><code>code_blocks</code></td>
+</tr>
+<tr>
+<td align="left"><code>algolia_search</code> + <code>local_search</code></td>
+<td align="left"><code>search</code></td>
+</tr>
+<tr>
+<td align="left"><code>mathjax</code> + <code>katex</code></td>
+<td align="left"><code>math</code></td>
+</tr>
+<tr>
+<td align="left"><code>addThis</code> + <code>sharejs</code> + <code>addtoany</code></td>
+<td align="left"><code>share</code></td>
+</tr>
+<tr>
+<td align="left"><code>medium_zoom</code> + <code>fancybox</code></td>
+<td align="left"><code>lightbox</code></td>
+</tr>
+<tr>
+<td align="left"><code>footer_bg</code></td>
+<td align="left"><code>footer_img</code></td>
+</tr>
+<tr>
+<td align="left"><code>runtimeshow</code></td>
+<td align="left"><code>card_webinfo.runtime_date</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="全程在副本上做"><a href="#全程在副本上做" class="headerlink" title="全程在副本上做"></a>全程在副本上做</h1><p>从头到尾，正式仓库和线上站点一根汗毛没动，直到全部验证通过：</p>
+<ol>
+<li><strong>可行性验证</strong> —— 副本上装新技术栈直接构建，看什么真的碎。这一步是探针不是承诺，结果太糟随时可以停。</li>
+<li><strong>移植魔改</strong> —— 60 个新增文件整体搬运，11 个改动文件做三方合并，每合并一个就构建一次。</li>
+<li><strong>配置现代化</strong> —— 29 项失效键逐个映射，并把误放在主题目录里的配置全部迁走。</li>
+<li><strong>验收后才落地</strong> —— 26 个插件、5 个模块、14 个页面全部实测通过，才同步进正式仓库。</li>
+</ol>
+<p>验收也不能只看「构建成功」。<strong>构建成功不等于模块能显示</strong> —— 我是拿浏览器跑 JS 去查 DOM 实际状态的：轮播查 <code>el.swiper</code> 存不存在、<code>autoplay.running</code> 是不是 true；加载动画把 <code>loaded</code> 类摘掉，量它的 <code>animationName</code> 和尺寸。</p>
+<hr>
+<h1 id="我判断错的三次"><a href="#我判断错的三次" class="headerlink" title="我判断错的三次"></a>我判断错的三次</h1><p>只列成果那是宣传稿，不是记录。这三次都实实在在改变了后续走向。</p>
+<div class="note danger flat"><p><strong>把「说说」的后端判了死刑</strong></p>
+<p>我用 curl 打 LeanCloud 的 REST 接口，带上正确的 appId 和 appKey，拿到 401，于是断定「后端已失效，换 CDN 也救不回来」。<strong>错的。</strong> SDK 用的鉴权方式和我手工构造的不同 —— 页面上说说一直能正常拉到 2022 年的内容。</p>
+<p>教训：别用一个你不熟悉的接口的报错，去给整个服务判死刑。</p>
+</div>
+
+<div class="note danger flat"><p><strong>把控制台报错等同于功能坏掉</strong></p>
+<p>首页有个 <code>Swiper is not defined</code> 一闪而过，我据此认为轮播没修好。实际上 butterfly 的 pjax 之后会重跑脚本并初始化成功，轮播一直在转。</p>
+<p>教训：判断模块死活要看 DOM 实际状态，不能只看控制台。</p>
+</div>
+
+<div class="note danger flat"><p><strong>对升级过于悲观</strong></p>
+<p>我一度断言升级「很可能打碎刚修好的模块」。去验之后发现，插件依赖的四个挂载点在新版里一个不少。</p>
+<p>教训：这条要是没去验，这次升级根本不会发生。</p>
+</div>
+
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>站还是那个站 —— 小巫师还在转，页脚的心还在跳，版权卡片在深色模式下还是会呼吸发光。这些是我当年一个个挑出来、试出来的，一样没丢。</p>
+<p>变的是底下：技术栈从 Hexo 5 到 7，主题跨了两个大版本，所有第三方依赖里最脆的那两个被换掉了，配置搬到了升级安全的地方，字体不再静默失效。</p>
+<div class="tip success"><p>修一个停更四年的东西，最难的不是技术，是分清哪些是「上游的演进」、哪些是「当年的自己」。前者应该拥抱，后者值得保住。</p>
+</div>
+
+<p>最后还有个意外收获。那套加载动画的出处，是 <a href="https://akilar.top/posts/3d221bf2/">Akilar 的 Loading Animation</a> —— 和我站上的 swiper、gitcalendar、电子钟、说说、留言板<strong>全部同源</strong>。翻出来才意识到，这个博客的一大半，是照着同一个人的文章搭起来的。</p>
+<p>而那篇教程最后更新停在 2022-04-27，和我的博客差不多同时安静下来。</p>
+<p>那就从这篇开始，重新写点东西吧。</p>
+]]></content>
+      <categories>
+        <category>学习の世界</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
