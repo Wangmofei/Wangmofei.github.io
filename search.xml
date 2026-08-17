@@ -13,7 +13,7 @@
 <h3 id="使用爬虫脚本实时获取最新-ip"><a href="#使用爬虫脚本实时获取最新-ip" class="headerlink" title="使用爬虫脚本实时获取最新 ip"></a>使用爬虫脚本实时获取最新 ip</h3><p>因为 github 相关的诸多域名的 ip 是在变动的，为了能够实时获取最新的 ip，我们可以使用爬虫来从站长之家或其余 ip 查询网站上爬取最新 ip。</p>
 <p>这里要用到 python，安装推荐使用 Anaconda，Anaconda 安装方式推荐参看 Win10 重装日记的 3.2 章节。根据 Anaconda 版本与 python 版本的对照选择自己需要的 Anaconda 安装包，然后直接安装即可，路径建议修改为非系统盘，同时务必勾选将 python 路径加入到环境变量的选项。</p>
 <p>新建一个 python 脚本 ——githosts.py（最简单的方法，新建一个 txt 文本文件，把下面的代码粘贴进去以后，修改后缀为.py）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># 待查询的域名</span></span><br><span class="line">s = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">github.githubassets.com</span></span><br><span class="line"><span class="string">camo.githubusercontent.com</span></span><br><span class="line"><span class="string">github.map.fastly.net</span></span><br><span class="line"><span class="string">github.global.ssl.fastly.net</span></span><br><span class="line"><span class="string">gist.github.com</span></span><br><span class="line"><span class="string">github.io</span></span><br><span class="line"><span class="string">github.com</span></span><br><span class="line"><span class="string">api.github.com</span></span><br><span class="line"><span class="string">raw.githubusercontent.com</span></span><br><span class="line"><span class="string">user-images.githubusercontent.com</span></span><br><span class="line"><span class="string">favicons.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars5.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars4.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars3.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars2.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars1.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars0.githubusercontent.com</span></span><br><span class="line"><span class="string">codeload.github.com</span></span><br><span class="line"><span class="string">github-cloud.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-com.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-release-asset-2e65be.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-user-asset-6210df.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-repository-file-5c1aeb.s3.amazonaws.com</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 引入必要的包库</span></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import os</span><br><span class="line"><span class="comment"># 分割s list，然后逐个查询对应的ip，之后逐个加入到ans list中</span></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s.split():</span><br><span class="line">    try:</span><br><span class="line">        url = <span class="string">&quot;http://ip.tool.chinaz.com/&quot;</span> + i.strip()</span><br><span class="line">        resp = requests.get(url)</span><br><span class="line">        soup = BeautifulSoup(resp.text,<span class="string">&quot;html5lib&quot;</span>)</span><br><span class="line">        x = soup.find(class_=<span class="string">&quot;IcpMain02&quot;</span>)</span><br><span class="line">        x = x.find_all(<span class="string">&quot;span&quot;</span>, class_=<span class="string">&quot;Whwtdhalf&quot;</span>)</span><br><span class="line">        x = <span class="string">&quot;%s %s&quot;</span> % (x[5].string.strip(), i.strip())</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">        ans.append(x)</span><br><span class="line">    except:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;返回值为null，查询失败。请确保域名正确&quot;</span>)</span><br><span class="line"><span class="comment"># 打开hosts文件，写入结果</span></span><br><span class="line">hosts = r<span class="string">&quot;C:\Windows\System32\drivers\etc\hosts&quot;</span></span><br><span class="line">with open(hosts, <span class="string">&quot;r&quot;</span>) as f:</span><br><span class="line">    content = [i <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines() <span class="keyword">if</span> i.startswith(<span class="string">&quot;#&quot;</span>)]</span><br><span class="line">    content.extend(ans)</span><br><span class="line">with open(hosts, <span class="string">&quot;w&quot;</span>) as f:</span><br><span class="line">    f.write(<span class="string">&quot;\n&quot;</span>.join(content))</span><br><span class="line"><span class="comment"># 调用os，执行刷新dns指令</span></span><br><span class="line">os.system(<span class="string">&#x27;ipconfig /flushdns&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># 待查询的域名</span></span><br><span class="line">s = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">github.githubassets.com</span></span><br><span class="line"><span class="string">camo.githubusercontent.com</span></span><br><span class="line"><span class="string">github.map.fastly.net</span></span><br><span class="line"><span class="string">github.global.ssl.fastly.net</span></span><br><span class="line"><span class="string">gist.github.com</span></span><br><span class="line"><span class="string">github.io</span></span><br><span class="line"><span class="string">github.com</span></span><br><span class="line"><span class="string">api.github.com</span></span><br><span class="line"><span class="string">raw.githubusercontent.com</span></span><br><span class="line"><span class="string">user-images.githubusercontent.com</span></span><br><span class="line"><span class="string">favicons.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars5.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars4.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars3.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars2.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars1.githubusercontent.com</span></span><br><span class="line"><span class="string">avatars0.githubusercontent.com</span></span><br><span class="line"><span class="string">codeload.github.com</span></span><br><span class="line"><span class="string">github-cloud.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-com.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-release-asset-2e65be.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-user-asset-6210df.s3.amazonaws.com</span></span><br><span class="line"><span class="string">github-production-repository-file-5c1aeb.s3.amazonaws.com</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 引入必要的包库</span></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import os</span><br><span class="line"><span class="comment"># 分割s list，然后逐个查询对应的ip，之后逐个加入到ans list中</span></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s.split():</span><br><span class="line">    try:</span><br><span class="line">        url = <span class="string">&quot;http://ip.tool.chinaz.com/&quot;</span> + i.strip()</span><br><span class="line">        resp = requests.get(url)</span><br><span class="line">        soup = BeautifulSoup(resp.text,<span class="string">&quot;html5lib&quot;</span>)</span><br><span class="line">        x = soup.find(class_=<span class="string">&quot;IcpMain02&quot;</span>)</span><br><span class="line">        x = x.find_all(<span class="string">&quot;span&quot;</span>, class_=<span class="string">&quot;Whwtdhalf&quot;</span>)</span><br><span class="line">        x = <span class="string">&quot;%s %s&quot;</span> % (x[5].string.strip(), i.strip())</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">        ans.append(x)</span><br><span class="line">    except:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;返回值为null，查询失败。请确保域名正确&quot;</span>)</span><br><span class="line"><span class="comment"># 打开hosts文件，写入结果</span></span><br><span class="line">hosts = r<span class="string">&quot;C:\Windows\System32\drivers\etc\hosts&quot;</span></span><br><span class="line">with open(hosts, <span class="string">&quot;r&quot;</span>) as f:</span><br><span class="line">    content = [i <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines() <span class="keyword">if</span> i.startswith(<span class="string">&quot;#&quot;</span>)]</span><br><span class="line">    content.extend(ans)</span><br><span class="line">with open(hosts, <span class="string">&quot;w&quot;</span>) as f:</span><br><span class="line">    f.write(<span class="string">&quot;\n&quot;</span>.<span class="built_in">join</span>(content))</span><br><span class="line"><span class="comment"># 调用os，执行刷新dns指令</span></span><br><span class="line">os.system(<span class="string">&#x27;ipconfig /flushdns&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>然后把 githosts.py 放到 C:\Windows\System32 目录下（不放其实也可以，只是这样一来每次都要自己 cd 路径。）<br>win+X，按A， 以管理员权限启动 Powershell，输入</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python githosts.py</span><br></pre></td></tr></table></figure>
 <p>然后脚本就会自动爬取最新的 IP 与域名到你的 hosts 文件中了。</p>
@@ -23,6 +23,39 @@
       </categories>
       <tags>
         <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>😊常用部署命令大杂烩</title>
+    <url>/2021/05/17/hello-world/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
+</div>
+
+<hr>
+<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+
+<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
+<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
+<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
+<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
+</ol>
+]]></content>
+      <categories>
+        <category>音乐の世界</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -48,14 +81,14 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 16</span><br></pre></td></tr></table></figure>
 <p>可以执行 node 或者 npm 试试安装是否正确。</p>
 <p>然后执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">setcap</span> cap_net_raw+eip $(<span class="built_in">eval</span> readlink -f `<span class="built_in">which</span> node`)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">setcap</span> cap_net_raw+eip $(<span class="built_in">eval</span> <span class="built_in">readlink</span> -f `<span class="built_in">which</span> node`)</span><br></pre></td></tr></table></figure>
 
 <p>这将允许 Node.js 和 Homebridge 搜索蓝牙设备。每次更新 Node.js 后都需要再次执行以上命令。</p>
 <h1 id="安装-Homebridge"><a href="#安装-Homebridge" class="headerlink" title="安装 Homebridge"></a>安装 Homebridge</h1><p>接下来全局安装 Homebridge 及其插件。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g homebridge https://gitpkg.vercel.app/stevenjoezhang/homebridge_yeelight/yeelight</span><br></pre></td></tr></table></figure>
 
 <p>homebridge-yeelight 插件将会安装依赖 @abandonware/bluetooth-hci-socket，并默认使用预编译版本的动态库；如果没有找到则会使用 node-gyp 进行编译。若是在安装时遇到报错，可以检查一下是不是这个原因。从源码编译的话就需要先执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install libbluetooth-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install libbluetooth-dev</span><br></pre></td></tr></table></figure>
 <h1 id="运行-Homebridge"><a href="#运行-Homebridge" class="headerlink" title="运行 Homebridge"></a>运行 Homebridge</h1><p>执行homebridge，如果没有报错，那么就安装成功了。初次执行时 Homebridge 会在用户的家目录下创建.homebridge 目录。为了配置 Yeelight 插件，需要用文本编辑器创建一个 config.json 文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.homebridge/config.json</span><br></pre></td></tr></table></figure>
 <p>然后写入以下内容</p>
@@ -65,6 +98,55 @@
 <p>参考文章：借助树莓派与 HomeBridge ，将 YeeLight 彩光灯接入 Apple HomeKit | Matrix 精选</p>
 <p>🍭支持一根棒棒糖！</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>😎通过URLScheme一键打开健康码</title>
+    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
+    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
+</div>
+
+<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+
+<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
+
+<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
+
+<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到这一段</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
+
+<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
+<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
+</code></pre>
+<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
+
+<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
+]]></content>
+  </entry>
+  <entry>
+    <title>😰那些我不能说的秘密</title>
+    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>心情故事</tag>
+      </tags>
   </entry>
   <entry>
     <title>😊干货之常用标签写法</title>
@@ -86,7 +168,7 @@
 <li>那么言归正传，开始总结些干货..龟速整理中<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-yellow"  style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><p>标签写法更新进度60%</p></div></div></li>
 </ol>
 <hr>
-<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">提示标签</button></li><li class="tab"><button type="button" data-href="#test4-2">按钮标签</button></li><li class="tab"><button type="button" data-href="#test4-3">字符标签</button></li><li class="tab"><button type="button" data-href="#test4-4">标题标签</button></li><li class="tab"><button type="button" data-href="#test4-5">动态标签</button></li><li class="tab"><button type="button" data-href="#test4-6">表格标签</button></li><li class="tab"><button type="button" data-href="#test4-7">图片标签</button></li><li class="tab"><button type="button" data-href="#test4-8">多媒体标签</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><p>😊这是一些常用的标志</p>
+<div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">提示标签</button><button type="button" class="tab">按钮标签</button><button type="button" class="tab">字符标签</button><button type="button" class="tab">标题标签</button><button type="button" class="tab">动态标签</button><button type="button" class="tab">表格标签</button><button type="button" class="tab">图片标签</button><button type="button" class="tab">多媒体标签</button></div><div class="tab-contents"><div class="tab-item-content active"><p>😊这是一些常用的标志</p>
 <div class="note simple"><p>默認 提示塊標籤</p>
 </div>
 
@@ -122,8 +204,8 @@
 </div>
 
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><p>😊链接按钮</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% link 糖果屋教程贴, https://akilar.top/posts/615e2dec/, https://cdn.jsdelivr.net/gh/Akilarlxh/akilarlxh.github.io/img/siteicon/favicon.ico %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>😊链接按钮</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="built_in">link</span> 糖果屋教程贴, https://akilar.top/posts/615e2dec/, https://cdn.jsdelivr.net/gh/Akilarlxh/akilarlxh.github.io/img/siteicon/favicon.ico %&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="tag link"><a class="link-card" title="糖果屋教程贴" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/akilarlxh.github.io/img/siteicon/favicon.ico"/></div><div class="right"><p class="text">糖果屋教程贴</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div>
 
@@ -177,52 +259,30 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %&#125;</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></table></figure>
 <p>😊6. 举个按钮的例子瞧瞧</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,larger %&#125;</span><br></pre></td></tr></table></figure>
-<p>This is my website, click the button <a class="btn-beautify button--animated " href="https://butterfly.js.org/" 
-  title="Butterfly"><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify button--animated " href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify button--animated outline" href="https://butterfly.js.org/" 
-  title="Butterfly"><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify button--animated outline" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify button--animated larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a></p>
+<p>This is my website, click the button <a class="btn-beautify " href="https://butterfly.js.org/" title="Butterfly"><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify " href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify outline" href="https://butterfly.js.org/" title="Butterfly"><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify outline" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a><br>This is my website, click the button <a class="btn-beautify larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,block %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,block center larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,block right outline larger %&#125;</span><br></pre></td></tr></table></figure>
-<p><a class="btn-beautify button--animated block" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a><br><a class="btn-beautify button--animated block center larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a><br><a class="btn-beautify button--animated block right outline larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a></p>
+<p><a class="btn-beautify block" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a><br><a class="btn-beautify block center larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a><br><a class="btn-beautify block right outline larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,blue larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,pink larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,red larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,purple larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,orange larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,green larger %&#125;</span><br></pre></td></tr></table></figure>
 <div class="btn-center">
-<a class="btn-beautify button--animated larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated blue larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated pink larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated red larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated purple larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated orange larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated green larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
+<a class="btn-beautify larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify blue larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify pink larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify red larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify purple larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify orange larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify green larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
 </div>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;btn-center&quot;</span>&gt;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline blue larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline pink larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline red larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline purple larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline orange larger %&#125;</span><br><span class="line">&#123;% btn <span class="string">&#x27;https://butterfly.js.org/&#x27;</span>,Butterfly,far fa-hand-point-right,outline green larger %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <div class="btn-center">
-<a class="btn-beautify button--animated outline larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline blue larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline pink larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline red larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline purple larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline orange larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline green larger" href="https://butterfly.js.org/" 
-  title="Butterfly"><i class="far fa-hand-point-right fa-fw"></i><span>Butterfly</span></a>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p>😊标注字符</p>
+<a class="btn-beautify outline larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline blue larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline pink larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline red larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline purple larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline orange larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify outline green larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+</div></div><div class="tab-item-content"><p>😊标注字符</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 带 &#123;% u 下划线 %&#125; 的文本</span><br><span class="line">2. 带 &#123;% emp 着重号 %&#125; 的文本</span><br><span class="line">3. 带 &#123;% wavy 波浪线 %&#125; 的文本</span><br><span class="line">4. 带 &#123;% del 删除线 %&#125; 的文本</span><br><span class="line">5. 键盘样式的文本 &#123;% kbd <span class="built_in">command</span> %&#125; + &#123;% kbd D %&#125;</span><br><span class="line">6. 密码样式的文本：&#123;% psw 这里没有验证码 %&#125;</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -238,7 +298,7 @@
 <ul>
 <li>彩色文字<br>在一段话中方便插入各种颜色的标签，包括：<span class='p red'>红色</span>、<span class='p yellow'>黄色</span>、<span class='p green'>绿色</span>、<span class='p cyan'>青色</span>、<span class='p blue'>蓝色</span>、<span class='p gray'>灰色</span>。</li>
 <li>超大号文字<br>文档「开始」页面中的标题部分就是超大号文字。<br><span class='p center logo large'>Volantis</span><br><span class='p center small'>A Wonderful Theme for Hexo</span></li>
-</ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-4"><p>😊折叠栏</p>
+</ul></div><div class="tab-item-content"><p>😊折叠栏</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% folding 查看图片测试 %&#125;</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg)</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding cyan open, 查看默认打开的折叠框 %&#125;</span><br><span class="line"></span><br><span class="line">这是一个默认打开的折叠框。</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding green, 查看代码测试 %&#125;</span><br><span class="line">假装这里有代码块（代码块没法嵌套代码块）</span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding yellow, 查看列表测试 %&#125;</span><br><span class="line"></span><br><span class="line">- haha</span><br><span class="line">- hehe</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding red, 查看嵌套测试 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding blue, 查看嵌套测试2 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% folding 查看嵌套测试3 %&#125;</span><br><span class="line"></span><br><span class="line">hahaha &lt;span&gt;&lt;img src=<span class="string">&#x27;https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/tieba/%E6%BB%91%E7%A8%BD.png&#x27;</span> style=<span class="string">&#x27;height:24px&#x27;</span>&gt;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfolding %&#125;</span><br></pre></td></tr></table></figure>
 <details ><summary> 查看图片测试 </summary>
               <div class='content'>
@@ -271,15 +331,15 @@
             </details>
 
 <p>😊分栏</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1. 没有预设值</span><br><span class="line">&#123;% tabs test3, -1 %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">2. 自定义 Tab 名 + 只有 icon + icon 和 Tab 名</span><br><span class="line">&#123;% tabs test4 %&#125;</span><br><span class="line">&lt;!-- tab 第一个Tab --&gt;</span><br><span class="line">**tab名字为第一个Tab**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab @fab fa-apple-pay --&gt;</span><br><span class="line">**只有图标 没有Tab名字**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 炸弹@fas fa-bomb --&gt;</span><br><span class="line">**名字+icon**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1. 没有预设值</span><br><span class="line">&#123;% tabs test3, -1 %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">2. 自定义 Tab 名 + 只有 icon + icon 和 Tab 名</span><br><span class="line">&#123;% tabs test4 %&#125;</span><br><span class="line">&lt;!-- tab 第一个Tab --&gt;</span><br><span class="line">**tab名字为第一个Tab**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab @fab fa-apple-pay --&gt;</span><br><span class="line">**只有图标 没有Tab名字**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 炸弹@fas fa-bomb --&gt;</span><br><span class="line">**名字+icon**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>没有预设值<div class="tabs" id="test3"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test3-1">test3 1</button></li><li class="tab"><button type="button" data-href="#test3-2">test3 2</button></li><li class="tab"><button type="button" data-href="#test3-3">test3 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test3-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test3-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test3-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></li>
+<li>没有预设值<div class="tabs"><div class="nav-tabs no-default"><button type="button" class="tab">test3 1</button><button type="button" class="tab">test3 2</button><button type="button" class="tab">test3 3</button></div><div class="tab-contents"><div class="tab-item-content"><p><strong>This is Tab 1.</strong></p></div><div class="tab-item-content"><p><strong>This is Tab 2.</strong></p></div><div class="tab-item-content"><p><strong>This is Tab 3.</strong></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></li>
 </ol>
 <ol start="2">
-<li>自定义 Tab 名 + 只有 icon + icon 和 Tab 名<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">第一个Tab</button></li><li class="tab"><button type="button" data-href="#test4-2"><i class="fab fa-apple-pay" style="text-align: center;"></i></button></li><li class="tab"><button type="button" data-href="#test4-3"><i class="fas fa-bomb"></i>炸弹</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><p><strong>tab名字为第一个Tab</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><p><strong>只有图标 没有Tab名字</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p><strong>名字+icon</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></li>
+<li>自定义 Tab 名 + 只有 icon + icon 和 Tab 名<div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">第一个Tab</button><button type="button" class="tab"><i class="fab fa-apple-pay"></i></button><button type="button" class="tab"><i class="fas fa-bomb"></i>炸弹</button></div><div class="tab-contents"><div class="tab-item-content active"><p><strong>tab名字为第一个Tab</strong></p></div><div class="tab-item-content"><p><strong>只有图标 没有Tab名字</strong></p></div><div class="tab-item-content"><p><strong>名字+icon</strong></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></li>
 </ol>
 <p>😊 常规标题</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% endtabs %&#125;</span><br><span class="line">&#123;% tip %&#125;默认情况&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip success %&#125;success&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip error %&#125;error&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip warning %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bolt %&#125;bolt&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban %&#125;ban&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip home %&#125;home&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip sync %&#125;sync&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip cogs %&#125;cogs&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip key %&#125;key&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bell %&#125;bell&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip fa-atom %&#125;自定义font awesome图标&#123;% endtip %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% endtabs %&#125;</span><br><span class="line">&#123;% tip %&#125;默认情况&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip success %&#125;success&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip error %&#125;error&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip warning %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bolt %&#125;bolt&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban %&#125;ban&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip home %&#125;home&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip <span class="built_in">sync</span> %&#125;<span class="built_in">sync</span>&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip cogs %&#125;cogs&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip key %&#125;key&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip bell %&#125;bell&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip fa-atom %&#125;自定义font awesome图标&#123;% endtip %&#125;</span><br></pre></td></tr></table></figure>
 <div class="tip "><p>默认情况</p>
 </div>
 <div class="tip success"><p>success</p>
@@ -303,7 +363,7 @@
 <div class="tip bell"><p>bell</p>
 </div>
 <div class="tip fa-atom"><p>自定义font awesome图标</p>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-5"><p>😊让我们一起跟着标签摇摆</p>
+</div></div><div class="tab-item-content"><p>😊让我们一起跟着标签摇摆</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% tip warning faa-horizontal animated %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-horizontal animated faa-fast %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated faa-slow %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-horizontal animated-hover %&#125;warning&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-flash animated-hover %&#125;ban&#123;% endtip %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% tip warning faa-parent animated-hover %&#125;&lt;p class=<span class="string">&quot;faa-horizontal&quot;</span>&gt;warning&lt;/p&gt;&#123;% endtip %&#125;</span><br><span class="line">&#123;% tip ban faa-parent animated-hover %&#125;&lt;p class=<span class="string">&quot;faa-flash&quot;</span>&gt;ban&lt;/p&gt;&#123;% endtip %&#125;</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -321,7 +381,7 @@
 </div></li>
 <li>父级鼠标悬停<div class="tip warning faa-parent animated-hover"><p class="faa-horizontal">warning</p></div>
 <div class="tip ban faa-parent animated-hover"><p class="faa-flash">ban</p></div></li>
-</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-6"><p>😊复选列表 checkbox</p>
+</ol></div><div class="tab-item-content"><p>😊复选列表 checkbox</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% checkbox 纯文本测试 %&#125;</span><br><span class="line">&#123;% checkbox checked, 支持简单的 [markdown](https://guides.github.com/features/mastering-markdown/) 语法 %&#125;</span><br><span class="line">&#123;% checkbox red, 支持自定义颜色 %&#125;</span><br><span class="line">&#123;% checkbox green checked, 绿色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox yellow checked, 黄色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox cyan checked, 青色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox blue checked, 蓝色 + 默认选中 %&#125;</span><br><span class="line">&#123;% checkbox plus green checked, 增加 %&#125;</span><br><span class="line">&#123;% checkbox minus yellow checked, 减少 %&#125;</span><br><span class="line">&#123;% checkbox <span class="built_in">times</span> red checked, 叉 %&#125;</span><br></pre></td></tr></table></figure>
 <div class='checkbox'><input type="checkbox" />
             <p>纯文本测试</p>
@@ -390,12 +450,12 @@
 
 <div class="timenode"><div class="meta"><p><p>2020-04-20 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.3">2.6.2 -&gt; 2.6.3</a></p>
 </p></div><div class="body"><ol><li>全局搜索 <code>seotitle</code> 并替换为 <code>seo_title</code>。</li><li>group 组件的索引规则有变，使用 group 组件的文章内，<code>group: group_name</code> 对应的组件名必须是 <code>group_name</code>。</li><li>group 组件的列表名优先显示文章的 <code>short_title</code> 其次是 <code>title</code>。</li></ol></div></div>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-7"><p>😊行内图片</p>
+</div></div><div class="tab-item-content"><p>😊行内图片</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">这是 &#123;% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif %&#125; 一段话。</span><br><span class="line"></span><br><span class="line">这又是 &#123;% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif, height=40px %&#125; 一段话。</span><br></pre></td></tr></table></figure>
 <p>这是 <img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> 一段话。</p>
 <p>这又是 <img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif" style="height:40px;"/> 一段话。</p>
 <p>😊单张图片</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">2.指定宽度：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px %&#125;</span><br><span class="line"></span><br><span class="line">3.指定宽度并添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">4.设置占位背景色：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, <span class="built_in">bg</span>=<span class="comment">#1D0C04, alt=优化不同宽度浏览的观感 %&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">2.指定宽度：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px %&#125;</span><br><span class="line"></span><br><span class="line">3.指定宽度并添加描述：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line">4.设置占位背景色：</span><br><span class="line">&#123;% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, <span class="built_in">bg</span>=#1D0C04, alt=优化不同宽度浏览的观感 %&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>添加描述：</p>
 <div class="img-wrap"><div class="img-bg"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="每天下课回宿舍的路，没有什么故事。"/></div><span class="image-caption">每天下课回宿舍的路，没有什么故事。</span></div></li>
@@ -405,7 +465,7 @@
 <div class="img-wrap"><div class="img-bg"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="每天下课回宿舍的路，没有什么故事。" style="width:400px;"/></div><span class="image-caption">每天下课回宿舍的路，没有什么故事。</span></div></li>
 <li><p>设置占位背景色：</p>
 <div class="img-wrap"><div class="img-bg" style="background:#1D0C04"><img class="img" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg" alt="优化不同宽度浏览的观感" style="width:400px;"/></div><span class="image-caption">优化不同宽度浏览的观感</span></div></li>
-</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-8"><p>😊插入音频</p>
+</ol></div><div class="tab-item-content"><p>😊插入音频</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %&#125;</span><br></pre></td></tr></table></figure>
 <div class="audio"><audio controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3' type='audio/mp3'>Your browser does not support the audio tag.</audio></div>
 
@@ -428,95 +488,13 @@
 <div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
 <div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
 <div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div>
-<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<div class="video"><video controls preload><source src='https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov' type='video/mp4'>Your browser does not support the video tag.</video></div></div></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
 ]]></content>
       <categories>
         <category>学习の世界</category>
       </categories>
       <tags>
         <tag>前端教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>😎通过URLScheme一键打开健康码</title>
-    <url>/2021/08/17/%E6%94%AF%E4%BB%98%E5%AE%9DURLScheme%E4%B8%80%E9%94%AE%E6%89%93%E5%BC%80%E5%81%A5%E5%BA%B7%E7%A0%81/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>疫情又一次出现反弹，Delta变异病毒也开始入侵我大北京，健康宝在疫情期间需要频繁使用，各个地区都需要健康码，但是打开步骤却格外繁琐。本文针对以上痛点，教你使用忠福薄快速一键打开健康码</p>
-</div>
-
-<h1 id="如何获取在自己地区的ID"><a href="#如何获取在自己地区的ID" class="headerlink" title="如何获取在自己地区的ID"></a>如何获取在自己地区的ID</h1><p>以北京为例，进入北京健康宝后点击分享</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-
-<p>点击右下角的复制链接按钮，粘贴到浏览器之后打开</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/q9GK5rU7nl8XAIW.png" style="width:200px;"/></div></div>
-
-<p>在支付宝中打开此页窗口弹出时选择「取消」</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/LUoQD8OS9kYfuiz.png" style="width:200px;"/></div></div>
-
-<p>我们点击一下地址栏，可以查看这个页面的url地址，这里以北京健康宝为例，地址为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;render.alipay.com&#x2F;p&#x2F;s&#x2F;i&#x2F;?scheme&#x3D;alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2021001135679870%26page%3Dpages%252Fhome%252Findex%26enbsv%3D0.2.2108140301.51%26chInfo%3Dch_share__chsub_CopyLink</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到这一段</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">appId%3D2021001135679870</span><br></pre></td></tr></table></figure>
-
-<p>其中%3D为等于号，那其实就是appId=2021001135679870,我们可以将这个id替换到</p>
-<pre><code class="code">alipayqr://platformapi/startapp?saId=这里填写你获取到的APPID
-</code></pre>
-<h1 id="添加到快捷指令"><a href="#添加到快捷指令" class="headerlink" title="添加到快捷指令"></a>添加到快捷指令</h1><p>我们新建一个快捷指令，点击添加操作，选择打开URL，输入我们刚刚获取到的地址就可以了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/B4AIfLZWxmiwqg5.png" style="width:200px;"/></div></div>
-
-<h1 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.loli.net/2021/08/17/Gu8wUM1PF3eREVa.png" style="width:200px;"/></div></div>
-]]></content>
-  </entry>
-  <entry>
-    <title>😰那些我不能说的秘密</title>
-    <url>/2021/07/03/%E9%82%A3%E4%BA%9B%E6%88%91%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="😔抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="efc395605c45c1d5af6dfe166fc3ff2a2db80a171b0e2d32b8b3ea0be6fcb385">700fe9a219f71f1b4dca3193db46b3d3c89cde866119861af6d68550c7afe6809669a5f59b748002df71672d558a7e7bb4e9a62649248e0741ba71f0effc0c63d2a3eed72f238e227c3870eee48ecec37b8047bc6bb333c9e0916f2b02f64571ab47d3815fc46f5e194497fa85d3d9f11f98fd4045195e897688daf0570f2729</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">😊来吃瓜的这位小盆友, 请输入密码查看.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>心情故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>😊常用部署命令大杂烩</title>
-    <url>/2021/05/17/hello-world/</url>
-    <content><![CDATA[<div class="tip warning faa-horizontal animated"><p>欢迎来到 <a href="https://mofei.wang/">Mofei Wang</a>的小站! 这是我的第一篇文章.<br>本文记录一些GIT常用命令，以供不时之需</p>
-</div>
-
-<hr>
-<h1 id="常用Github部署命令"><a href="#常用Github部署命令" class="headerlink" title="常用Github部署命令"></a>常用Github部署命令</h1><h3 id="一键克隆"><a href="#一键克隆" class="headerlink" title="一键克隆"></a>一键克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop\hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Wangmofei/hexo.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="一键三连"><a href="#一键三连" class="headerlink" title="一键三连"></a>一键三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">h clean &amp;&amp; h generate &amp;&amp; h s</span><br></pre></td></tr></table></figure>
-
-<h3 id="部署三连"><a href="#部署三连" class="headerlink" title="部署三连"></a>部署三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# favorite&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:Wangmofei/favorite.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<h3 id="回滚三连"><a href="#回滚三连" class="headerlink" title="回滚三连"></a>回滚三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">😊回退到上个版本</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">😊回退到三次前版本</span><br><span class="line">git reset --hard HEAD~3</span><br><span class="line">😊回退到指定commitID版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-
-<h3 id="雅安三连"><a href="#雅安三连" class="headerlink" title="雅安三连"></a>雅安三连</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org</span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npm.taobao.org -g</span><br><span class="line">yarn config <span class="built_in">set</span> sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="常用Github授权命令"><a href="#常用Github授权命令" class="headerlink" title="常用Github授权命令"></a>常用Github授权命令</h1><h3 id="为PC生成公钥"><a href="#为PC生成公钥" class="headerlink" title="为PC生成公钥"></a>为PC生成公钥</h3><ol>
-<li>检查本机是否已有公钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -la ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>将原来的公钥删除<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.ssh</span><br></pre></td></tr></table></figure></li>
-<li>生成新的公钥(填自己的邮箱),然后除了密码，一路默认<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ras -C <span class="string">&quot;wangmofei@sina.com&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>在默认的路径下便生成了自己的id_ras.pub，查看id_ras.pub的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat path/to/id_ras.pub</span><br></pre></td></tr></table></figure></li>
-<li>将id_rsa.pub中的内容拷贝在Github中授权<br>打开Github，点击<code>头像</code>-&gt;<code>Setting</code><br>点击左边栏的<code>SSH and GPG keys</code><br>在<code>SSH keys</code>右边点击<code>New SSH key</code><br>填入一个<code>SSH key</code>的title, key框内粘贴如上一步来自PC的<code>id_ras.pub</code>内容</li>
-</ol>
-]]></content>
-      <categories>
-        <category>音乐の世界</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -687,7 +665,7 @@
 </div>
 
 <hr>
-<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1">基础级题库</button></li><li class="tab"><button type="button" data-href="#test1-2">鉴定级题库</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;1、以下哪一项最能描述的架构合规性审查的目的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 评估一个项目的架构愿景的有效性</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 审查项目是否符合外部法律法规</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.审查项目是否违背既定的架构准则和业务目标</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了确保干系人的关注点在项目中得到满足</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>严格确保架构合规性,审查项目是否违背既定的架构准则和业务目标</psw><br></p>
+<div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">基础级题库</button><button type="button" class="tab">鉴定级题库</button></div><div class="tab-contents"><div class="tab-item-content active"><p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;1、以下哪一项最能描述的架构合规性审查的目的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A. 评估一个项目的架构愿景的有效性</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 审查项目是否符合外部法律法规</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.审查项目是否违背既定的架构准则和业务目标</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.为了确保干系人的关注点在项目中得到满足</p><br>            </div><br>正确答案:<psw>本题选C，你答对了吗？</psw><br>本题解析:<psw>严格确保架构合规性,审查项目是否违背既定的架构准则和业务目标</psw><br></p>
 <hr>
 <p><img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/>&nbsp;2、关于TOGAF9.2 文档结构的叙述中，哪一个是正确的？<div class='checkbox green'><input type="checkbox" /><br>            <p>A.第一部分介绍了企业架构的 TOGAF 方法</p><br>            </div><div class='checkbox yellow'><input type="checkbox" /><br>            <p>B. 第二部分介绍了术语的使用、TOGAF 的版本之间的定义和变化</p><br>            </div><div class='checkbox cyan'><input type="checkbox" /><br>            <p>C.第三部分介绍了需求管理，这部分被认为是TOGAF 的核心</p><br>            </div><div class='checkbox blue'><input type="checkbox" /><br>            <p>D.第四部分介绍了 ADM:它是TOGAF9.2 中使用的，准则和技术的集合</p><br>            </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw>注意:这里的togaf方法是一个概念不是ADM方法,所以是第一部分介绍</psw><br></p>
 <hr>
@@ -1201,8 +1179,8 @@
             </div><div class='checkbox blue'><input type="checkbox" />
             <p>D.技术治理</p>
             </div><br>正确答案:<psw>本题选A，你答对了吗？</psw><br>本题解析:<psw></psw><br>
-***<button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><div class="tip warning faa-horizontal animated"><p>本页仍然在施工中，毕竟我这么懒</p>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+***</div><div class="tab-item-content"><div class="tip warning faa-horizontal animated"><p>本页仍然在施工中，毕竟我这么懒</p>
+</div></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
 ]]></content>
       <tags>
         <tag>TOGAF</tag>
@@ -1327,6 +1305,13 @@
       </tags>
   </entry>
   <entry>
+    <title>🚀实时文章推送功能测试</title>
+    <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
+<span id="more"></span>
+]]></content>
+  </entry>
+  <entry>
     <title>😮企业架构复习手册</title>
     <url>/2021/07/09/%F0%9F%98%AETOGAF%E5%8F%A3%E8%A2%8B%E5%A4%8D%E4%B9%A0%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<h1 id="章节概要"><a href="#章节概要" class="headerlink" title="章节概要"></a>章节概要</h1><div class="note simple"><ol>
@@ -1361,7 +1346,7 @@
 </p></div><div class="body"><table><thead><tr><th>名称</th><th>内容</th></tr></thead><tbody><tr><td>预备阶段</td><td>为组织成功地作好TOGAF架构项目做好准备。 进行<code>创建架构能力所需的准备和启动活动，包括定制TOGAF框架，选择工具以及定义架构原则。</code></td></tr><tr><td>需求管理</td><td>TOGAF项目的每个阶段都<code>基于并验证业务需求。识别，存储需求</code>，并将其输入和输出相关的ADM阶段，这些阶段将处理，解决需求并确定其优先级。</td></tr><tr><td>阶段A:架构愿景</td><td>设置TOGAF项目的范围， 约束和期望。 <code>创建架构愿景。 确定利益相关者。 验证业务环境并创建架构工作声明并获得批准。</code></td></tr><tr><td>阶段B 业务架构 阶段C:信息系统架构(应用/数据) 阶段D:技术架构</td><td>开发架构在如下4个域中：<code>B业务,C1信息系统应用,C2信息系统数据,D技术架构</code>对于每次开发案例，都是开发基线架构和目标架构</td></tr><tr><td>阶段E:机会与解决方案</td><td>进行初步的实施规划，并确定之前阶段中识别出的构建块交付载体，确认主要的实施项目，是否需要增量方法，如果需要增量，组成各过渡架构。</td></tr><tr><td>阶段F:迁移计划</td><td>制定制详细的实施和迁移计划，以解决如何从<code>基准迁移到目标架构</code>的问题</td></tr><tr><td>阶段G:实施治理</td><td>提供实施的<code>架构监督</code>,准备并签发<code>建筑合同</code>,确保实施项目<code>符合架构</code></td></tr><tr><td>阶段H:架构变更管理</td><td>架构变更管理提供持续的<code>监视和变更管理过程</code>，以确保架构能够<code>响应企业的需求</code>，以使架构对业务<code>提供最大化的价值</code></td></tr></tbody></table></div></div>
 
 <div class="timenode"><div class="meta"><p><p>ADM阶段关键技术详解</p>
-</p></div><div class="body"><div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">预备阶段</button></li><li class="tab"><button type="button" data-href="#test4-2">A.架构愿景</button></li><li class="tab"><button type="button" data-href="#test4-3">B.业务架构</button></li><li class="tab"><button type="button" data-href="#test4-4">C.信息系统架构</button></li><li class="tab"><button type="button" data-href="#test4-5">D.技术架构</button></li><li class="tab"><button type="button" data-href="#test4-6">E.机会与解决方案</button></li><li class="tab"><button type="button" data-href="#test4-7">F.解决迁移规则</button></li><li class="tab"><button type="button" data-href="#test4-8">G.实施治理</button></li><li class="tab"><button type="button" data-href="#test4-9">H.架构变更管理</button></li><li class="tab"><button type="button" data-href="#test4-10">需求管理</button></li><li class="tab"><button type="button" data-href="#test4-11">架构活动范围</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><details cyan open><summary> 预备阶段为组织成功实施企业架构项目做好了准备。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-3.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><details cyan open><summary> 主要涉及架构项目的建立，它启动了架构开发周期的新一轮迭代，设定了本次迭代的范围、约束和预期结果。为了能够`验证业务背景`、`创建架构工作说明书并获得批准`，这个阶段是必不可少的。本阶段的概述 </summary>              <div class='content'>              <p><span><img src='\images\pasted-4.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><details cyan open><summary> 是关于业务架构的开发； 业务能力，端到端价值交付，信息和组织结构的整体表示，以及与战略，产品，政策，`计划和利益相关者的关系`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-5.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-4"><details cyan open><summary> 记录组织IT系统的基本组织形式，体现在关键的信息和处理它们的应用系统中。`它涉及数据和应用架构，可以按顺序或同时开发。` </summary>              <div class='content'>              <p><span><img src='\images\pasted-6.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-5"><details cyan open><summary> 要记录IT系统的基本组织，体现在硬件、软件和通信技术中。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-7.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-6"><details cyan open><summary> `确定交付工具`的过程，这些工具交付了先前阶段中确定的目标架构。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-8.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-7"><details cyan open><summary> 通过`完成详细的实施和迁移计划`，如何`从基准架构过渡到目标架构`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-9.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-8"><details cyan open><summary> 定义架构如何约束实施项目，在构建项目时`对其进行监视并生成已签署的架构合同`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-10.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-9"><details cyan open><summary> 确保`对架构的更改以受控方式进行管理`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-11.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-10"><details cyan open><summary> 管理架构要求的过程适用于ADM周期的所有阶段。需求管理过程是一个动态过程，该过程`解决了企业需求的标识，存储需求，然后将其输入和输出相关的ADM 阶段`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-12.png'></span></p>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-11"><details cyan open><summary> ADM 定义了开发组织范围内的企业架构所涉及的各个阶段和步骤的推荐序列。 </summary>              <div class='content'>              <ol><li>组织架构团队的组织权威</li><li>在架构内有待解决的目标和利益相关者的关注点</li><li>人力资源、 资金和其他资源的可用性</li></ol>              </div>            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></div></div>
+</p></div><div class="body"><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">预备阶段</button><button type="button" class="tab">A.架构愿景</button><button type="button" class="tab">B.业务架构</button><button type="button" class="tab">C.信息系统架构</button><button type="button" class="tab">D.技术架构</button><button type="button" class="tab">E.机会与解决方案</button><button type="button" class="tab">F.解决迁移规则</button><button type="button" class="tab">G.实施治理</button><button type="button" class="tab">H.架构变更管理</button><button type="button" class="tab">需求管理</button><button type="button" class="tab">架构活动范围</button></div><div class="tab-contents"><div class="tab-item-content active"><details cyan open><summary> 预备阶段为组织成功实施企业架构项目做好了准备。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-3.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 主要涉及架构项目的建立，它启动了架构开发周期的新一轮迭代，设定了本次迭代的范围、约束和预期结果。为了能够`验证业务背景`、`创建架构工作说明书并获得批准`，这个阶段是必不可少的。本阶段的概述 </summary>              <div class='content'>              <p><span><img src='\images\pasted-4.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 是关于业务架构的开发； 业务能力，端到端价值交付，信息和组织结构的整体表示，以及与战略，产品，政策，`计划和利益相关者的关系`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-5.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 记录组织IT系统的基本组织形式，体现在关键的信息和处理它们的应用系统中。`它涉及数据和应用架构，可以按顺序或同时开发。` </summary>              <div class='content'>              <p><span><img src='\images\pasted-6.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 要记录IT系统的基本组织，体现在硬件、软件和通信技术中。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-7.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> `确定交付工具`的过程，这些工具交付了先前阶段中确定的目标架构。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-8.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 通过`完成详细的实施和迁移计划`，如何`从基准架构过渡到目标架构`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-9.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 定义架构如何约束实施项目，在构建项目时`对其进行监视并生成已签署的架构合同`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-10.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 确保`对架构的更改以受控方式进行管理`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-11.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> 管理架构要求的过程适用于ADM周期的所有阶段。需求管理过程是一个动态过程，该过程`解决了企业需求的标识，存储需求，然后将其输入和输出相关的ADM 阶段`。 </summary>              <div class='content'>              <p><span><img src='\images\pasted-12.png'></span></p>              </div>            </details></div><div class="tab-item-content"><details cyan open><summary> ADM 定义了开发组织范围内的企业架构所涉及的各个阶段和步骤的推荐序列。 </summary>              <div class='content'>              <ol><li>组织架构团队的组织权威</li><li>在架构内有待解决的目标和利益相关者的关注点</li><li>人力资源、 资金和其他资源的可用性</li></ol>              </div>            </details></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></div>
 </div>
 
 <hr>
@@ -1481,7 +1466,7 @@
 <hr>
 <details cyan open><summary> 20.架构视点 </summary>
               <div class='content'>
-              <ol><li><p>架构视点:架构师在<code>阶段 A 到阶段 D 期间</code>使用 ADM 周期中的视图和视图来开发每个域（业务，数据，应用程序和技术）的架构。 “看法”就是你所看到的。一个“观点”是你从哪里寻找的地方; 决定你所看到的角度或观点（一个观点也可以被认为是一个模式）。<code>视点</code>是<code>通用的</code>，可以<code>存储在库中供重复使用</code>。<code>视图</code>总是<code>特定于它所创建的架构</code>。<code>每个视图都有一个相关的观点来描述它</code>，至少是隐含的。</p></li><li><p>讲个小故事：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">飞行员对系统有一种看法，空中交通管制员有另一种看法。这两种观点都不代表整个系</span><br><span class="line">统，因为每个利益相关者的观点都会限制（并减少）每个人对整个系统的看法。</span><br><span class="line">驾驶员的视角包括控制器未查看的一些元素，例如乘客和燃料，而控制器的视图包括飞行</span><br><span class="line">员未查看的某些元素，例如其他飞机。这些观点之间也有共同的要素，比如飞行员和管制</span><br><span class="line">员之间的沟通模式，以及飞机本身的重要信息。</span><br><span class="line">视点是包含在视图中的信息的模型（或描述）。在这个例子中，一个观点是飞行员如何看</span><br><span class="line">待系统的描述，另一个观点是控制器如何看待系统。飞行员从他们的角度描述该系统，使</span><br><span class="line">用他们的位置和矢量模型来往跑道或远离跑道。所有飞行员都使用此模型，并且该模型具</span><br><span class="line">有用于捕获信息和填充模型的特定语言。管制员用不同的方式描述系统，使用空域模型和</span><br><span class="line">空域内飞机的位置和矢量。同样，所有控制器都使用从通用模型导出的通用语言来捕获和</span><br><span class="line">传递与其观点相关的信息。</span><br><span class="line">幸运的是，当管制员与飞行员谈话时，他们使用通用的通信语言。（换句话说，代表各自</span><br><span class="line">视点的模型部分相交。）这部分共同语言是关于飞机的位置和矢量，并且对于安全至关重</span><br><span class="line">要。所以实质上，每个观点都是一个抽象模型，说明特定类型的所有利益相关者 - 所有飞行员或所有管制员 - 如何看待机场系统。工具的用户界面通常接近与视点相关的模型和语</span><br><span class="line">言。飞行员独特的工具是燃料，高度，速度和位置指示器。控制器的主要工具是雷达。常</span><br><span class="line">用工具是收音机。</span><br><span class="line">从示例 1 总结，我们可以看到，一个视图可以通过利益相关者的角度来对系统进行子集</span><br><span class="line">化，例如飞行员与控制器。这个子集可以用称为观点的抽象模型来描述，例如空中飞行与</span><br><span class="line">空间模型。该视图描述以部分专用语言记录，例如“飞行员讲话” 与“控制器讲话”。工</span><br><span class="line">具被用来帮助利益相关者，并且它们在从观点出发的语言方面相互交流。当利益相关者使</span><br><span class="line">用通用工具时，例如飞行员和控制器之间的无线电联系，通用语言是必不可少的。</span><br></pre></td></tr></table></figure></li></ol>
+              <ol><li><p>架构视点:架构师在<code>阶段 A 到阶段 D 期间</code>使用 ADM 周期中的视图和视图来开发每个域（业务，数据，应用程序和技术）的架构。 “看法”就是你所看到的。一个“观点”是你从哪里寻找的地方; 决定你所看到的角度或观点（一个观点也可以被认为是一个模式）。<code>视点</code>是<code>通用的</code>，可以<code>存储在库中供重复使用</code>。<code>视图</code>总是<code>特定于它所创建的架构</code>。<code>每个视图都有一个相关的观点来描述它</code>，至少是隐含的。</p></li><li><p>讲个小故事：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">飞行员对系统有一种看法，空中交通管制员有另一种看法。这两种观点都不代表整个系</span><br><span class="line">统，因为每个利益相关者的观点都会限制（并减少）每个人对整个系统的看法。</span><br><span class="line">驾驶员的视角包括控制器未查看的一些元素，例如乘客和燃料，而控制器的视图包括飞行</span><br><span class="line">员未查看的某些元素，例如其他飞机。这些观点之间也有共同的要素，比如飞行员和管制</span><br><span class="line">员之间的沟通模式，以及飞机本身的重要信息。</span><br><span class="line">视点是包含在视图中的信息的模型（或描述）。在这个例子中，一个观点是飞行员如何看</span><br><span class="line">待系统的描述，另一个观点是控制器如何看待系统。飞行员从他们的角度描述该系统，使</span><br><span class="line">用他们的位置和矢量模型来往跑道或远离跑道。所有飞行员都使用此模型，并且该模型具</span><br><span class="line">有用于捕获信息和填充模型的特定语言。管制员用不同的方式描述系统，使用空域模型和</span><br><span class="line">空域内飞机的位置和矢量。同样，所有控制器都使用从通用模型导出的通用语言来捕获和</span><br><span class="line">传递与其观点相关的信息。</span><br><span class="line">幸运的是，当管制员与飞行员谈话时，他们使用通用的通信语言。（换句话说，代表各自</span><br><span class="line">视点的模型部分相交。）这部分共同语言是关于飞机的位置和矢量，并且对于安全至关重</span><br><span class="line">要。所以实质上，每个观点都是一个抽象模型，说明特定类型的所有利益相关者 - 所有飞行员或所有管制员 - 如何看待机场系统。工具的用户界面通常接近与视点相关的模型和语</span><br><span class="line">言。飞行员独特的工具是燃料，高度，速度和位置指示器。控制器的主要工具是雷达。常</span><br><span class="line">用工具是收音机。</span><br><span class="line">从示例 1 总结，我们可以看到，一个视图可以通过利益相关者的角度来对系统进行子集</span><br><span class="line">化，例如飞行员与控制器。这个子集可以用称为观点的抽象模型来描述，例如空中飞行与</span><br><span class="line">空间模型。该视图描述以部分专用语言记录，例如“飞行员讲话” 与“控制器讲话”。工</span><br><span class="line">具被用来帮助利益相关者，并且它们在从观点出发的语言方面相互交流。当利益相关者使</span><br><span class="line">用通用工具时，例如飞行员和控制器之间的无线电联系，通用语言是必不可少的。</span><br></pre></td></tr></table></figure></li></ol>
               </div>
             </details>
 <hr>
@@ -1676,13 +1661,6 @@
       <tags>
         <tag>TOGAF教程</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>🚀实时文章推送功能测试</title>
-    <url>/2021/07/11/%F0%9F%9A%80%E5%AE%9E%E6%97%B6%E6%96%87%E7%AB%A0%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>😄 新增实时文章推送功能, Mofei 正在测试该功能中 😄</p>
-<span id="more"></span>
-]]></content>
   </entry>
   <entry>
     <title>🥩超级无敌美味私房菜谱</title>
